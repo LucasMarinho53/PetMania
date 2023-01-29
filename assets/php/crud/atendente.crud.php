@@ -481,9 +481,11 @@ function listaAnimais($busca){
         Nome,
         Sexo,
         Data_Nascimento,
+        id_raca,
         Raca,
         especie,
         id_especie,
+        id_dono,
         Dono
         FROM tudo_animal 
         WHERE nome LIKE :termobusca 
