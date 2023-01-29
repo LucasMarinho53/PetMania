@@ -246,7 +246,7 @@ function AtualizaAnimal($animal) #ok
             $stmt->bindParam(":id_animal", $animal->id_animal);
 
             if($stmt->execute()){
-            return true;
+            return "success";
             }
     }
     catch(PDOException $error){
