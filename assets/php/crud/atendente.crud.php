@@ -103,7 +103,7 @@ function listaClienteID($busca){
 
         $stmt->bindParam(":termobusca",$busca);
         
-        if($stmt->execute()){
+        if($stmt->execute() && $stmt->rowCount() > 0){
             $dados_cliente = $stmt->fetch(PDO::FETCH_OBJ);
 
             unset($stmt);
@@ -124,13 +124,15 @@ function listaClienteID($busca){
                 (array) $dados_cliente, (array) $dados_endereco
             );
 
+            return $d_cli_end;
+        }else{
+            return array("result"=>"Dados Incompletos");
         }
         
         
 
 
             
-        return $d_cli_end;
         
     }
     catch(PDOException $error){
