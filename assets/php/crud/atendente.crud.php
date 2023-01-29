@@ -215,7 +215,7 @@ function CadastroAnimal($animal) #ok
             $stmt->bindParam(":sexo_animal",$animal->sexo_animal);
 
             if($stmt->execute()){
-            return true;
+            return "success";
             }
     }
     catch(PDOException $error){
