@@ -450,6 +450,7 @@ function listaAnimaisID($busca){
         Nome,
         Sexo,
         Data_Nascimento,
+        id_especie,
         id_raca
         FROM tudo_animal 
         WHERE id = :termobusca");
@@ -459,7 +460,12 @@ function listaAnimaisID($busca){
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_OBJ);   
             
-        return $row;
+        if($stmt->rowCount()>0){
+
+            return $row;
+        }else{
+            return 0;
+        }
         
     }
     catch(PDOException $error){
