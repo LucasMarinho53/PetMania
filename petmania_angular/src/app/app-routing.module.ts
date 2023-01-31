@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'app/login',
+    redirectTo: 'app/home/funcionario',
     pathMatch: 'full',
   },
   {
-    path: 'app/login',
-    component: LoginComponent,
+    path: 'app/home/funcionario',
+    component: FuncionarioComponent,
   }
 ];
 
