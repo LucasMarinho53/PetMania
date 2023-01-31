@@ -1,0 +1,59 @@
+.mat-elevation-z4 {
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)
+}
+
+mat-toolbar{
+  background: #211E22;
+  color: white;
+}
+
+mat-sidenav{
+  margin: 16px;
+  width: 230px;
+  border-right: none;
+  background: #211E22;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.menu-button{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: flex-start;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-family: 'Arvo', serif;
+}
+
+.content{
+  height: calc(100vh - 48px);
+  margin: 16px;
+  margin-left: 32px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: lightgray;
+
+  border-radius: 10px;
+}
+
+mat-sidenav-container{
+  height: calc(100vh - 15px);
+}
+
+mat-icon{
+  color: #FFC107;
+}
+
+a{
+  color: #FFC107;
+}
+
+h1{
+  font-family: 'Alfa Slab One', cursive;
+  color: #FFC107;
+}

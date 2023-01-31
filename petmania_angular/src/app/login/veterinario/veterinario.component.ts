@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./veterinario.component.css']
 })
 export class VeterinarioComponent {
+  isActive = false;
 
 }
