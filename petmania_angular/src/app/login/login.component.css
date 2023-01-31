@@ -3,15 +3,15 @@
 }
 
 mat-toolbar{
-  background: rgb(255, 156, 0);
+  background: #211E22;
   color: white;
 }
 
 mat-sidenav{
   margin: 16px;
-  width: 200px;
+  width: 230px;
   border-right: none;
-  background: rgb(255, 156, 0);
+  background: #211E22;
   color: white;
   border-radius: 10px;
   padding: 16px;
@@ -23,6 +23,8 @@ mat-sidenav{
   align-items: center;
   justify-items: flex-start;
   font-size: 1rem;
+  margin-bottom: 15px;
+  font-family: 'Arvo', serif;
 }
 
 .content{
@@ -41,4 +43,17 @@ mat-sidenav{
 
 mat-sidenav-container{
   height: calc(100vh - 15px);
+}
+
+mat-icon{
+  color: #FFC107;
+}
+
+span{
+  color: #FFC107;
+}
+
+h1{
+  font-family: 'Alfa Slab One', cursive;
+  color: #FFC107;
 }
