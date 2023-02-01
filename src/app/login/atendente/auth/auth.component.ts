@@ -70,10 +70,5 @@ export class AuthComponent {
       this.type = !this.type;
     }
 
-    esqueceuSenha(){
-      this.router.navigateByUrl('home');
-    }
-
-
 
 }

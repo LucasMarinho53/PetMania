@@ -23,6 +23,9 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { AuthComponent } from './login/atendente/auth/auth.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatCardModule } from '@angular/material/card'
+import { MatInputModule } from '@angular/material/input'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatInputModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

@@ -19,20 +19,42 @@
   <mat-sidenav-content>
     <div class="content" [class.mat-elevation-z4]="!isActive">
 
-        <form [formGroup]="atendenteForm" (ngSubmit)="login()">
+      <mat-card>
+        <mat-card-content>
+          <div class="header">
+            <h2>LOGIN ATENDENTE</h2>
+          </div>
+          <form [formGroup]="atendenteForm" (ngSubmit)="login()">
+            <div class="email-input">
 
-          <input matInput placeholder="email" formControlName="email" required>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="email" formControlName="email" required>
+              </mat-form-field>
 
-          <input matInput placeholder="senha" [type]="type ? 'password' : 'text'" formControlName="senha" required>
-          <mat-icon slot="end" (click)="changeType()">home</mat-icon>
+            </div>
+            <div>
+              <span class="aLink" (click)="recuperarSenha()">Esqueceu a senha?</span>
 
-          <input matInput placeholder="senhaconfirm" [type]="type ? 'password' : 'text'" formControlName="senhaconfirm" required>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Senha</mat-label>
+                  <input matInput placeholder="senha" [type]="type ? 'password' : 'text'" formControlName="senha" required>
+                  <button mat-icon-button matSuffix>
+                    <mat-icon slot="end" (click)="changeType()">visibility</mat-icon>
+                  </button>
+              </mat-form-field>
 
-        <button mat-raised-button type="submit" [disabled]=" atendenteForm.invalid">Login</button>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Confirme a Senha</mat-label>
+                <input matInput placeholder="senhaconfirm" [type]="type ? 'password' : 'text'" formControlName="senhaconfirm" required>
+              </mat-form-field>
 
-        <p id="esqueceusenha" (click)="recuperarSenha()">Esqueceu a senha?</p>
-      </form>
+            </div>
+            <button mat-flat-button color="primary">Login</button>
+          </form>
 
+        </mat-card-content>
+      </mat-card>
     </div>
   </mat-sidenav-content>
 

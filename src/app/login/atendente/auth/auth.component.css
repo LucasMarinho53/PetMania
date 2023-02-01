@@ -32,11 +32,8 @@ mat-sidenav{
   margin: 16px;
   margin-left: 32px;
   display:flex;
-  justify-content: center;
-  align-items: center;
 
   font-size: 2rem;
-  color: lightgray;
 
   border-radius: 10px;
 }
@@ -56,6 +53,36 @@ a{
 h1{
   font-family: 'Alfa Slab One', cursive;
   color: #FFC107;
+}
+
+mat-card{
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+  max-height: 600px;
+}
+
+.header{
+  text-align: center;
+}
+
+.full-width{
+  width: 80%;
+}
+
+.esqueceusenha{
+  padding-left: 0px;
+}
+
+.email-input{
+  padding-top: 10px;
+}
+
+.aLink{
+  float: right;
+  padding-right: 60px;
+  text-decoration: none;
+  font-size: medium;
 }
 
 
