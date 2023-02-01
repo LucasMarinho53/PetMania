@@ -1,4 +1,4 @@
-<mat-sidenav-container>
+
   <mat-sidenav mode="side" opened>
     <div>
       <img src="../../assets/img/logo/logo.png">
@@ -20,12 +20,11 @@
       <a>Consultas</a>
     </button>
 
+    <button (click)="logout()">
+      <mat-icon slot="icon-only" name="log-out">home</mat-icon>
+    </button>
+
   </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content" [class.mat-elevation-z4]="!isActive">
-
-    </div>
-  </mat-sidenav-content>
 
 
-</mat-sidenav-container>
+

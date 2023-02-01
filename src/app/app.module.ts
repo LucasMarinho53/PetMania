@@ -19,7 +19,9 @@ import { environment } from 'src/environments/environment';
 
 import { provideAuth, getAuth } from '@angular/fire/auth'
 import { provideFirestore, getFirestore } from '@angular/fire/firestore'
-import { provideStorage, getStorage } from '@angular/fire/storage'
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { AuthComponent } from './login/atendente/auth/auth.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage'
     VeterinarioComponent,
     ListaClienteComponent,
     SidenavComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage'
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AtendenteauthService } from 'src/app/services/atendenteauth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,8 +10,15 @@ import { Router } from '@angular/router';
 export class SidenavComponent {
   isActive = false;
 
-  constructor(private router: Router){
+  constructor(private router: Router,
+    private atendenteauthService: AtendenteauthService
+    ){
 
+  }
+
+  async logout() {
+    await this.atendenteauthService.logout();
+    this.router.navigateByUrl('/', { replaceUrl: true });
   }
 
   routerLista(){

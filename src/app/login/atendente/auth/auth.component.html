@@ -1,0 +1,46 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <div>
+      <img src="../../assets/img/logo/logo.png">
+      <h1>PetMania</h1>
+    </div>
+
+    <button mat-button class="menu-button">
+      <mat-icon style="margin-right: 8px;">face</mat-icon>
+      <a>Atendente</a>
+    </button>
+
+    <button mat-button class="menu-button">
+      <mat-icon style="margin-right: 8px;">pets</mat-icon>
+      <a>Veterinário</a>
+    </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content" [class.mat-elevation-z4]="!isActive">
+
+        <form [formGroup]="atendenteForm" (ngSubmit)="login()">
+
+          <input matInput placeholder="email" formControlName="email" required>
+
+          <input matInput placeholder="senha" [type]="type ? 'password' : 'text'" formControlName="senha" required>
+          <mat-icon slot="end" (click)="changeType()">home</mat-icon>
+
+          <input matInput placeholder="senhaconfirm" [type]="type ? 'password' : 'text'" formControlName="senhaconfirm" required>
+
+        <button mat-raised-button type="submit" [disabled]=" atendenteForm.invalid">Login</button>
+
+        <p id="esqueceusenha" (click)="recuperarSenha()">Esqueceu a senha?</p>
+      </form>
+
+    </div>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
+
+
+
+
+
+
