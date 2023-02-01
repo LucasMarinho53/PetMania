@@ -11,16 +11,16 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon'
 import {MatDividerModule} from '@angular/material/divider';
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
-import { AtendenteComponent } from './login/atendente/atendente.component';
 import { VeterinarioComponent } from './login/veterinario/veterinario.component';
-import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component'
+import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
+import { SidenavComponent } from './login/atendente/sidenav/sidenav.component'
 @NgModule({
   declarations: [
     AppComponent,
     FuncionarioComponent,
-    AtendenteComponent,
     VeterinarioComponent,
     ListaClienteComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

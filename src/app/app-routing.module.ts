@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
-import { AtendenteComponent } from './login/atendente/atendente.component';
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
 import { VeterinarioComponent } from './login/veterinario/veterinario.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'app/home/funcionario',
+    redirectTo: 'atendente/lista-cliente',
     pathMatch: 'full',
   },
   {
-    path: 'app/home/funcionario',
+    path: 'home',
     component: FuncionarioComponent,
   },
   {
-    path: 'app/login/atendente',
-    component: AtendenteComponent,
-  },
-  {
-    path: 'app/login/lista-cliente',
+    path: 'atendente/lista-cliente',
     component: ListaClienteComponent,
   },
   {
-    path: 'app/login/veterinario',
+    path: 'veterinario',
     component: VeterinarioComponent,
   }
 ];
