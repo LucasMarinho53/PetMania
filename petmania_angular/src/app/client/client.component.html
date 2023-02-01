@@ -1,0 +1,47 @@
+<!-- <p>cliente works!</p> -->
+<h1>Cadastrar Cliente</h1>
+<form (formGroup)="(clientForm)" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" placeholder="Digite Seu Nome" formControlName="nome"/>
+  </div>
+  <!-- <div>
+    <label for="">CPF</label>
+    <input type="text" placeholder="000.000.000-00" formControlName="cpf" />
+  </div>
+  <div>
+    <label for="">Email</label>
+    <input type="text" placeholder="Digite seu Email" formControlName="email" />
+  </div>
+  <div>
+    <label for="">Telefone</label>
+    <input type="text" placeholder="(00)00000-0000" formControlName="telefone" />
+  </div>
+  <div formGroupName="endereco">
+    <div>
+      <label for="">CEP</label>
+      <input type="text" placeholder="00-000-000" formControlName="cep" />
+    </div>
+    <div>
+      <label for="">Cidade</label>
+      <input
+        type="text"
+        placeholder="Digite o Nome da Sua Cidade"
+        formControlName="localidade"
+      />
+    </div>
+    <div>
+      <label for="">Bairro</label>
+      <input type="text" formControlName="bairro" />
+    </div>
+    <div>
+      <label for="">Logradouro</label>
+      <input type="text" formControlName="logradouro" />
+    </div>
+    <div>
+      <label for="">Número</label>
+      <input type="number" formControlName="numero" />
+    </div>
+  </div> -->
+  <button type="submit">Cadastrar Cliente</button>
+</form>
