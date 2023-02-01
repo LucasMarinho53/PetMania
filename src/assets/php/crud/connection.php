@@ -1,9 +1,9 @@
 <?php
 
-define("__HOST__","");
-define("__USER__","");
+define("__HOST__","localhost");
+define("__USER__","root");
 define("__PASS__","");
-define("__DATABASE__","");
+define("__DATABASE__","veterinaria");
 
 
 
