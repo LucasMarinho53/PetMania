@@ -5,6 +5,7 @@
     <label for="nome">Nome</label>
     <input id="nome" type="text" placeholder="Digite Seu Nome" formControlName="nome"/>
   </div>
+  
   <!-- <div>
     <label for="">CPF</label>
     <input type="text" placeholder="000.000.000-00" formControlName="cpf" />
@@ -43,5 +44,5 @@
       <input type="number" formControlName="numero" />
     </div>
   </div> -->
-  <button type="submit">Cadastrar Cliente</button>
+  <button type="submit" [disabled]="clientForm.invalid">Cadastrar Cliente</button>
 </form>
