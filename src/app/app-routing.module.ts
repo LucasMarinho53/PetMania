@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 import { AtendenteComponent } from './login/atendente/atendente.component';
+import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
 import { VeterinarioComponent } from './login/veterinario/veterinario.component';
 
@@ -22,6 +24,10 @@ const routes: Routes = [
   {
     path: 'app/login/lista-cliente',
     component: ListaClienteComponent,
+  },
+  {
+    path: 'app/login/cadastra-cliente',
+    component: CadastraClienteComponent,
   },
   {
     path: 'app/login/veterinario',
