@@ -3,8 +3,8 @@ import { Endereco } from './endereco.model'
 export class Dono {
   id_dono!: number
   cpf!: number
-  Nome!: string
+  nome_cliente!: string
   email!: string
-  endereco!: Endereco
   telefone!: string
+  endereco!: Endereco
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
+import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
 import { VeterinarioComponent } from './login/veterinario/veterinario.component';
 
@@ -20,6 +22,10 @@ const routes: Routes = [
   },
   {
     path: 'veterinario',
+    component: CadastraClienteComponent,
+  },
+  {
+    path: 'app/login/veterinario',
     component: VeterinarioComponent,
   }
 ];
