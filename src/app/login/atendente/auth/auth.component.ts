@@ -33,7 +33,6 @@ export class AuthComponent {
       this.atendenteForm = this.formBuilder.group({
       email: ['',[Validators.required, Validators.email]],
       senha: ['',[Validators.required, Validators.pattern(/^(?=.*[@*\.])[a-zA-Z0-9@*]{6,10}$/)]],
-      senhaconfirm: ['',[Validators.required, this.conferirSenha, Validators.pattern(/^(?=.*[@*\.])[a-zA-Z0-9@*]{6,10}$/)]],
       });
     }
 
@@ -59,12 +58,7 @@ export class AuthComponent {
       }
     }
 
-    conferirSenha(control: FormControl){
-      const senha = control.root.get('senha');
-      return senha && control.value !== senha.value ? {
-        conferir: true
-      } : null;
-    }
+
 
     changeType(){
       this.type = !this.type;

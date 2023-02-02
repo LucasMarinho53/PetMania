@@ -42,11 +42,6 @@
                     <mat-icon slot="end" matSuffix (click)="changeType()">visibility</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Confirme a Senha</mat-label>
-                <input matInput placeholder="senhaconfirm" [type]="type ? 'password' : 'text'" formControlName="senhaconfirm" required>
-              </mat-form-field>
-
             </div>
             <button mat-flat-button color="primary" [disabled]="atendenteForm.invalid">Login</button>
           </form>

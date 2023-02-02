@@ -83,6 +83,7 @@ mat-card{
   padding-right: 60px;
   text-decoration: none;
   font-size: medium;
+  cursor: pointer;
 }
 
 
