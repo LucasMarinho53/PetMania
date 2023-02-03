@@ -6,8 +6,10 @@ import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate, } from '@angul
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
-import { VeterinarioComponent } from './login/veterinario/veterinario.component';
 import { AuthComponent } from './login/atendente/auth/auth.component';
+import { ListaAnimalComponent } from './login/atendente/lista-animal/lista-animal.component';
+import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-consulta.component';
+import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(('atendente/auth'));
 const redirectLoggedInToHome = () => redirectLoggedInTo(('atendente/lista-cliente'));
@@ -31,13 +33,22 @@ const routes: Routes = [
     component: ListaClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: 'veterinario',
+    path: 'atendente/lista-animal',
+    component: ListaAnimalComponent, ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'atendente/lista-consulta',
+    component: ListaConsultaComponent, ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'cadastrar-cliente',
     component: CadastraClienteComponent,
   },
   {
-    path: 'app/login/veterinario',
-    component: VeterinarioComponent,
-  }
+    path: 'lista-ficha',
+    component: ListaFichaComponent,
+  },
+
 ];
 
 @NgModule({

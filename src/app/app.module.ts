@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 
-import { VeterinarioComponent } from './login/veterinario/veterinario.component';
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
 import { SidenavComponent } from './login/atendente/sidenav/sidenav.component'
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -24,16 +23,23 @@ import { AuthComponent } from './login/atendente/auth/auth.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card'
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { ListaAnimalComponent } from './login/atendente/lista-animal/lista-animal.component';
+import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-consulta.component';
+import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
+import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     FuncionarioComponent,
-    VeterinarioComponent,
     ListaClienteComponent,
     SidenavComponent,
     AuthComponent,
+    ListaAnimalComponent,
+    ListaConsultaComponent,
+    ListaFichaComponent,
+    SidenavVetComponent,
   ],
   imports: [
     BrowserModule,

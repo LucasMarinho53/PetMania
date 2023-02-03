@@ -18,4 +18,8 @@ export class FuncionarioComponent {
     this.router.navigateByUrl('atendente/lista-cliente')
   }
 
+  routerVeterinario(){
+    this.router.navigateByUrl('lista-ficha')
+  }
+
 }
