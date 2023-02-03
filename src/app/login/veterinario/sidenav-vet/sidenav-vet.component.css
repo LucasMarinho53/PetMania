@@ -27,24 +27,6 @@ mat-sidenav{
   font-family: 'Arvo', serif;
 }
 
-.content{
-  height: calc(100vh - 48px);
-  margin: 16px;
-  margin-left: 32px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 2rem;
-  color: lightgray;
-
-  border-radius: 10px;
-}
-
-mat-sidenav-container{
-  height: calc(100vh - 15px);
-}
-
 mat-icon{
   color: #FFC107;
 }

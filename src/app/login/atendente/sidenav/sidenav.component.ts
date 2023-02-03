@@ -25,4 +25,12 @@ export class SidenavComponent {
     this.router.navigateByUrl('atendente/lista-cliente')
   }
 
+  routerListaAnimal(){
+    this.router.navigateByUrl('atendente/lista-animal')
+  }
+
+  routerListaConsulta(){
+    this.router.navigateByUrl('atendente/lista-consulta')
+  }
+
 }
