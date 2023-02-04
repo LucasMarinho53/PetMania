@@ -6,8 +6,8 @@ require('../../crud/atendente.crud.php');
 
 if(isset($_GET['buscar']) && !empty($_GET['buscar']) && $_GET['buscar'] != NULL)
 {
-    //echo json_encode(listaClientes($_GET['buscar']));
-    print_r(listaClientes($_GET['buscar']));
+    echo json_encode(listaClientes($_GET['buscar']));
+    //print_r(listaClientes($_GET['buscar']));
 }else
 {
     //echo json_encode(listaClientes(''));
