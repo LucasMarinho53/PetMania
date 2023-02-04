@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "98bcc1da-65e7-470c-81ad-748ab1809f16",
+		"name": "petmania",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20015685"
+	},
+	"item": [
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/cliente/cliente.listar?buscar=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"cliente",
+								"cliente.listar"
+							],
+							"query": [
+								{
+									"key": "buscar",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_cliente\":\"paulo\",\r\n    \"cpf\":45678912359,\r\n    \"email\":\"paulo_silva@jureima.com\",\r\n    \"telefone\": \"5959-5959\",\r\n    \"cidade\": \"Águas Claras\",\r\n    \"bairro\":\"Jaguatirica\",\r\n    \"logradouro\":\"Rua dos bobos\",\r\n    \"cep\": 45620090,\r\n    \"numero\": 2\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/cliente/cliente.cadastro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"cliente",
+								"cliente.cadastro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_dono\":14,\r\n    \"nome_cliente\":\"paulo\",\r\n    \"cpf\":45678912359,\r\n    \"email\":\"paulo_silva@jureima.com\",\r\n    \"telefone\": \"5959-5959\",\r\n    \"cidade\": \"Águas Claras\",\r\n    \"bairro\":\"Jaguatirica\",\r\n    \"logradouro\":\"Rua dos bobos\",\r\n    \"cep\": 45620090,\r\n    \"numero\": 2,\r\n    \"id_end\":15\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/cliente/cliente.atualizar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"cliente",
+								"cliente.atualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "achaID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/cliente/cliente.acharid?buscar=14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"cliente",
+								"cliente.acharid"
+							],
+							"query": [
+								{
+									"key": "buscar",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Animal",
+			"item": [
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/animal/animal.listar?buscar=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"animal",
+								"animal.listar"
+							],
+							"query": [
+								{
+									"key": "buscar",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acharID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/animal/animal.acharid?buscar=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"animal",
+								"animal.acharid"
+							],
+							"query": [
+								{
+									"key": "buscar",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarRacas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/animal/animal.listar-racas?id_especie=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"animal",
+								"animal.listar-racas"
+							],
+							"query": [
+								{
+									"key": "id_especie",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data_nasc\": \"2021-01-05\",\r\n    \"nome_animal\":\"Asterisco\",\r\n    \"raca_animal\":1,\r\n    \"sexo_animal\":\"F\",\r\n    \"id_dono\": 14\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/animal/animal.cadastro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"animal",
+								"animal.cadastro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_animal\":\"Asterisco\",\r\n    \"data_nasc\": \"2021-01-05\",\r\n    \"id_raca\":1,\r\n    \"sexo\":\"F\",\r\n    \"id_animal\":12\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/animal/animal.atualizar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"animal",
+								"animal.atualizar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "consultas",
+			"item": [
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/src/assets/php/atendente/consulta/consulta.listar.php?buscar=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"src",
+								"assets",
+								"php",
+								"atendente",
+								"consulta",
+								"consulta.listar.php"
+							],
+							"query": [
+								{
+									"key": "buscar",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
