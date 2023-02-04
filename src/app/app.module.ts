@@ -19,7 +19,7 @@ import { environment } from 'src/environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth'
 import { provideFirestore, getFirestore } from '@angular/fire/firestore'
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { AuthComponent } from './login/atendente/auth/auth.component'
+import { AuthComponent } from './login/auth/auth.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card'

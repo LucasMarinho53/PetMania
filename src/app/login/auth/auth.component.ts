@@ -52,6 +52,7 @@ export class AuthComponent {
       const user = await this.authService.login(this.atendenteForm.value);
 
       if (user) {
+        console.log(user)
         this.router.navigateByUrl('atendente/lista-cliente', { replaceUrl: true });
       } else {
         alert('Login falhou.');

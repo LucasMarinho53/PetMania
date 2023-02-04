@@ -1,7 +1,7 @@
-export class Atendente{
-  id!:string;
-  email!:string;
-  senha!:string;
-  cargo!:number;
+export interface Atendente{
+  id:string,
+  email:string,
+  senha:string,
+  cargo:number
 
 }
