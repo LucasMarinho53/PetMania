@@ -14,9 +14,10 @@ import { AppComponent } from './app.component'
 import { FuncionarioComponent } from './home/funcionario/funcionario.component'
 import { AtendenteComponent } from './login/atendente/atendente.component'
 import { CadastraClienteComponent } from './login/atendente/cliente/cadastra-cliente/cadastra-cliente.component'
+import { EditarClienteComponent } from './login/atendente/cliente/editar-cliente/editar-cliente.component';
 import { ListaClienteComponent } from './login/atendente/cliente/lista-cliente/lista-cliente.component'
 import { VeterinarioComponent } from './login/veterinario/veterinario.component'
-import { ClienteService } from './services/cliente.service'
+import { ClienteService } from './services/cliente.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ClienteService } from './services/cliente.service'
     ListaClienteComponent,
     CadastraClienteComponent,
     VeterinarioComponent,
+    EditarClienteComponent,
   ],
   imports: [
     BrowserModule,

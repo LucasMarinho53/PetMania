@@ -22,6 +22,8 @@ export class ClienteService {
   private apiUrl2 =
     'http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.cadastro.php'
 
+  private apiUrl3 = `http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.acharid.php`
+
   constructor(private http: HttpClient) {}
 
   getClient(x: any = ''): Observable<Dono[]> {
@@ -39,9 +41,13 @@ export class ClienteService {
       logradouro: dono.endereco.logradouro,
       numero: dono.endereco.numero,
       cep: dono.endereco.cep,
-    });
+    })
 
-    return this.http.post<Dono>(this.apiUrl2, body, httpOptions);
+    return this.http.post<Dono>(this.apiUrl2, body, httpOptions)
+  }
+
+  getDonoById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl3}?buscar=${id}`)
   }
 }
 

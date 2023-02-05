@@ -41,4 +41,9 @@ export class ListaClienteComponent implements OnInit {
   redirectToClientRegister(){
     this.router.navigateByUrl('cliente/cadastra-cliente')
   }
+
+  redirectToClientEdit(id: number | undefined) {
+    this.router.navigate(['cliente/editar-cliente', id]);
+  }
+
 }

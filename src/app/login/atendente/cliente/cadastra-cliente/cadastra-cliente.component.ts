@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 import { Dono } from 'src/app/models/dono.model'
 import { ClienteService } from 'src/app/services/cliente.service'
 
@@ -13,7 +14,8 @@ clientForm!: FormGroup
 
 constructor(
 private formBuilder: FormBuilder,
-private clientService: ClienteService
+private clientService: ClienteService,
+private router: Router
 ) {}
 
 ngOnInit() {
@@ -35,7 +37,8 @@ numero: ['', Validators.required],
 addCliente() {
 const dono = this.clientForm.value as Dono
 this.clientService.cadastrarDono(dono).subscribe((data) => {
-console.log(data)
+// console.log(data)
+this.router.navigate(['cliente/lista-cliente']);
 })
 }
 }
