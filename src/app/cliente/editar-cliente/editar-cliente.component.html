@@ -1,5 +1,6 @@
 <p>editar-cliente works!</p>
 <form [formGroup]="clientForm" *ngIf="clientForm" (ngSubmit)="editCliente()">
+  <input type="hidden" formControlName="id_dono">
   <div>
     <label>Nome: </label>
     <input type="text" formControlName="nome" placeholder="Digite seu nome">
@@ -18,6 +19,7 @@
   </div>
 
   <div formGroupName="endereco">
+    <input type="hidden" formControlName="id_end">
     <div>
       <label>Cidade: </label>
       <input formControlName="cidade" placeholder="Digite sua cidade">

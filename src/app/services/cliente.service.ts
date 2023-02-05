@@ -15,10 +15,11 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-
 export class ClienteService {
-  private apiUrl  = 'http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.listar.php?buscar='
-  private apiUrl2 = 'http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.cadastro.php'
+  private apiUrl =
+    'http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.listar.php?buscar='
+  private apiUrl2 =
+    'http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.cadastro.php'
   private apiUrl3 = `http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.acharid.php`
   private apiUrl4 = `http://localhost/PetMania/src/assets/php/atendente/cliente/cliente.atualizar.php`
 
@@ -48,19 +49,22 @@ export class ClienteService {
     return this.http.get(`${this.apiUrl3}?buscar=${id}`)
   }
 
-  editarDono(dono: Dono): Observable<Dono> {
+  editDono(dono: Dono): Observable<Dono> {
     const body = JSON.stringify({
-      cpf: dono.cpf,
       nome: dono.nome,
+      cpf: dono.cpf,
       email: dono.email,
       telefone: dono.telefone,
       cidade: dono.endereco.cidade,
       bairro: dono.endereco.bairro,
       logradouro: dono.endereco.logradouro,
-      numero: dono.endereco.numero,
       cep: dono.endereco.cep,
-    })
+      numero: dono.endereco.numero,
+      id_dono: dono.id_dono,
+      id_end: dono.endereco.id_end
+    });
 
-    return this.http.put<Dono>(this.apiUrl4, body, httpOptions)
+    return this.http.post<Dono>(this.apiUrl4, body, httpOptions);
   }
+
 }

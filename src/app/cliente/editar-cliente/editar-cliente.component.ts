@@ -32,11 +32,13 @@ export class EditarClienteComponent implements OnInit {
         next: (res) => {
           // console.log(res)
           this.clientForm = this.formBuilder.group({
+            id_dono:[res.id_dono,Validators.required],
             nome: [res.nome, Validators.required],
             cpf: [res.cpf, Validators.required],
             email: [res.email, [Validators.required, Validators.email]],
             telefone: [res.telefone, Validators.required],
             endereco: this.formBuilder.group({
+              id_end:[res.id_end, Validators.required],
               cidade: [res.cidade, Validators.required],
               bairro: [res.bairro, Validators.required],
               logradouro: [res.logradouro, Validators.required],
@@ -55,9 +57,9 @@ export class EditarClienteComponent implements OnInit {
 
   editCliente() {
     const dono = this.clientForm.value as Dono
-    this.clientService.editarDono(dono).subscribe((data) => {
-      // console.log(data)
+    this.clientService.editDono(dono).subscribe((data) => {
       this.router.navigate(['cliente/lista-cliente'])
     })
   }
+
 }
