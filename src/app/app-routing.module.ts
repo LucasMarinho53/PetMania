@@ -3,34 +3,34 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 import { AtendenteComponent } from './login/atendente/atendente.component';
-import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
-import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
+import { CadastraClienteComponent } from './login/atendente/cliente/cadastra-cliente/cadastra-cliente.component';
+import { ListaClienteComponent } from './login/atendente/cliente/lista-cliente/lista-cliente.component';
 import { VeterinarioComponent } from './login/veterinario/veterinario.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'app/home/funcionario',
+    redirectTo: 'cliente/lista-cliente',
     pathMatch: 'full',
   },
   {
-    path: 'app/home/funcionario',
+    path: 'funcionario',
     component: FuncionarioComponent,
   },
   {
-    path: 'app/login/atendente',
+    path: 'atendente',
     component: AtendenteComponent,
   },
   {
-    path: 'app/login/lista-cliente',
+    path: 'cliente/lista-cliente',
     component: ListaClienteComponent,
   },
   {
-    path: 'app/login/cadastra-cliente',
+    path: 'cliente/cadastra-cliente',
     component: CadastraClienteComponent,
   },
   {
-    path: 'app/login/veterinario',
+    path: 'veterinario',
     component: VeterinarioComponent,
   }
 ];
