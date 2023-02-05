@@ -1,4 +1,3 @@
-<p>editar-cliente works!</p>
 <form [formGroup]="clientForm" *ngIf="clientForm" (ngSubmit)="editCliente()">
   <input type="hidden" formControlName="id_dono">
   <div>
@@ -7,7 +6,7 @@
   </div>
   <div>
     <label>CPF: </label>
-    <input formControlName="cpf" placeholder="Digite seu CPF">
+    <input formControlName="cpf" placeholder="Digite seu CPF" readonly>
   </div>
   <div>
     <label>Email: </label>
@@ -41,5 +40,5 @@
       <input formControlName="numero" placeholder="Digite seu número">
     </div>
   </div>
-  <button type="submit" [disabled]="clientForm.invalid">Cadastrar Cliente</button>
+  <button type="submit" [disabled]="clientForm.invalid">Editar Cliente</button>
 </form>

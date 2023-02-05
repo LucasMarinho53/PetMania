@@ -18,16 +18,16 @@ export class ListarClienteComponent implements OnInit {
     private clientService: ClienteService,
     private formBuilder: FormBuilder,
     private router: Router
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
       searchValue: new FormControl('', [Validators.required]),
     })
-    this.getClients();
+    this.getClient();
   }
 
-  getClients() {
+  getClient() {
     this.clientService.getClient(this.searchForm.value.searchValue).subscribe({
       next: (res) => {
         this.donos = res
@@ -38,12 +38,11 @@ export class ListarClienteComponent implements OnInit {
     })
   }
 
-  redirectToClientRegister(){
-    this.router.navigateByUrl('cliente/cadastra-cliente')
+  redirectToClientRegister() {
+    this.router.navigateByUrl('cliente/cadastrar-cliente')
   }
 
   redirectToClientEdit(id: number | undefined) {
-    this.router.navigate(['cliente/editar-cliente', id]);
+    this.router.navigate(['cliente/editar-cliente', id])
   }
-
 }

@@ -26,11 +26,9 @@ export class EditarClienteComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id')
     if (id) {
       this.id = +id
-      // console.log(id)
 
-      this.clientService.getDonoById(+id).subscribe({
+      this.clientService.getClientById(+id).subscribe({
         next: (res) => {
-          // console.log(res)
           this.clientForm = this.formBuilder.group({
             id_dono:[res.id_dono,Validators.required],
             nome: [res.nome, Validators.required],
@@ -57,7 +55,7 @@ export class EditarClienteComponent implements OnInit {
 
   editCliente() {
     const dono = this.clientForm.value as Dono
-    this.clientService.editDono(dono).subscribe((data) => {
+    this.clientService.updateClient(dono).subscribe(() => {
       this.router.navigate(['cliente/lista-cliente'])
     })
   }

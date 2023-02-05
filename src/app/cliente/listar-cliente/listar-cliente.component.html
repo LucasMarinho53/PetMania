@@ -33,7 +33,7 @@
   <br>
 
   <div>
-    <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClients()">
+    <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
       <label for="searchText">Type here: </label>
       <input id="searchText" formControlName="searchValue" type="text" placeholder="Write something">
       <a href=""><button type="submit">img-search-button</button></a>
