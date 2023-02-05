@@ -5,11 +5,11 @@ import { Dono } from 'src/app/models/dono.model'
 import { ClienteService } from 'src/app/services/cliente.service'
 
 @Component({
-  selector: 'app-lista-cliente',
-  templateUrl: './lista-cliente.component.html',
-  styleUrls: ['./lista-cliente.component.css'],
+  selector: 'app-listar-cliente',
+  templateUrl: './listar-cliente.component.html',
+  styleUrls: ['./listar-cliente.component.css'],
 })
-export class ListaClienteComponent implements OnInit {
+export class ListarClienteComponent implements OnInit {
   isActive = false
   searchForm!: FormGroup
   donos!: Dono[]

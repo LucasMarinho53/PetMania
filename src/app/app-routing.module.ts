@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
-import { FuncionarioComponent } from './home/funcionario/funcionario.component'
-import { AtendenteComponent } from './login/atendente/atendente.component'
-import { CadastraClienteComponent } from './login/atendente/cliente/cadastra-cliente/cadastra-cliente.component'
-import { EditarClienteComponent } from './login/atendente/cliente/editar-cliente/editar-cliente.component'
-import { ListaClienteComponent } from './login/atendente/cliente/lista-cliente/lista-cliente.component'
-import { VeterinarioComponent } from './login/veterinario/veterinario.component'
+import { CadastrarClienteComponent } from './cliente/cadastrar-cliente/cadastrar-cliente.component'
+import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.component'
+import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component'
 
 const routes: Routes = [
   {
@@ -15,30 +12,18 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'funcionario',
-    component: FuncionarioComponent,
-  },
-  {
-    path: 'atendente',
-    component: AtendenteComponent,
-  },
-  {
     path: 'cliente/lista-cliente',
-    component: ListaClienteComponent,
+    component: ListarClienteComponent,
   },
   {
-    path: 'cliente/cadastra-cliente',
-    component: CadastraClienteComponent,
+    path: 'cliente/cadastrar-cliente',
+    component: CadastrarClienteComponent,
   },
   {
     path: 'cliente/editar-cliente',
     component: EditarClienteComponent,
   },
   { path: 'cliente/editar-cliente/:id', component: EditarClienteComponent },
-  {
-    path: 'veterinario',
-    component: VeterinarioComponent,
-  },
 ]
 
 @NgModule({

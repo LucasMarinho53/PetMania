@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { Dono } from 'src/app/models/dono.model'
-import { ClienteService } from 'src/app/services/cliente.service'
+
+import { Dono } from '../../models/dono.model'
+import { ClienteService } from '../../services/cliente.service'
 
 @Component({
-selector: 'app-cadastra-cliente',
-templateUrl: './cadastra-cliente.component.html',
-styleUrls: ['./cadastra-cliente.component.css'],
+selector: 'app-cadastrar-cliente',
+templateUrl: './cadastrar-cliente.component.html',
+styleUrls: ['./cadastrar-cliente.component.css'],
 })
-export class CadastraClienteComponent implements OnInit {
+export class CadastrarClienteComponent implements OnInit {
 clientForm!: FormGroup
 
 constructor(
