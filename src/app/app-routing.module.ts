@@ -10,6 +10,7 @@ import { ListaAnimalComponent } from './login/atendente/lista-animal/lista-anima
 import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-consulta.component';
 import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
 import { AuthComponent } from './login/auth/auth.component';
+import { EditarClienteComponent } from './login/atendente/editar-cliente/editar-cliente.component';
 
 
 
@@ -43,6 +44,14 @@ const routes: Routes = [
   {
     path: 'cadastrar-cliente',
     component: CadastraClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'editar-cliente',
+    component: EditarClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'editar-cliente/:id',
+    component: EditarClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'lista-ficha',
