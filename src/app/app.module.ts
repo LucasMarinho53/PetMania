@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
 import { SidenavComponent } from './login/atendente/sidenav/sidenav.component'
@@ -32,7 +31,6 @@ import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet
 @NgModule({
   declarations: [
     AppComponent,
-    FuncionarioComponent,
     ListaClienteComponent,
     SidenavComponent,
     AuthComponent,

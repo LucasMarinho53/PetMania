@@ -34,7 +34,7 @@ export class ListaClienteComponent implements OnInit {
             this.usuario = res
             if (res.cargo !== 1){
               this.fireAuth.logout().then(()=>{
-                this.router.navigateByUrl('atendente/auth')
+                this.router.navigateByUrl('auth')
               }
 
               )
