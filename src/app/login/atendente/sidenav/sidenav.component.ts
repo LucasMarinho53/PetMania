@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AtendenteauthService } from 'src/app/services/atendenteauth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,7 +11,7 @@ export class SidenavComponent {
   isActive = false;
 
   constructor(private router: Router,
-    private atendenteauthService: AtendenteauthService
+    private atendenteauthService: AuthService
     ){
 
   }

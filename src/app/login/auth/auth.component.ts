@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Atendente } from 'src/app/models/atendente.model';
-import { AtendenteauthService } from 'src/app/services/atendenteauth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class AuthComponent {
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AtendenteauthService,) { }
+    private authService: AuthService,) { }
 
     get email() {
       return this.atendenteForm.get('email');

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Atendente } from 'src/app/models/atendente.model';
-import { AtendenteauthService } from 'src/app/services/atendenteauth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class ListaFichaComponent implements OnInit{
   constructor( private firebaseService: FirebaseService,
     private auth: Auth,
     private router: Router,
-    private fireAuth:AtendenteauthService
+    private fireAuth:AuthService
     ){}
 
     ngOnInit(): void {

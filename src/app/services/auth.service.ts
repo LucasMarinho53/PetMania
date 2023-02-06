@@ -5,7 +5,7 @@ import { Atendente } from '../models/atendente.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AtendenteauthService {
+export class AuthService {
 
   constructor(private auth: Auth) { }
 
