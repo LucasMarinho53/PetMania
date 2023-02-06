@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Atendente } from 'src/app/models/atendente.model';
+import { Funcionario } from 'src/app/models/funcionario.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 
 @Component({
@@ -14,13 +16,15 @@ export class AuthComponent {
 
   atendenteForm!: FormGroup;
   type: boolean = true;
-  atendente!:Atendente;
+  usuario!:Funcionario;
   isActive = false;
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService,) { }
+    private authService: AuthService,
+    private firebaseService: FirebaseService,
+    private auth: Auth) { }
 
     get email() {
       return this.atendenteForm.get('email');
@@ -51,11 +55,22 @@ export class AuthComponent {
 
       const user = await this.authService.login(this.atendenteForm.value);
 
-      if (user) {
-        console.log(user)
-        this.router.navigateByUrl('atendente/lista-cliente', { replaceUrl: true });
-      } else {
-        alert('Login falhou.');
+      if (this.auth.currentUser!.email) {
+        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+          next:(res)=>{
+            this.usuario = res
+            if (res.cargo == 1){
+              this.router.navigateByUrl('atendente/lista-cliente');
+            } if (res.cargo == 2){
+              this.router.navigateByUrl('lista-ficha');
+            }
+
+          },
+
+          error:(err)=>console.log(err)
+
+        })
+
       }
     }
 

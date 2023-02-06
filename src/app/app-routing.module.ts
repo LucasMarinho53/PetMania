@@ -42,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'cadastrar-cliente',
-    component: CadastraClienteComponent,
+    component: CadastraClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'lista-ficha',

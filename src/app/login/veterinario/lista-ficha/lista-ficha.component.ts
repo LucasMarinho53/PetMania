@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { Atendente } from 'src/app/models/atendente.model';
+import { Funcionario } from 'src/app/models/funcionario.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
@@ -11,7 +11,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   styleUrls: ['./lista-ficha.component.css']
 })
 export class ListaFichaComponent implements OnInit{
-  usuario!:Atendente
+  usuario!:Funcionario
   isActive = false;
 
   constructor( private firebaseService: FirebaseService,

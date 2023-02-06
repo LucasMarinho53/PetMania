@@ -1,4 +1,4 @@
-export interface Atendente{
+export interface Funcionario{
   id:string,
   email:string,
   senha:string,
