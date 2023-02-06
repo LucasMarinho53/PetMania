@@ -27,6 +27,10 @@ import { ListaAnimalComponent } from './login/atendente/lista-animal/lista-anima
 import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-consulta.component';
 import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
 import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet.component'
+import { HttpClientModule } from '@angular/common/http';
+import { ClienteService } from './services/cliente.service';
+import { EditarClienteComponent } from './login/atendente/editar-cliente/editar-cliente.component';
+import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet
     ListaConsultaComponent,
     ListaFichaComponent,
     SidenavVetComponent,
+    EditarClienteComponent,
+    CadastraClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -52,12 +58,13 @@ import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet
     ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
+    HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
-  providers: [],
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

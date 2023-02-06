@@ -3,14 +3,15 @@
   <mat-sidenav-content>
     <app-sidenav></app-sidenav>
     <div class="content" [class.mat-elevation-z4]="!isActive">
-      <form [formGroup]="clientForm" *ngIf="clientForm" (ngSubmit)="registerClient()">
+      <form [formGroup]="clientForm" *ngIf="clientForm" (ngSubmit)="editCliente()">
+        <input type="hidden" formControlName="id_dono">
         <div>
           <label>Nome: </label>
           <input type="text" formControlName="nome" placeholder="Digite seu nome">
         </div>
         <div>
           <label>CPF: </label>
-          <input type="number" formControlName="cpf" placeholder="Digite seu CPF">
+          <input type="number"  formControlName="cpf" placeholder="Digite seu CPF" readonly>
         </div>
         <div>
           <label>Email: </label>
@@ -22,6 +23,7 @@
         </div>
 
         <div formGroupName="endereco">
+          <input type="hidden" formControlName="id_end">
           <div>
             <label>Cidade: </label>
             <input type="text" formControlName="cidade" placeholder="Digite sua cidade">
@@ -43,7 +45,7 @@
             <input type="number" formControlName="numero" placeholder="Digite seu número">
           </div>
         </div>
-        <button type="submit" [disabled]="clientForm.invalid">Cadastrar Cliente</button>
+        <button type="submit" [disabled]="clientForm.invalid">Editar Cliente</button>
       </form>
     </div>
   </mat-sidenav-content>
