@@ -3,30 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate, } from '@angular/fire/auth-guard';
 
-import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
-import { AuthComponent } from './login/atendente/auth/auth.component';
+
 import { ListaAnimalComponent } from './login/atendente/lista-animal/lista-animal.component';
 import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-consulta.component';
 import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
+import { AuthComponent } from './login/auth/auth.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(('atendente/auth'));
+
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(('auth'));
 const redirectLoggedInToHome = () => redirectLoggedInTo(('atendente/lista-cliente'));
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'auth',
     pathMatch: 'full',
   },
+
   {
-    path: 'home',
-    component: FuncionarioComponent,
-  },
-  {
-    path: 'atendente/auth',
-    component: AuthComponent, ...canActivate(redirectLoggedInToHome)
+    path: 'auth',
+    component: AuthComponent, ...canActivate(redirectLoggedInToHome),
+
   },
   {
     path: 'atendente/lista-cliente',
@@ -42,11 +42,11 @@ const routes: Routes = [
   },
   {
     path: 'cadastrar-cliente',
-    component: CadastraClienteComponent,
+    component: CadastraClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'lista-ficha',
-    component: ListaFichaComponent,
+    component: ListaFichaComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
 
 ];

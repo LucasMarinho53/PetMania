@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FuncionarioComponent } from './home/funcionario/funcionario.component';
 
 import { ListaClienteComponent } from './login/atendente/lista-cliente/lista-cliente.component';
 import { SidenavComponent } from './login/atendente/sidenav/sidenav.component'
@@ -19,7 +18,7 @@ import { environment } from 'src/environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth'
 import { provideFirestore, getFirestore } from '@angular/fire/firestore'
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { AuthComponent } from './login/atendente/auth/auth.component'
+import { AuthComponent } from './login/auth/auth.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card'
@@ -32,7 +31,6 @@ import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet
 @NgModule({
   declarations: [
     AppComponent,
-    FuncionarioComponent,
     ListaClienteComponent,
     SidenavComponent,
     AuthComponent,

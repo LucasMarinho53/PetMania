@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { Atendente } from '../models/atendente.model';
+import { Funcionario } from '../models/funcionario.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AtendenteauthService {
+export class AuthService {
 
   constructor(private auth: Auth) { }
 
-  async login (atendente: Atendente) {
+  async login (funcionario: Funcionario) {
     try{
       const user = await signInWithEmailAndPassword(
     this.auth,
-    atendente.email,
-    atendente.senha
+    funcionario.email,
+    funcionario.senha
      );
      return user;
   } catch (e) {
