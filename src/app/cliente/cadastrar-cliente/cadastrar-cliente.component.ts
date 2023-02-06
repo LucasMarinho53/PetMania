@@ -22,15 +22,15 @@ export class CadastrarClienteComponent implements OnInit {
   ngOnInit() {
     this.clientForm = this.formBuilder.group({
       nome: ['', [Validators.required]],
-      cpf: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      telefone: ['', [Validators.required]],
+      cpf: ['', [Validators.required, Validators.pattern('[0-9]{11}')]],
+      email: ['', [Validators.required, Validators.email]],
+      telefone: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
       endereco: this.formBuilder.group({
         cidade: ['', [Validators.required]],
         bairro: ['', [Validators.required]],
         logradouro: ['', [Validators.required]],
-        cep: ['', [Validators.required]],
-        numero: ['', [Validators.required]],
+        cep: ['', [Validators.required,  Validators.pattern('[0-9]{8}')]],
+        numero: ['', [Validators.required, , Validators.pattern('[0-9]+')]],
       }),
     })
   }

@@ -30,18 +30,18 @@ export class EditarClienteComponent implements OnInit {
       this.clientService.getClientById(+id).subscribe({
         next: (res) => {
           this.clientForm = this.formBuilder.group({
-            id_dono:[res.id_dono,Validators.required],
-            nome: [res.nome, Validators.required],
-            cpf: [res.cpf, Validators.required],
+            id_dono: [res.id_dono, Validators.required],
+            nome: [res.nome, [Validators.required]],
+            cpf: [res.cpf, [Validators.required, Validators.pattern('[0-9]{11}')]],
             email: [res.email, [Validators.required, Validators.email]],
-            telefone: [res.telefone, Validators.required],
+            telefone: [res.telefone, [Validators.required, Validators.pattern(/^\d{11}$/)]],
             endereco: this.formBuilder.group({
-              id_end:[res.id_end, Validators.required],
-              cidade: [res.cidade, Validators.required],
-              bairro: [res.bairro, Validators.required],
-              logradouro: [res.logradouro, Validators.required],
-              cep: [res.cep, Validators.required],
-              numero: [res.numero, Validators.required],
+              id_end: [res.id_end, Validators.required],
+              cidade: [res.cidade, [Validators.required]],
+              bairro: [res.bairro, [Validators.required]],
+              logradouro: [res.logradouro, [Validators.required]],
+              cep: [res.cep, [Validators.required, Validators.pattern('[0-9]{8}')]],
+              numero: [res.numero, [Validators.required, , Validators.pattern('[0-9]+')]],
             }),
           })
         },
@@ -59,5 +59,4 @@ export class EditarClienteComponent implements OnInit {
       this.router.navigate(['cliente/lista-cliente'])
     })
   }
-
 }

@@ -1,58 +1,116 @@
-.mat-elevation-z4 {
-	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)
+.sidebar {
+  background-color: #333;
+  color: white;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
 }
 
-mat-toolbar{
-  background: #211E22;
-  color: white;
-}
+.sidebar h1{ text-align: center;}
 
-mat-sidenav{
-  margin: 16px;
-  width: 230px;
-  border-right: none;
-  background: #211E22;
-  color: white;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-.menu-button{
+.btn-sidebar {
+  background-color: #555;
+  color: #fff;
   width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-items: flex-start;
-  font-size: 1rem;
-  margin-bottom: 15px;
-  font-family: 'Arvo', serif;
+  text-align: center;
 }
 
-.content{
-  height: calc(100vh - 48px);
-  margin: 16px;
-  margin-left: 32px;
-  display:flex;
-  justify-content: center;
+.btn-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+}
+
+.menu-button {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.menu-button span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.content {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-
-  font-size: 2rem;
-
-  border-radius: 10px;
 }
 
-mat-sidenav-container{
-  height: calc(100vh - 15px);
+form input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-mat-icon{
-  color: #FFC107;
+form button[type="submit"], button{
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-a{
-  color: #FFC107;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-h1{
-  font-family: 'Alfa Slab One', cursive;
-  color: #FFC107;
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+td a button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
 }

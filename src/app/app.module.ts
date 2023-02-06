@@ -17,7 +17,9 @@ import { AppComponent } from './app.component'
 import { CadastrarClienteComponent } from './cliente/cadastrar-cliente/cadastrar-cliente.component'
 import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.component'
 import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component'
-import { ClienteService } from './services/cliente.service'
+import { ClienteService } from './services/cliente.service';
+import { CadastrarAnimalComponent } from './animal/cadastrar-animal/cadastrar-animal.component';
+import { ListarAnimalComponent } from './animal/listar-animal/listar-animal.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ClienteService } from './services/cliente.service'
     CadastrarClienteComponent,
     ListarClienteComponent,
     EditarClienteComponent,
+    CadastrarAnimalComponent,
+    ListarAnimalComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,37 +5,37 @@
   </div>
   <div>
     <label>CPF: </label>
-    <input formControlName="cpf" placeholder="Digite seu CPF">
+    <input type="number" formControlName="cpf" placeholder="Digite seu CPF">
   </div>
   <div>
     <label>Email: </label>
-    <input formControlName="email" placeholder="Digite seu email">
+    <input type="email" formControlName="email" placeholder="Digite seu email">
   </div>
   <div>
     <label>Telefone: </label>
-    <input formControlName="telefone" placeholder="Digite seu telefone">
+    <input type="tel" formControlName="telefone" placeholder="Digite seu telefone">
   </div>
 
   <div formGroupName="endereco">
     <div>
       <label>Cidade: </label>
-      <input formControlName="cidade" placeholder="Digite sua cidade">
+      <input type="text" formControlName="cidade" placeholder="Digite sua cidade">
     </div>
     <div>
       <label>Bairro: </label>
-      <input formControlName="bairro" placeholder="Digite seu bairro">
+      <input type="text" formControlName="bairro" placeholder="Digite seu bairro">
     </div>
     <div>
       <label>Logradouro: </label>
-      <input formControlName="logradouro" placeholder="Digite seu logradouro">
+      <input type="text" formControlName="logradouro" placeholder="Digite seu logradouro">
     </div>
     <div>
       <label>CEP: </label>
-      <input formControlName="cep" placeholder="Digite seu CEP">
+      <input type="number" formControlName="cep" placeholder="Digite seu CEP">
     </div>
     <div>
       <label>Número: </label>
-      <input formControlName="numero" placeholder="Digite seu número">
+      <input type="number" formControlName="numero" placeholder="Digite seu número">
     </div>
   </div>
   <button type="submit" [disabled]="clientForm.invalid">Cadastrar Cliente</button>
