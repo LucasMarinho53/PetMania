@@ -39,6 +39,7 @@ import { ListarAnimalComponent } from './animal/listar-animal/listar-animal.comp
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -24,12 +24,13 @@ export class ListarClienteComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       searchValue: new FormControl('', [Validators.required]),
     })
-    this.getClient();
+    this.getClient()
   }
 
   getClient() {
     this.clientService.getClient(this.searchForm.value.searchValue).subscribe({
       next: (res) => {
+        // console.log(res)
         this.donos = res
       },
       error: (e) => {
@@ -44,5 +45,17 @@ export class ListarClienteComponent implements OnInit {
 
   redirectToClientEdit(id: number | undefined) {
     this.router.navigate(['cliente/editar-cliente', id])
+  }
+
+  redirectToClientList() {
+    this.router.navigate(['cliente/lista-cliente'])
+  }
+
+  redirectToAnimalList() {
+    this.router.navigate(['animal/listar-animal'])
+  }
+
+  redirectToAnimalRegister(id: number | undefined, id_especie: number) {
+    this.router.navigate(['animal/cadastrar-animal', id, id_especie])
   }
 }

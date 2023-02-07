@@ -1,1 +1,61 @@
-<p>listar-animal works!</p>
+<div class="sidebar">
+  <div>
+    <img src="../../assets/img/logo/logo.png">
+    <h1>PetMania</h1>
+  </div>
+  <button class="btn-sidebar">
+    <a (click)="redirectToClientList()">Clientes</a>
+  </button>
+  <button class="btn-sidebar">
+    <a (click)="redirectToAnimalList()">Animais</a>
+  </button>
+  <button class="btn-sidebar">
+    <a href="#">Consultas</a>
+  </button>
+</div>
+<div class="main-content">
+  <div class="content">
+    <div>
+      <h1 style="display:flex; justify-content:center">Animais</h1>
+      <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getAnimal()">
+        <label for="searchText">Type here: </label>
+        <input id="searchText" formControlName="searchValue" type="text" placeholder="Write something">
+        <a href=""><button type="submit">img-search-button</button></a>
+      </form>
+    </div>
+
+    <table >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Sexo</th>
+          <th>Nascimento</th>
+          <th>Raça</th>
+          <th>Dono</th>
+          <th>+</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let animal of animais">
+          <td>{{animal.id_animal}}</td>
+          <td>{{animal.nome_animal}}</td>
+          <td>{{animal.sexo_animal}}</td>
+          <td>{{animal.data_nasc}}</td>
+          <td>{{animal.id_raca}}</td>
+          <td>{{animal.id_dono}}</td>
+          <!-- <td>{{animal.id_raca!.nome_raca}}</td>
+          <td>{{animal.id_dono!.nome}}</td> -->
+
+          <td>
+            <a><button>img-consult-button</button></a>
+            <a><button (click)="redirectToAnimalEdit(animal.id_animal)">img-edit-button</button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

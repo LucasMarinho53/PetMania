@@ -4,10 +4,10 @@
     <h1>PetMania</h1>
   </div>
   <button class="btn-sidebar">
-    <a href="#">Clientes</a>
+    <a (click)="redirectToClientList()">Clientes</a>
   </button>
   <button class="btn-sidebar">
-    <a href="#">Animais</a>
+    <a (click)="redirectToAnimalList()">Animais</a>
   </button>
   <button class="btn-sidebar">
     <a href="#">Consultas</a>
@@ -15,11 +15,11 @@
 </div>
 <div class="main-content">
   <div class="content">
-    <div>
-      <button type="button" (click)="redirectToClientRegister()"> Cadastrar Cliente</button>
+    <div style="display: flex; gap: 20px; align-items:center; justify-content: center;">
+      <h1>Clientes</h1>
+      <button type="button" (click)="redirectToClientRegister()" style="align-self:start"> Cadastrar Cliente</button>
     </div>
     <br>
-
     <div>
       <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
         <label for="searchText">Type here: </label>
@@ -45,8 +45,8 @@
           <td>{{dono.telefone}}</td>
           <td>{{dono.email}}</td>
           <td>
-            <a><button>img-dog-button</button></a>
-            <a><button>img-cat-button</button></a>
+            <a><button (click)="redirectToAnimalRegister(dono.id_dono, 1)">img-dog-button</button></a>
+            <a><button (click)="redirectToAnimalRegister(dono.id_dono, 2)">img-cat-button</button></a>
             <a><button (click)="redirectToClientEdit(dono.id_dono)">img-edit-button</button></a>
           </td>
         </tr>

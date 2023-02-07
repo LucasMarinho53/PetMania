@@ -1,0 +1,116 @@
+.sidebar {
+  background-color: #333;
+  color: white;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.sidebar h1{ text-align: center;}
+
+.btn-sidebar {
+  background-color: #555;
+  color: #fff;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+}
+
+.menu-button {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.menu-button span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.content {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button[type="submit"], button{
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+td a button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}

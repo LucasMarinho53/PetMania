@@ -1,1 +1,22 @@
-<p>cadastrar-animal works!</p>
+<form [formGroup]="animalForm">
+  <input type="hidden" id="id_dono" formControlName="id_dono">
+  <div>
+    <label for="nome_animal">Nome do animal:</label>
+    <input type="text" id="nome_animal" formControlName="nome_animal">
+  </div>
+  <div>
+    <label for="sexo_animal">Sexo do animal:</label>
+    <input type="text" id="sexo_animal" formControlName="sexo_animal">
+  </div>
+  <div>
+    <label for="data_nasc">Data de nascimento do animal:</label>
+    <input type="date" id="data_nasc" formControlName="data_nasc">
+  </div>
+  <div>
+    <label for="id_raca">Raça do animal:</label>
+    <select id="id_raca" formControlName="id_raca">
+      <option *ngFor="let raca of racas" [value]="raca.id_raca">{{raca.nome_raca}}</option>
+    </select>
+  </div>
+  <button type="submit" (click)="registerAnimal()">Cadastrar</button>
+</form>
