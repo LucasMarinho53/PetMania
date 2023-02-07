@@ -3,48 +3,61 @@
   <mat-sidenav-content>
     <app-sidenav></app-sidenav>
     <div class="content" [class.mat-elevation-z4]="!isActive">
-      <form [formGroup]="clientForm" *ngIf="clientForm" (ngSubmit)="registerClient()">
-        <div>
-          <label>Nome: </label>
-          <input type="text" formControlName="nome" placeholder="Digite seu nome">
-        </div>
-        <div>
-          <label>CPF: </label>
-          <input type="number" formControlName="cpf" placeholder="Digite seu CPF">
-        </div>
-        <div>
-          <label>Email: </label>
-          <input type="email" formControlName="email" placeholder="Digite seu email">
-        </div>
-        <div>
-          <label>Telefone: </label>
-          <input type="tel" formControlName="telefone" placeholder="Digite seu telefone">
-        </div>
+      <div class="container">
+        <form [formGroup]="clientForm" *ngIf="clientForm" (ngSubmit)="registerClient()">
+          <h2>Cadastro</h2>
 
-        <div formGroupName="endereco">
-          <div>
-            <label>Cidade: </label>
-            <input type="text" formControlName="cidade" placeholder="Digite sua cidade">
+          <div class="input-box">
+            <label>Nome: </label>
+            <input type="text" formControlName="nome" placeholder="Digite seu nome">
           </div>
-          <div>
-            <label>Bairro: </label>
-            <input type="text" formControlName="bairro" placeholder="Digite seu bairro">
+
+          <div class="input-box">
+            <label>CPF: </label>
+            <input type="number" formControlName="cpf" placeholder="Digite seu CPF">
           </div>
-          <div>
-            <label>Logradouro: </label>
-            <input type="text" formControlName="logradouro" placeholder="Digite seu logradouro">
+
+          <div class="input-box">
+            <label>Email: </label>
+            <input type="email" formControlName="email" placeholder="Digite seu email">
           </div>
-          <div>
-            <label>CEP: </label>
-            <input type="number" formControlName="cep" placeholder="Digite seu CEP">
+
+          <div class="input-box">
+            <label>Telefone: </label>
+            <input type="tel" formControlName="telefone" placeholder="Digite seu telefone">
           </div>
-          <div>
-            <label>Número: </label>
-            <input type="number" formControlName="numero" placeholder="Digite seu número">
+
+          <div formGroupName="endereco">
+
+            <div class="input-box">
+              <label>Cidade: </label>
+              <input type="text" formControlName="cidade" placeholder="Digite sua cidade">
+            </div>
+
+            <div class="input-box">
+              <label>Bairro: </label>
+              <input type="text" formControlName="bairro" placeholder="Digite seu bairro">
+            </div>
+
+            <div class="input-box">
+              <label>Logradouro: </label>
+              <input type="text" formControlName="logradouro" placeholder="Digite seu logradouro">
+            </div>
+
+            <div class="input-box">
+              <label>CEP: </label>
+              <input type="number" formControlName="cep" placeholder="Digite seu CEP">
+            </div>
+
+            <div class="input-box">
+              <label>Número: </label>
+              <input type="number" formControlName="numero" placeholder="Digite seu número">
+            </div>
+
           </div>
-        </div>
-        <button type="submit" [disabled]="clientForm.invalid">Cadastrar Cliente</button>
-      </form>
+          <button type="submit" [disabled]="clientForm.invalid">Cadastrar Cliente</button>
+        </form>
+      </div>
     </div>
   </mat-sidenav-content>
 
