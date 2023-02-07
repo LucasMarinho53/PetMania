@@ -11,6 +11,7 @@ import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-c
 import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
 import { AuthComponent } from './login/auth/auth.component';
 import { EditarClienteComponent } from './login/atendente/editar-cliente/editar-cliente.component';
+import { CadastrarAnimalComponent } from './login/atendente/cadastrar-animal/cadastrar-animal.component';
 
 
 
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'atendente/lista-cliente',
     component: ListaClienteComponent, ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'atendente/cadastrar-animal/:id/:id_especie',
+    component: CadastrarAnimalComponent,
   },
   {
     path: 'atendente/lista-animal',

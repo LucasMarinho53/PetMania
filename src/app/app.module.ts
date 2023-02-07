@@ -32,6 +32,7 @@ import { ClienteService } from './services/cliente.service';
 import { EditarClienteComponent } from './login/atendente/editar-cliente/editar-cliente.component';
 import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
 import { MatTableModule } from '@angular/material/table';
+import { CadastrarAnimalComponent } from './login/atendente/cadastrar-animal/cadastrar-animal.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatTableModule } from '@angular/material/table';
     ListaFichaComponent,
     SidenavVetComponent,
     EditarClienteComponent,
-    CadastraClienteComponent
+    CadastraClienteComponent,
+    CadastrarAnimalComponent
   ],
   imports: [
     BrowserModule,

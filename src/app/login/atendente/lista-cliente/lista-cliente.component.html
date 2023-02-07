@@ -9,7 +9,7 @@
 
        <div class="box">
         <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
-          <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar...">
+          <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar dono...">
           <button type="submit">
             <mat-icon>search</mat-icon>
           </button>
@@ -33,8 +33,8 @@
             <td>{{dono.telefone}}</td>
             <td>{{dono.email}}</td>
             <td>
-              <button class="btnImg"><img src="../../../../assets/img/kisspng-dog-pet-sitting-puppy-computer-icons-5ae26b14c5d954.7808012315247879888104.png" alt=""></button>
-              <button class="btnImg"><img src="../../../../assets/img/kisspng-black-cat-stencil-silhouette-image-volunteers-for-animal-protection-vap-is-a-5-1c-5c1dd526f257a5.7137601915454589829927.png" alt=""></button>
+              <button class="btnImg" (click)="redirectToAnimalRegister(dono.id_dono, 1)"><img src="../../../../assets/img/kisspng-dog-pet-sitting-puppy-computer-icons-5ae26b14c5d954.7808012315247879888104.png" alt=""></button>
+              <button class="btnImg" (click)="redirectToAnimalRegister(dono.id_dono, 2)"><img src="../../../../assets/img/kisspng-black-cat-stencil-silhouette-image-volunteers-for-animal-protection-vap-is-a-5-1c-5c1dd526f257a5.7137601915454589829927.png" alt=""></button>
               <button class="btnIcon" (click)="redirectToClientEdit(dono.id_dono)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>
