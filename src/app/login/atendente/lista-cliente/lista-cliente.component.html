@@ -4,16 +4,15 @@
     <app-sidenav></app-sidenav>
     <div class="content" [class.mat-elevation-z4]="!isActive">
 
-      <div class="cadastro">
-        <button type="button" (click)="redirectToClientRegister()"> Cadastrar Cliente</button>
-      </div>
-      <br>
 
-       <div class="pesquisa">
+        <button class="btn" type="button" (click)="redirectToClientRegister()">Cadastrar</button>
+
+       <div class="box">
         <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
-          <label for="searchText">Type here: </label>
-          <input id="searchText" formControlName="searchValue" type="text" placeholder="Write something">
-          <a href=""><button type="submit">img-search-button</button></a>
+          <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar...">
+          <button type="submit">
+            <mat-icon>search</mat-icon>
+          </button>
         </form>
       </div>
 
