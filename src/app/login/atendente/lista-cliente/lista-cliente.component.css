@@ -7,10 +7,9 @@
   margin: 16px;
   margin-left: 262px;
   display:flex;
-  justify-content: center;
-  align-items: center;
 
-  font-size: 2rem;
+
+  font-size: medium;
 
   border-radius: 10px;
 }
@@ -22,3 +21,40 @@ mat-sidenav-container{
 mat-icon{
   color: #FFC107;
 }
+
+table {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  left: 30%;
+  top: 30%;
+  margin-left: 240px;
+  transform: translate(-30%, -30%);
+  width: 70%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(32,32,32,.3);
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th{
+  background: #FFC107;
+}
+
+th, td{
+  font-family: 'Arvo', serif;
+  padding: 10px 15px;
+}
+
+.cadastro{
+  background-color: #FFC107;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-self: flex-start;
+  margin-top: 50px;
+  margin-left: 500px;
+}
+
+

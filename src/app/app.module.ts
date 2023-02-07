@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClienteService } from './services/cliente.service';
 import { EditarClienteComponent } from './login/atendente/editar-cliente/editar-cliente.component';
 import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cadastra-cliente.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cad
     MatCardModule,
     MatInputModule,
     HttpClientModule,
+    MatTableModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
