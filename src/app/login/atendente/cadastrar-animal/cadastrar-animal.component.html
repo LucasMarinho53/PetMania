@@ -34,7 +34,7 @@
               <option *ngFor="let raca of racas" [value]="raca.id_raca">{{raca.nome_raca}}</option>
             </select>
           </div>
-          <button type="submit" (click)="registerAnimal()">Cadastrar</button>
+          <button type="submit" [disabled]="animalForm.invalid" (click)="registerAnimal()">Cadastrar</button>
         </form>
       </div>
 

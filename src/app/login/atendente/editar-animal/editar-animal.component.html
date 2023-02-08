@@ -34,7 +34,7 @@
               [value]="raca.id_raca" selected>{{raca.nome_raca}}</option>
             </select>
           </div>
-          <button type="submit" (click)="updateAnimal()">Editar Animal</button>
+          <button type="submit" [disabled]="animalForm.invalid" (click)="updateAnimal()">Editar Animal</button>
         </form>
 
       </div>

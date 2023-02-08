@@ -50,7 +50,7 @@ export class EditarAnimalComponent {
         next: (res) => {
           console.log(res)
           this.animalForm = this.formBuilder.group({
-            nome_animal: [res.nome_animal, Validators.required],
+            nome_animal: [res.nome_animal, [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
             sexo_animal: [res.sexo_animal, Validators.required],
             data_nasc: [res.data_nasc, Validators.required],
             id_raca: [res.id_raca, Validators.required],

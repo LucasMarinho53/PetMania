@@ -29,7 +29,7 @@ export class CadastraClienteComponent implements OnInit {
     ngOnInit(): void {
 
       this.clientForm = this.formBuilder.group({
-        nome: ['', [Validators.required]],
+        nome: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
         cpf: ['', [Validators.required, Validators.pattern('[0-9]{11}')]],
         email: ['', [Validators.required, Validators.email]],
         telefone: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
