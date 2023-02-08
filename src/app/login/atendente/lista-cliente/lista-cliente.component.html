@@ -4,21 +4,21 @@
     <app-sidenav></app-sidenav>
     <div class="content" [class.mat-elevation-z4]="!isActive">
 
-      <div>
-        <button type="button" (click)="redirectToClientRegister()"> Cadastrar Cliente</button>
-      </div>
-      <br>
 
-       <div>
+        <button class="btn" type="button" (click)="redirectToClientRegister()">Cadastrar</button>
+
+       <div class="box">
         <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
-          <label for="searchText">Type here: </label>
-          <input id="searchText" formControlName="searchValue" type="text" placeholder="Write something">
-          <a href=""><button type="submit">img-search-button</button></a>
+          <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar dono...">
+          <button type="submit">
+            <mat-icon>search</mat-icon>
+          </button>
         </form>
       </div>
 
-      <table >
-        <thead>
+
+      <div class="table">
+      <table class="filter" >
           <tr>
             <th>ID</th>
             <th>Nome</th>
@@ -26,21 +26,21 @@
             <th>Email</th>
             <th>+</th>
           </tr>
-        </thead>
-        <tbody>
+
           <tr *ngFor="let dono of donos">
             <td>{{dono.id_dono}}</td>
             <td>{{dono.nome}}</td>
             <td>{{dono.telefone}}</td>
             <td>{{dono.email}}</td>
             <td>
-              <a><button>img-dog-button</button></a>
-              <a><button>img-cat-button</button></a>
-              <a><button (click)="redirectToClientEdit(dono.id_dono)">img-edit-button</button></a>
+              <button class="btnImg" (click)="redirectToAnimalRegister(dono.id_dono, 1)"><img src="../../../../assets/img/kisspng-dog-pet-sitting-puppy-computer-icons-5ae26b14c5d954.7808012315247879888104.png" alt=""></button>
+              <button class="btnImg" (click)="redirectToAnimalRegister(dono.id_dono, 2)"><img src="../../../../assets/img/kisspng-black-cat-stencil-silhouette-image-volunteers-for-animal-protection-vap-is-a-5-1c-5c1dd526f257a5.7137601915454589829927.png" alt=""></button>
+              <button class="btnIcon" (click)="redirectToClientEdit(dono.id_dono)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>
-        </tbody>
+
       </table>
+      </div>
 
 
     </div>

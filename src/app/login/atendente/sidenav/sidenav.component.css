@@ -39,3 +39,9 @@ h1{
   font-family: 'Alfa Slab One', cursive;
   color: #FFC107;
 }
+
+.icon{
+  display: flex;
+  cursor: pointer;
+  background: #211E22;
+}

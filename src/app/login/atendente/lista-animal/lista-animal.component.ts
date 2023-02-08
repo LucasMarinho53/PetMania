@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/models/funcionario.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { Animal } from 'src/app/models/animal.model'
+import { AnimalService } from 'src/app/services/animal.service'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-animal',
@@ -13,14 +16,23 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class ListaAnimalComponent implements OnInit {
   usuario!:Funcionario
   isActive = false;
+  searchForm!: FormGroup
+  animais!: Animal[]
 
   constructor( private firebaseService: FirebaseService,
     private auth: Auth,
     private router: Router,
+    private animalService: AnimalService,
+    private formBuilder: FormBuilder,
     private fireAuth:AuthService
     ){}
 
     ngOnInit(): void {
+
+      this.searchForm = this.formBuilder.group({
+        searchValue: new FormControl('', [Validators.required]),
+      })
+      this.getAnimal()
 
       console.log(this.auth.currentUser?.email);
 
@@ -50,4 +62,26 @@ export class ListaAnimalComponent implements OnInit {
 
     }
 
-}
+    getAnimal() {
+      this.animalService.getAnimal(this.searchForm.value.searchValue).subscribe({
+        next: (res) => {
+          // console.log(res)
+          this.animais = res;
+        },
+      })
+    }
+
+    redirectToAnimalEdit(id: number | undefined) {
+      this.router.navigate(['editar-cliente', id])
+    }
+
+    redirectToClientList() {
+      this.router.navigate(['atendente/lista-cliente'])
+    }
+
+    redirectToAnimalList() {
+      this.router.navigate(['atendente/lista-animal'])
+    }
+  }
+
+

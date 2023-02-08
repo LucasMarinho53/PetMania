@@ -7,6 +7,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Dono } from 'src/app/models/dono.model';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 
 
@@ -16,6 +18,9 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./lista-cliente.component.css']
 })
 export class ListaClienteComponent implements OnInit {
+  displayedColumns: string[] = ['Id', 'nome', 'telefone', 'email'];
+  dataSource!:MatTableDataSource<Dono>;
+  clickedRows!:Dono;
   usuario!:Funcionario
   isActive = false;
   searchForm!: FormGroup
@@ -27,7 +32,7 @@ export class ListaClienteComponent implements OnInit {
     private formBuilder: FormBuilder,
     private fireAuth:AuthService,
     private clientService: ClienteService
-    ){}
+    ){  }
 
     ngOnInit(): void {
 
@@ -37,6 +42,9 @@ export class ListaClienteComponent implements OnInit {
         searchValue: new FormControl('', [Validators.required]),
       })
       this.getClient();
+
+
+      this.dataSource = new MatTableDataSource(this.donos);
 
 
 
@@ -74,6 +82,10 @@ export class ListaClienteComponent implements OnInit {
           console.error(e)
         },
       })
+    }
+
+    redirectToAnimalRegister(id: number | undefined, id_especie: number) {
+      this.router.navigate(['atendente/cadastrar-animal', id, id_especie])
     }
 
     redirectToClientRegister() {

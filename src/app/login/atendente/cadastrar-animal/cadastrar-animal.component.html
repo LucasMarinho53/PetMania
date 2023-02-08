@@ -1,0 +1,47 @@
+<mat-sidenav-container>
+
+  <mat-sidenav-content>
+    <app-sidenav></app-sidenav>
+    <div class="content" [class.mat-elevation-z4]="!isActive">
+
+      <div class="container">
+        <form [formGroup]="animalForm">
+
+          <h2>Cadastrar Animal</h2>
+          <input type="hidden" id="id_dono" formControlName="id_dono">
+          <div class="input-box">
+            <label for="nome_animal">Nome do animal:</label>
+            <input type="text" id="nome_animal" formControlName="nome_animal">
+          </div>
+
+
+          <span class="gender-title">Sexo do animal</span>
+          <div class="gender-category">
+            <input type="radio" formControlName="sexo_animal" id="sexo_animal" value="m">
+            <label for="sexo_animal">Macho</label>
+          </div>
+          <div class="gender-category">
+            <input type="radio" formControlName="sexo_animal" id="sexo_animal" value="f">
+            <label for="sexo_animal">Fêmea</label>
+          </div>
+
+          <div class="input-box">
+            <label for="data_nasc">Data de nascimento do animal:</label>
+            <input type="date" id="data_nasc" formControlName="data_nasc">
+          </div>
+          <div class="input-box">
+            <label for="id_raca">Raça do animal:</label>
+            <select id="id_raca" formControlName="id_raca">
+              <option *ngFor="let raca of racas" [value]="raca.id_raca">{{raca.nome_raca}}</option>
+            </select>
+          </div>
+          <button type="submit" (click)="registerAnimal()">Cadastrar</button>
+        </form>
+      </div>
+
+    </div>
+
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
