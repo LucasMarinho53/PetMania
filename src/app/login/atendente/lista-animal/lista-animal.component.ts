@@ -71,8 +71,8 @@ export class ListaAnimalComponent implements OnInit {
       })
     }
 
-    redirectToAnimalEdit(id: number | undefined) {
-      this.router.navigate(['editar-cliente', id])
+    redirectToAnimalEdit(id: number | undefined, id_especie: number | undefined) {
+      this.router.navigate(['atendente/editar-animal', id, id_especie])
     }
 
     redirectToClientList() {
