@@ -6,6 +6,8 @@ export class Animal {
   sexo_animal!: string
   data_nasc!: Date
   id_dono!: Dono
+  nome!: string
+  nome_raca!: string
   id_raca!: Raca
   id_animal?: number
 }

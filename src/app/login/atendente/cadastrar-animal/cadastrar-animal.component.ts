@@ -24,6 +24,7 @@ export class CadastrarAnimalComponent implements OnInit {
   id_especie!: number
   dono!: Dono[]
   racas!: Raca[]
+  isActive = false;
 
   constructor(
     private animalService: AnimalService,
