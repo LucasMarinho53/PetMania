@@ -6,7 +6,7 @@ CREATE TABLE endereco(
     bairro		VARCHAR(150),
     logradouro	VARCHAR(150),
     numero		INT,
-    cep			INT
+    cep			VARCHAR(9)
     );
     
 
