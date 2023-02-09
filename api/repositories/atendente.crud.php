@@ -1,5 +1,7 @@
 <?php
 
+
+
 require('connection.php');
 
 /************************************************  FUNÇÕES CLIENTE ****************************************************************************/
@@ -484,15 +486,15 @@ function listaAnimais($busca){
 
         $stmt = $con->prepare("SELECT 
         id,
-        Nome,
-        Sexo,
-        Data_Nascimento,
+        Nome nome,
+        Sexo sexo,
+        Data_Nascimento nascimento,
         id_raca,
         Raca,
         especie,
         id_especie,
         id_dono,
-        Dono
+        Dono dono
         FROM tudo_animal 
         WHERE nome LIKE :termobusca 
         OR Dono LIKE :termobusca

@@ -1,10 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: *');
-header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST, GET, PUT, DELETE');
-
 require('connection.php');
 
 /************************************************  FUNÇÕES CLIENTE ****************************************************************************/
@@ -12,7 +7,7 @@ function cadastroCliente($cliente){ #ok
     try{
         $con  = getConnection();
 
-        $stmt = $con->prepare("INSERT INTO endereco(cidade,bairro,logradouro,numero,cep) VALUES (:cidade,:bairro,:logradouro,:numero,:cep)");
+        $stmt = $con->prepare("INSERT INTO endereco(cidade,bairro,logradouro,numero,CEP) VALUES (:cidade,:bairro,:logradouro,:numero,:cep)");
 
         $stmt->bindParam(":cidade",$cliente->cidade);
         $stmt->bindParam(":bairro",$cliente->bairro);
@@ -23,7 +18,7 @@ function cadastroCliente($cliente){ #ok
             if($stmt->execute()){
                 unset($stmt);
 
-                $stmt = $con->prepare("INSERT INTO dono(cpf,nome,email,endereco,telefone) VALUES(:cpf,:nome,:email,LAST_INSERT_ID(),:telefone)");
+                $stmt = $con->prepare("INSERT INTO dono(cpf,Nome,email,endereco,telefone) VALUES(:cpf,:nome,:email,LAST_INSERT_ID(),:telefone)");
 
                 $stmt->bindParam(":cpf",$cliente->cpf);
                 $stmt->bindParam(":nome",$cliente->nome);
@@ -45,6 +40,7 @@ function cadastroCliente($cliente){ #ok
     }
 }
 
+
 /******Atualização***** */
 
 function atualizaCliente($cliente){ #ok
@@ -54,14 +50,14 @@ function atualizaCliente($cliente){ #ok
 
         $stmt = $con->prepare("UPDATE dono SET
         cpf = :cpf,
-        nome = :nome,
+        Nome = :Nome,
         email = :email,
         telefone = :telefone
         WHERE id_dono = :id_dono");
     
     
         $stmt->bindParam(":cpf", $cliente->cpf);
-        $stmt->bindParam(":nome", $cliente->nome);
+        $stmt->bindParam(":Nome", $cliente->Nome);
         $stmt->bindParam(":email", $cliente->email);
         $stmt->bindParam(":telefone", $cliente->telefone);
         $stmt->bindParam(":id_dono", $cliente->id_dono);
@@ -74,14 +70,14 @@ function atualizaCliente($cliente){ #ok
             bairro = :bairro,
             logradouro = :logradouro,
             numero = :numero,
-            cep = :cep
+            CEP = :CEP
             WHERE id_end = :donoEndereco");
     
             $stmt->bindParam(":cidade",$cliente->cidade);
             $stmt->bindParam(":bairro",$cliente->bairro);
             $stmt->bindParam(":logradouro",$cliente->logradouro);
             $stmt->bindParam(":numero",$cliente->numero);
-            $stmt->bindParam(":cep",$cliente->cep);
+            $stmt->bindParam(":CEP",$cliente->CEP);
             $stmt->bindParam(":donoEndereco",$cliente->endereco);
     
             if($stmt->execute()){
@@ -102,7 +98,7 @@ function listaClienteID($busca){
     try{
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT id_dono,cpf, nome, telefone, email,endereco 
+        $stmt = $con->prepare("SELECT id_dono,cpf, Nome, telefone, email,endereco 
                                FROM dono WHERE id_dono = :termobusca");
 
         $stmt->bindParam(":termobusca",$busca);
@@ -112,7 +108,7 @@ function listaClienteID($busca){
 
             unset($stmt);
 
-            $stmt = $con->prepare("SELECT id_end,cidade,bairro,logradouro,numero,cep cep
+            $stmt = $con->prepare("SELECT id_end,cidade,bairro,logradouro,numero,CEP cep
                                FROM endereco WHERE id_end = :termobusca");
 
             
@@ -132,6 +128,11 @@ function listaClienteID($busca){
         }else{
             return array("result"=>"Dados Incompletos");
         }
+        
+        
+
+
+            
         
     }
     catch(PDOException $error){
@@ -154,13 +155,13 @@ function listaClienteID($busca){
 
 
 function listaClientes($busca)
-{ //ID, nome, TELEFONE, EMAIL
+{ //ID, NOME, TELEFONE, EMAIL
     try {
         $con = getConnection();
         $result = array();
 
-        $stmt = $con->prepare("SELECT id_dono, nome, telefone, email 
-                               FROM dono WHERE nome LIKE :termobusca 
+        $stmt = $con->prepare("SELECT id_dono, Nome, telefone, email 
+                               FROM dono WHERE Nome LIKE :termobusca 
                                OR id_dono LIKE :termobusca");
 
 
@@ -446,7 +447,7 @@ function listaAnimaisID($busca){
 
         $stmt = $con->prepare("SELECT 
         id,
-        nome,
+        Nome,
         Sexo,
         Data_Nascimento,
         id_especie,
@@ -483,7 +484,7 @@ function listaAnimais($busca){
 
         $stmt = $con->prepare("SELECT 
         id,
-        nome,
+        Nome,
         Sexo,
         Data_Nascimento,
         id_raca,

@@ -5,7 +5,7 @@ require('../../crud/atendente.crud.php');
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if(
-    !empty($_POST['nome']) ||
+    !empty($_POST['nome_cliente']) ||
     !empty($_POST['cpf']) ||
     !empty($_POST['email']) ||
     !empty($_POST['telefone']) ||
@@ -20,14 +20,14 @@ if(
 )
 {
     $cliente = new stdClass();
-    $cliente->nome = $_POST['nome'];
+    $cliente->Nome = $_POST['nome_cliente'];
     $cliente->cpf = $_POST['cpf'];
     $cliente->email = $_POST['email'];
     $cliente->telefone = $_POST['telefone'];
     $cliente->cidade = $_POST['cidade'];
     $cliente->bairro = $_POST['bairro'];
     $cliente->logradouro = $_POST['logradouro'];
-    $cliente->cep = $_POST['cep'];
+    $cliente->CEP = $_POST['cep'];
     $cliente->numero = $_POST['numero'];
     $cliente->id_dono = $_POST['id_dono'];
     $cliente->endereco = $_POST['id_end'];
@@ -38,4 +38,3 @@ if(
     echo "{\"result\":\"$result\"}";
     
 }
-
