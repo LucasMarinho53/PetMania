@@ -52,7 +52,7 @@ export class CadastrarAnimalComponent implements OnInit {
         })
 
     this.animalForm = this.formBuilder.group({
-      nome_animal: ['', Validators.required],
+      nome_animal: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
       sexo_animal: ['', Validators.required],
       data_nasc: ['', Validators.required],
       id_dono: [ this.id , Validators.required],

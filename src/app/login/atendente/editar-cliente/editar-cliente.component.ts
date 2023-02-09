@@ -32,7 +32,7 @@ export class EditarClienteComponent implements OnInit {
         next: (res) => {
           this.clientForm = this.formBuilder.group({
             id_dono: [res.id_dono, Validators.required],
-            nome: [res.nome, [Validators.required]],
+            nome: [res.nome, [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
             cpf: [res.cpf, [Validators.required, Validators.pattern('[0-9]{11}')]],
             email: [res.email, [Validators.required, Validators.email]],
             telefone: [res.telefone, [Validators.required, Validators.pattern(/^\d{11}$/)]],

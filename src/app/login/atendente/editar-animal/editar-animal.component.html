@@ -5,10 +5,9 @@
     <div class="content" [class.mat-elevation-z4]="!isActive">
 
       <div class="container">
-        <form [formGroup]="animalForm">
 
-          <h2>Cadastrar Animal</h2>
-          <input type="hidden" id="id_dono" formControlName="id_dono">
+        <form [formGroup]="animalForm" *ngIf="animalForm">
+          <h2>Editar Animal</h2>
           <div class="input-box">
             <label for="nome_animal">Nome do animal:</label>
             <input type="text" id="nome_animal" formControlName="nome_animal">
@@ -31,11 +30,13 @@
           <div class="input-box">
             <label for="id_raca">Raça do animal:</label>
             <select id="id_raca" formControlName="id_raca">
-              <option *ngFor="let raca of racas" [value]="raca.id_raca">{{raca.nome_raca}}</option>
+              <option *ngFor="let raca of racas"
+              [value]="raca.id_raca" selected>{{raca.nome_raca}}</option>
             </select>
           </div>
-          <button type="submit" [disabled]="animalForm.invalid" (click)="registerAnimal()">Cadastrar</button>
+          <button type="submit" [disabled]="animalForm.invalid" (click)="updateAnimal()">Editar Animal</button>
         </form>
+
       </div>
 
     </div>

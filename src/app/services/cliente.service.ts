@@ -50,7 +50,7 @@ export class ClienteService {
     const c_collection = collection(this.firestore, 'donos')
 
     // Retorna os dados da coleção, mapeando-os como objetos do tipo Dono
-    return collectionData(c_collection, { idField: 'cpf' }).pipe(
+    return collectionData(c_collection, { idField: 'email' }).pipe(
       map((res) => res as Dono[])
     )
   }
@@ -67,7 +67,7 @@ export class ClienteService {
   }
 
   registerClientFirebase(dono: Dono): Promise<void> {
-    const document = doc(collection(this.firestore, 'donos'), dono?.cpf.toString())
+    const document = doc(collection(this.firestore, 'donos'), dono?.email)
     return setDoc(document, dono)
   }
 

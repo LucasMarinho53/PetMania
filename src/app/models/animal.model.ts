@@ -9,5 +9,6 @@ export class Animal {
   nome!: string
   nome_raca!: string
   id_raca!: Raca
+  id_especie?: number
   id_animal?: number
 }

@@ -48,6 +48,10 @@ export class AnimalService {
     )
   }
 
+  getAnimalById(id: number): Observable<any> {
+    return this.http.get(`${API_URLS.acharAnimalPorId}?buscar=${id}`)
+  }
+
   getRaceList(busca: number): Observable<Raca[]> {
     return this.http.get<Raca[]>(
       `${API_URLS.listarRacas}?id_especie=${busca}`,
@@ -70,5 +74,19 @@ export class AnimalService {
   registerAnimalFirebase(animal: Animal): Promise<void> {
     const document = doc(collection(this.firestore, 'animais'))
     return setDoc(document, animal)
+  }
+
+  updateAnimal(animal: Animal): Observable<Animal> {
+    const { nome_animal, sexo_animal, data_nasc, id_raca, id_animal } = animal
+    const body = JSON.stringify({
+      nome_animal,
+      sexo_animal,
+      data_nasc,
+      id_raca,
+      id_animal,
+    })
+    // this.updateClientFirebase(dono)
+    // console.log(body)
+    return this.http.post<Animal>(API_URLS.atualizarAnimal, body, HTTP_OPTIONS)
   }
 }
