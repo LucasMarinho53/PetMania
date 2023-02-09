@@ -1,6 +1,6 @@
 <?php
 
-require('./connection.php');
+require('connection.php');
 
 function atualizaFichaMedica($ficha){ #ok
     try{
@@ -20,7 +20,7 @@ function atualizaFichaMedica($ficha){ #ok
         $stmt->bindParam(":id_ficha",$ficha->id_ficha);
 
         if($stmt->execute()){
-            return true;
+            return "success";
         }
         
     }
