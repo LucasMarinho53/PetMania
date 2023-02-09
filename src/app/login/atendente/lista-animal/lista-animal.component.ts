@@ -82,6 +82,10 @@ export class ListaAnimalComponent implements OnInit {
     redirectToAnimalList() {
       this.router.navigate(['atendente/lista-animal'])
     }
+
+    redirectToConsultaRegister(idAnimal: number | undefined, nome_animal: string) {
+      this.router.navigate(['atendente/cadastrar-consulta', idAnimal, nome_animal])
+    }
   }
 
 

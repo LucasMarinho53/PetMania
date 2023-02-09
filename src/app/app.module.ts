@@ -24,7 +24,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input';
 import { ListaAnimalComponent } from './login/atendente/lista-animal/lista-animal.component';
-import { ListaConsultaComponent } from './login/atendente/lista-consulta/lista-consulta.component';
 import { ListaFichaComponent } from './login/veterinario/lista-ficha/lista-ficha.component';
 import { SidenavVetComponent } from './login/veterinario/sidenav-vet/sidenav-vet.component'
 import { HttpClientModule } from '@angular/common/http';
@@ -34,6 +33,8 @@ import { CadastraClienteComponent } from './login/atendente/cadastra-cliente/cad
 import { MatTableModule } from '@angular/material/table';
 import { CadastrarAnimalComponent } from './login/atendente/cadastrar-animal/cadastrar-animal.component';
 import { EditarAnimalComponent } from './login/atendente/editar-animal/editar-animal.component';
+import { CadastrarConsultaComponent } from './login/atendente/cadastrar-consulta/cadastrar-consulta.component';
+import { ListarConsultaComponent } from './login/atendente/listar-consulta/listar-consulta.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +43,14 @@ import { EditarAnimalComponent } from './login/atendente/editar-animal/editar-an
     SidenavComponent,
     AuthComponent,
     ListaAnimalComponent,
-    ListaConsultaComponent,
     ListaFichaComponent,
     SidenavVetComponent,
     EditarClienteComponent,
     CadastraClienteComponent,
     CadastrarAnimalComponent,
-    EditarAnimalComponent
+    EditarAnimalComponent,
+    CadastrarConsultaComponent,
+    ListarConsultaComponent,
   ],
   imports: [
     BrowserModule,

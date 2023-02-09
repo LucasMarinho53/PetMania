@@ -1,0 +1,37 @@
+<mat-sidenav-container>
+
+  <mat-sidenav-content>
+    <app-sidenav></app-sidenav>
+    <div class="content" [class.mat-elevation-z4]="!isActive">
+      <div class="container">
+
+        <form [formGroup]="consultaForm" *ngIf="consultaForm">
+          <h2>Cadastrar Consulta</h2>
+
+          <input type="hidden" formControlName="id_animal">
+
+          <div class="input-box">
+            <label for="nome_animal">Animal:</label>
+            <input type="text" id="nome_animal" formControlName="nome_animal">
+          </div>
+
+          <div class="input-box">
+            <label for="id_raca">Veterinário:</label>
+            <select id="id_vet" formControlName="id_vet">
+              <option *ngFor="let vet of veterinario" [value]="vet.id_vet">{{vet.nome_vet}}</option>
+            </select>
+
+            <div class="input-box-motivo">
+              <label for="motivo">Motivo:</label>
+              <textarea name="textAreaMensagem" id="motivo" formControlName="motivo" cols="30" rows="10"></textarea>
+            </div>
+          </div>
+          <button type="submit" (click)="registerConsulta()">Cadastrar Consulta</button>
+        </form>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
