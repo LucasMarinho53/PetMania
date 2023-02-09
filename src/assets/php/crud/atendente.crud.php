@@ -446,10 +446,10 @@ function listaAnimaisID($busca){
         $con = getConnection();
 
         $stmt = $con->prepare("SELECT 
-        id,
-        Nome,
-        Sexo,
-        Data_Nascimento,
+        id id_animal,
+        Nome nome_animal,
+        Sexo sexo_animal,
+        Data_Nascimento data_nasc,
         id_especie,
         id_raca
         FROM tudo_animal 
@@ -483,16 +483,16 @@ function listaAnimais($busca){
         $con = getConnection();
 
         $stmt = $con->prepare("SELECT 
-        id,
-        Nome,
-        Sexo,
-        Data_Nascimento,
+        id id_animal,
+        Nome nome,
+        Sexo sexo_animal,
+        Data_Nascimento data_nasc,
         id_raca,
-        Raca,
-        especie,
+        Raca nome_raca,
+        especie nome_especie,
         id_especie,
         id_dono,
-        Dono
+        Dono nome_dono
         FROM tudo_animal 
         WHERE nome LIKE :termobusca 
         OR Dono LIKE :termobusca

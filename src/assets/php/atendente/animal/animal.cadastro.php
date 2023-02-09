@@ -22,7 +22,7 @@ $animal = new stdClass();
 $animal->id_dono = $_POST['id_dono'];
 $animal->data_nasc = $_POST['data_nasc'];
 $animal->nome_animal = $_POST['nome_animal'];
-$animal->raca_animal = $_POST['raca_animal'];
+$animal->raca_animal = $_POST['id_raca'];
 $animal->sexo_animal = $_POST['sexo_animal'];
 
 

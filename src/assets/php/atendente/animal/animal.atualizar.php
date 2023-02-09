@@ -6,7 +6,7 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 
 if(
 $_POST['nome_animal'] == NULL ||
-$_POST['sexo'] == NULL ||
+$_POST['sexo_animal'] == NULL ||
 $_POST['data_nasc'] == NULL ||
 $_POST['id_raca'] == NULL ||
 $_POST['id_animal'] == NULL
