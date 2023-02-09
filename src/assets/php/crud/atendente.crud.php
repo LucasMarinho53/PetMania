@@ -281,7 +281,7 @@ function CadastroFichaMedica($ficha) #ok
         $stmt->bindParam(":motivo",$ficha->motivo);
 
         if($stmt->execute()){
-            return true;
+            return "success";
         }
 
     }

@@ -1,7 +1,8 @@
 <?php
 
-require('./atendente.crud.php');
+require('../../crud/atendente.crud.php');
 
+$_POST = json_decode(file_get_contents('php://input'), true);
 
 if(
     empty($_POST['idAnimal']) ||
@@ -10,7 +11,7 @@ if(
 ){
     echo "erro: faltou algo!";
     
-    header("Refresh: 10; atendente.form.cadastro.consulta.php");
+    
 }
 
 else{
@@ -19,11 +20,8 @@ else{
     $consulta->idVet = $_POST['idVet'];
     $consulta->motivo = $_POST['motivo'];
 
-    if(CadastroFichaMedica($consulta)){
-        header("location: redirect.consulta.listar.php");
-        die();
-    }
-    header("location: atendente.listar.consulta.php?status=fail");
+    $result = CadastroFichaMedica($consulta);
+        echo "{\"result\":\"$result\"}";
         die();
 
 }
