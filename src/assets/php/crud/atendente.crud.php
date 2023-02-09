@@ -404,7 +404,7 @@ function servicosPrestados($servico)
         $stmt->bindParam(":idServico",$servico->idServico);
 
         if($stmt->execute()){
-            return true;
+            return "success";
         }
     }
     catch(PDOException $error){
@@ -429,7 +429,7 @@ function removeServicos($remove)
         $stmt->bindParam(":idServico",$remove->idServico);
 
         if($stmt->execute()){
-            return true;
+            return "success";
         }
     }
     catch(PDOException $error){
