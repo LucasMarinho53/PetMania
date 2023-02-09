@@ -98,7 +98,7 @@ function listaClienteID($busca){
     try{
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT id_dono,cpf, Nome, telefone, email,endereco 
+        $stmt = $con->prepare("SELECT id_dono,cpf, Nome nome, telefone, email,endereco 
                                FROM dono WHERE id_dono = :termobusca");
 
         $stmt->bindParam(":termobusca",$busca);
@@ -108,7 +108,7 @@ function listaClienteID($busca){
 
             unset($stmt);
 
-            $stmt = $con->prepare("SELECT id_end,cidade,bairro,logradouro,numero,CEP cep
+            $stmt = $con->prepare("SELECT id_end,cidade localidade,bairro,logradouro,numero,CEP cep
                                FROM endereco WHERE id_end = :termobusca");
 
             
@@ -160,7 +160,7 @@ function listaClientes($busca)
         $con = getConnection();
         $result = array();
 
-        $stmt = $con->prepare("SELECT id_dono, Nome, telefone, email 
+        $stmt = $con->prepare("SELECT id_dono, Nome nome, telefone, email 
                                FROM dono WHERE Nome LIKE :termobusca 
                                OR id_dono LIKE :termobusca");
 
