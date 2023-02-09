@@ -80,7 +80,7 @@ function listarFichas($busca){
         data_visita,
         especie,
         nome_animal,
-        Veterinario,
+        Veterinario veterinario,
         nome_dono,
         motivo_visita
         FROM tudo_ficha 
