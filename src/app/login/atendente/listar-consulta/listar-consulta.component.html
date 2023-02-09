@@ -1,0 +1,55 @@
+
+<mat-sidenav-container>
+
+  <mat-sidenav-content>
+    <app-sidenav></app-sidenav>
+    <div class="content" [class.mat-elevation-z4]="!isActive">
+
+
+        <div class="box">
+          <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getAnimal()">
+            <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar Consulta...">
+            <button type="submit">
+              <mat-icon>search</mat-icon>
+            </button>
+          </form>
+        </div>
+
+        <div class="table">
+          <table class="filter">
+
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Nascimento</th>
+                <th>Raça</th>
+                <th>Dono</th>
+                <th>+</th>
+              </tr>
+
+
+              <tr *ngFor="let animal of animais">
+                <td>{{animal.id_animal}}</td>
+                <td>{{animal.nome_animal}}</td>
+                <td>{{animal.sexo_animal}}</td>
+                <td>{{animal.data_nasc}}</td>
+                <td>{{animal.nome_raca}}</td>
+                <td>{{animal.nome}}</td>
+                <!-- <td>{{animal.id_raca!.nome_raca}}</td>
+                <td>{{animal.id_dono!.nome}}</td> -->
+
+                <td>
+                  <!-- <a><button (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)">img-consult-button</button></a>
+                  <a><button (click)="redirectToAnimalEdit(animal.id_animal, animal.id_especie)">img-edit-button</button></a> -->
+                </td>
+              </tr>
+
+          </table>
+        </div>
+
+    </div>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>

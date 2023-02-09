@@ -11,7 +11,10 @@ import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 import { Animal } from '../models/animal.model'
+import { CadastrarConsultaModel } from '../models/cadastrarConsultaModel.model'
+import { Consulta } from '../models/consulta.model'
 import { Raca } from '../models/raca.model'
+import { Veterinario } from '../models/veterinario.model'
 
 const API_URLS = {
   buscarAnimal:
@@ -24,6 +27,10 @@ const API_URLS = {
     'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.acharid.php',
   atualizarAnimal:
     'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.atualizar.php',
+  buscarVeterinario:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.veterinario.listar.php',
+    cadastrarConsulta:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.cadastrar.php',
 }
 
 const HTTP_OPTIONS = {
@@ -44,6 +51,13 @@ export class AnimalService {
   getAnimal(busca: any = ''): Observable<Animal[]> {
     return this.http.get<Animal[]>(
       `${API_URLS.buscarAnimal}?buscar=${busca}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getVeterinario(): Observable<Veterinario[]> {
+    return this.http.get<Veterinario[]>(
+      `${API_URLS.buscarVeterinario}`,
       HTTP_OPTIONS
     )
   }
@@ -69,6 +83,11 @@ export class AnimalService {
 
   registerAnimal(animal: Animal): Observable<Animal> {
     return this.http.post<Animal>(API_URLS.cadastrarAnimal, animal, HTTP_OPTIONS)
+  }
+
+  registerConsulta(cad: CadastrarConsultaModel): Observable<CadastrarConsultaModel> {
+    // console.log(cad)
+    return this.http.post<CadastrarConsultaModel>(API_URLS.cadastrarConsulta, cad, HTTP_OPTIONS)
   }
 
   registerAnimalFirebase(animal: Animal): Promise<void> {

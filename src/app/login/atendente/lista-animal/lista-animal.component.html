@@ -36,7 +36,7 @@
             <td>{{animal.id_dono!.nome}}</td> -->
 
             <td>
-              <button class="btnIcon"><mat-icon class="consultaIcon">file_open</mat-icon></button>
+              <button class="btnIcon" (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)"><mat-icon class="consultaIcon">file_open</mat-icon></button>
               <button class="btnIcon" (click)="redirectToAnimalEdit(animal.id_animal, animal.id_especie)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>

@@ -30,7 +30,7 @@ export class SidenavComponent {
   }
 
   routerListaConsulta(){
-    this.router.navigateByUrl('atendente/lista-consulta')
+    this.router.navigateByUrl('atendente/listar-consulta')
   }
 
 }
