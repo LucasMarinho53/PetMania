@@ -73,8 +73,12 @@ export class CadastraClienteComponent implements OnInit {
     registerClient() {
       const dono = this.clientForm.value as Dono
       this.clientService.registerClient(dono).subscribe({
-        next: () => {
-          this.router.navigate(['atendente/lista-cliente'])
+        next: (result) => {
+          console.log(result);
+          if(result.result == 'success'){
+            this.clientService.registerClientFirebase(dono);
+            this.router.navigate(['atendente/lista-cliente'])
+          }
         },
         error: (e) => {
           console.error(e)

@@ -31,6 +31,8 @@ const API_URLS = {
     'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.veterinario.listar.php',
     cadastrarConsulta:
     'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.cadastrar.php',
+    listarConsulta:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.listar.php',
 }
 
 const HTTP_OPTIONS = {
@@ -51,6 +53,13 @@ export class AnimalService {
   getAnimal(busca: any = ''): Observable<Animal[]> {
     return this.http.get<Animal[]>(
       `${API_URLS.buscarAnimal}?buscar=${busca}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getConsulta(busca: any = ''): Observable<Consulta[]> {
+    return this.http.get<Consulta[]>(
+      `${API_URLS.listarConsulta}?buscar=${busca}`,
       HTTP_OPTIONS
     )
   }

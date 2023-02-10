@@ -113,3 +113,12 @@ th, td{
   display: flex;
   color: #000000;
 }
+
+.editIcon{
+  width: 25px;
+  padding-top: 2px;
+  cursor: pointer;
+  background: #FAFAFA;
+  display: flex;
+  color: #000000;
+}

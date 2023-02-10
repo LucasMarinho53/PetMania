@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core'
+import { Auth } from '@angular/fire/auth'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Router } from '@angular/router'
 import { Dono } from 'src/app/models/dono.model'
+import { Funcionario } from 'src/app/models/funcionario.model'
+import { AuthService } from 'src/app/services/auth.service'
 import { ClienteService } from 'src/app/services/cliente.service'
+import { FirebaseService } from 'src/app/services/firebase.service'
 
 @Component({
   selector: 'app-editar-cliente',
@@ -15,12 +19,16 @@ export class EditarClienteComponent implements OnInit {
   isActive = false;
   id!: number
   dono!: Dono
+  usuario!:Funcionario
 
   constructor(
     private clientService: ClienteService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private auth: Auth,
+    private fireAuth:AuthService,
+    private firebaseService: FirebaseService,
   ) {}
 
   ngOnInit() {
@@ -52,6 +60,26 @@ export class EditarClienteComponent implements OnInit {
       })
     } else {
     }
+    if(this.auth.currentUser!.email)
+      {
+        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+          next:(res)=>{
+            this.usuario = res
+            if (res.cargo !== 1){
+              this.fireAuth.logout().then(()=>{
+                this.router.navigateByUrl('auth')
+                window.location.reload();
+              }
+
+              )
+            }
+          },
+
+          error:(err)=>console.log(err)
+
+        })
+
+      }
   }
 
   editCliente() {
