@@ -5,8 +5,8 @@ import {
   collection,
   collectionData,
   doc,
-  getDoc,
   setDoc,
+  updateDoc,
 } from '@angular/fire/firestore'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
@@ -46,27 +46,22 @@ export class ClienteService {
   }
 
   getClientFirebase(): Observable<Dono[]> {
-    // Coleta a coleção "donos" do Firestore
     const c_collection = collection(this.firestore, 'donos')
-
-    // Retorna os dados da coleção, mapeando-os como objetos do tipo Dono
-    return collectionData(c_collection, { idField: 'email' }).pipe(
+    // return collectionData(c_collection, { idField: 'cpf' }).pipe(
+      return collectionData(c_collection, { idField: 'email' }).pipe(
       map((res) => res as Dono[])
     )
   }
 
-  registerClient(dono: Dono): Observable<Dono> {
-    // Aqui está desestruturando o objeto "dono" em suas propriedades individuais
+  registerClient(dono: Dono): Observable<any> {
     const { cpf, nome, email, telefone, endereco } = dono
-
-    // Aqui está convertendo as propriedades em um objeto JSON
     const body = JSON.stringify({ cpf, nome, email, telefone, ...endereco })
-
-    this.registerClientFirebase(dono)
-    return this.http.post<Dono>(API_URLS.cadastrarCliente, body, HTTP_OPTIONS)
+    //this.registerClientFirebase(dono)
+    return this.http.post<any>(API_URLS.cadastrarCliente, body, HTTP_OPTIONS)
   }
 
   registerClientFirebase(dono: Dono): Promise<void> {
+    // const document = doc(collection(this.firestore, 'donos'), dono?.cpf.toString())
     const document = doc(collection(this.firestore, 'donos'), dono?.email)
     return setDoc(document, dono)
   }
@@ -75,25 +70,19 @@ export class ClienteService {
     return this.http.get(`${API_URLS.acharClientePorId}?buscar=${id}`)
   }
 
-  updateClient(dono: Dono): Observable<Dono> {
-    // Desestruturação de objeto para pegar as propriedades relevantes
+  updateClient(dono: Dono): Observable<any> {
     const { id_dono, nome, cpf, email, telefone, endereco } = dono
-
-    // Criação do corpo da requisição HTTP com os dados do cliente
     const body = JSON.stringify({ id_dono, nome, cpf, email, telefone, ...endereco })
-
-    this.updateClientFirebase(dono)
-    return this.http.post<Dono>(API_URLS.atualizarCliente, body, HTTP_OPTIONS)
+    //this.updateClientFirebase(dono)
+    return this.http.post<any>(API_URLS.atualizarCliente, body, HTTP_OPTIONS)
   }
 
   updateClientFirebase(dono: Dono): Promise<void> {
-    const document = doc(this.firestore, 'donos', dono?.cpf.toString())
-
-    // Desestruturação dos dados do dono, separando os dados principais dos dados do endereço
-    const { cpf, id_dono, endereco, ...data } = dono
+    // const document = doc(this.firestore, 'donos', dono?.cpf.toString())
+    const document = doc(this.firestore, 'donos', dono?.email)
+    // const { cpf, id_dono, endereco, ...data } = dono
+    const { email, id_dono, endereco, ...data } = dono
     const { id_end, ...enderecoData } = endereco
-
-    // Atualiza o documento do dono no firestore, com os dados principais e os dados do endereço
-    return setDoc(document, { ...data, endereco: enderecoData })
+    return updateDoc(document, { ...data, endereco: enderecoData })
   }
 }
