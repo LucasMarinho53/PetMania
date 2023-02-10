@@ -3,7 +3,7 @@
 require '../crud/veterinario.crud.php';
 
 $_POST = json_decode(file_get_contents('php://input'), true);
-print_r($_POST);
+
 if(
     empty($_POST['diagnostico'])   ||
     empty($_POST['tratamento'])    ||
