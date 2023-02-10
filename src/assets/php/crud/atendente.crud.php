@@ -565,7 +565,7 @@ function listarServicos($busca){
     try{
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT id_ficha_medica, id_servico, nome_servico
+        $stmt = $con->prepare("SELECT id_ficha_medica id_ficha, id_servico, nome_servico
         FROM liga_fichamedica WHERE id_ficha_medica = :termobusca");
 
         
@@ -596,7 +596,7 @@ function listarTodosServicos(){
     try{
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT id, servico
+        $stmt = $con->prepare("SELECT id id_servico, servico
         FROM servico");
 
         
