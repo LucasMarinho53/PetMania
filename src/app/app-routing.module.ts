@@ -39,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'atendente/cadastrar-animal/:id/:id_especie',
-    component: CadastrarAnimalComponent,
+    component: CadastrarAnimalComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/lista-animal',
@@ -47,31 +47,31 @@ const routes: Routes = [
   },
   {
     path: 'atendente/cadastrar-consulta',
-    component: CadastrarConsultaComponent
+    component: CadastrarConsultaComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/cadastrar-consulta/:id/:id2',
-    component: CadastrarConsultaComponent,
+    component: CadastrarConsultaComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/editar-animal/:id/:id_especie',
-    component: EditarAnimalComponent,
+    component: EditarAnimalComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/editar-animal',
-    component: EditarAnimalComponent,
+    component: EditarAnimalComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/listar-consulta',
-    component: ListarConsultaComponent,
+    component: ListarConsultaComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/cadastrar-servico',
-    component: CadastrarServicoComponent,
+    component: CadastrarServicoComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'atendente/cadastrar-servico/:id_ficha/:nome_animal',
-    component: CadastrarServicoComponent,
+    component: CadastrarServicoComponent, ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'cadastrar-cliente',

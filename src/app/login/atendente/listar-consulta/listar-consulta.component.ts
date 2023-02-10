@@ -84,19 +84,19 @@ export class ListarConsultaComponent implements OnInit{
   }
 
   redirectToClientList() {
-    this.router.navigate(['cliente/lista-cliente'])
+    this.router.navigate(['atendente/lista-cliente'])
   }
 
   redirectToAnimalList() {
-    this.router.navigate(['animal/listar-animal'])
+    this.router.navigate(['atendente/lista-animal'])
   }
 
   redirectToConsultaRegister(idAnimal: number | undefined, nome_animal: string) {
-    this.router.navigate(['consulta/cadastrar-consulta', idAnimal, nome_animal])
+    this.router.navigate(['atendente/cadastrar-consulta', idAnimal, nome_animal])
   }
 
   redirectToAnimalEdit(id: number | undefined, id_especie: number | undefined) {
-    this.router.navigate(['animal/editar-animal', id, id_especie])
+    this.router.navigate(['atendente/editar-animal', id, id_especie])
   }
 
   redirectToServices(id_ficha: number, nome_animal: string) {
