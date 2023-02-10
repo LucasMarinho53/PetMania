@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core'
+import { Auth } from '@angular/fire/auth'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Router } from '@angular/router'
 import { Animal } from 'src/app/models/animal.model'
 import { Dono } from 'src/app/models/dono.model'
+import { Funcionario } from 'src/app/models/funcionario.model'
 import { Raca } from 'src/app/models/raca.model'
 import { AnimalService } from 'src/app/services/animal.service'
+import { AuthService } from 'src/app/services/auth.service'
+import { FirebaseService } from 'src/app/services/firebase.service'
 
 @Component({
   selector: 'app-editar-animal',
@@ -20,6 +24,7 @@ export class EditarAnimalComponent {
   dono!: Dono[]
   racas!: Raca[]
   isActive = false;
+  usuario!:Funcionario
 
   idAnimal!: number
   nome_raca!: string
@@ -28,7 +33,10 @@ export class EditarAnimalComponent {
     private router: Router,
     private route: ActivatedRoute,
     private animalService: AnimalService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private auth: Auth,
+    private fireAuth:AuthService,
+    private firebaseService: FirebaseService,
   ) {}
 
   ngOnInit() {
@@ -65,6 +73,27 @@ export class EditarAnimalComponent {
     }else{
 
     }
+
+    if(this.auth.currentUser!.email)
+      {
+        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+          next:(res)=>{
+            this.usuario = res
+            if (res.cargo !== 1){
+              this.fireAuth.logout().then(()=>{
+                this.router.navigateByUrl('auth')
+                window.location.reload();
+              }
+
+              )
+            }
+          },
+
+          error:(err)=>console.log(err)
+
+        })
+
+      }
   }
 
   updateAnimal() {

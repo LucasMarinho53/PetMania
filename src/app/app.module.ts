@@ -35,6 +35,7 @@ import { CadastrarAnimalComponent } from './login/atendente/cadastrar-animal/cad
 import { EditarAnimalComponent } from './login/atendente/editar-animal/editar-animal.component';
 import { CadastrarConsultaComponent } from './login/atendente/cadastrar-consulta/cadastrar-consulta.component';
 import { ListarConsultaComponent } from './login/atendente/listar-consulta/listar-consulta.component';
+import { CadastrarServicoComponent } from './login/atendente/cadastrar-servico/cadastrar-servico.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ListarConsultaComponent } from './login/atendente/listar-consulta/lista
     EditarAnimalComponent,
     CadastrarConsultaComponent,
     ListarConsultaComponent,
+    CadastrarServicoComponent,
   ],
   imports: [
     BrowserModule,

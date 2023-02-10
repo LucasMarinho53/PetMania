@@ -5,7 +5,7 @@ export class Consulta{
   data_visita!: Date
   especie!: string
   nome_animal!: string
-  Veterinario!: Veterinario
+  veterinario!: Veterinario
   nome_dono!: string
   motivo_visita!: string
 }

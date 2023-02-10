@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core'
+import { Auth } from '@angular/fire/auth'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Router } from '@angular/router'
 import { Animal } from 'src/app/models/animal.model'
 import { Dono } from 'src/app/models/dono.model'
+import { Funcionario } from 'src/app/models/funcionario.model'
 import { Raca } from 'src/app/models/raca.model'
 import { AnimalService } from 'src/app/services/animal.service'
+import { AuthService } from 'src/app/services/auth.service'
+import { FirebaseService } from 'src/app/services/firebase.service'
 
 @Component({
   selector: 'app-cadastrar-animal',
@@ -25,12 +29,16 @@ export class CadastrarAnimalComponent implements OnInit {
   dono!: Dono[]
   racas!: Raca[]
   isActive = false;
+  usuario!:Funcionario
 
   constructor(
     private animalService: AnimalService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private auth: Auth,
+    private fireAuth:AuthService,
+    private firebaseService: FirebaseService,
   ) {}
 
   ngOnInit() {
@@ -50,6 +58,29 @@ export class CadastrarAnimalComponent implements OnInit {
             this.racas = res
           },
         })
+
+        if(this.auth.currentUser!.email)
+      {
+        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+          next:(res)=>{
+            this.usuario = res
+            if (res.cargo !== 1){
+              this.fireAuth.logout().then(()=>{
+                this.router.navigateByUrl('auth')
+                window.location.reload();
+              }
+
+              )
+            }
+          },
+
+          error:(err)=>console.log(err)
+
+        })
+
+      }
+
+
 
     this.animalForm = this.formBuilder.group({
       nome_animal: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],

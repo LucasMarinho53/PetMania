@@ -14,6 +14,7 @@ import { CadastrarAnimalComponent } from './login/atendente/cadastrar-animal/cad
 import { EditarAnimalComponent } from './login/atendente/editar-animal/editar-animal.component';
 import { CadastrarConsultaComponent } from './login/atendente/cadastrar-consulta/cadastrar-consulta.component';
 import { ListarConsultaComponent } from './login/atendente/listar-consulta/listar-consulta.component';
+import { CadastrarServicoComponent } from './login/atendente/cadastrar-servico/cadastrar-servico.component';
 
 
 
@@ -63,6 +64,14 @@ const routes: Routes = [
   {
     path: 'atendente/listar-consulta',
     component: ListarConsultaComponent,
+  },
+  {
+    path: 'atendente/cadastrar-servico',
+    component: CadastrarServicoComponent,
+  },
+  {
+    path: 'atendente/cadastrar-servico/:id_ficha/:nome_animal',
+    component: CadastrarServicoComponent,
   },
   {
     path: 'cadastrar-cliente',
