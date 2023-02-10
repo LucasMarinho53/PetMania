@@ -7,6 +7,7 @@ import { Dono } from 'src/app/models/dono.model'
 import { Raca } from 'src/app/models/raca.model'
 import { Servico } from 'src/app/models/servico.model'
 import { ServicoCadastrar } from 'src/app/models/servicoCadastrar.model'
+import { ServicoListarConsulta } from 'src/app/models/servicoListarConsulta.model'
 import { AnimalService } from 'src/app/services/animal.service'
 
 @Component({
@@ -24,6 +25,7 @@ export class CadastrarServicoComponent {
   dono!: Dono[]
   racas!: Raca[]
   servicos!: Servico[]
+  servicoListar!: ServicoListarConsulta[]
   isActive = false;
 
   constructor(
@@ -44,7 +46,7 @@ export class CadastrarServicoComponent {
       this.animalService.getServico().subscribe({
         next: (res) => {
           // console.log(res)
-          this.servicos = res;
+          this.servicos = res
           // console.log(this.servicos)
         },
       })
@@ -55,6 +57,13 @@ export class CadastrarServicoComponent {
         // data_nasc: [res.data_nasc, Validators.required],
         // id_raca: [res.id_raca, Validators.required],
         // id_animal: [this.id, Validators.required],
+      })
+
+      this.animalService.getServicoList(this.id_ficha).subscribe({
+        next: (res) => {
+          this.servicoListar = res
+          // console.log(this.servicoListar)
+        },
       })
 
       // this.animalService.getRaceList(this.id_especie).subscribe({
@@ -84,26 +93,38 @@ export class CadastrarServicoComponent {
   }
 
   redirectToClientList() {
-    this.router.navigate(['cliente/lista-cliente'])
+    this.router.navigate(['atendente/lista-cliente'])
   }
 
   redirectToAnimalList() {
-    this.router.navigate(['animal/listar-animal'])
+    this.router.navigate(['atendente/listar-animal'])
   }
 
   redirectToConsultList() {
-    this.router.navigate(['consulta/listar-consulta'])
+    this.router.navigate(['atendente/listar-consulta'])
   }
 
-  registerServico(){
+  registerServico() {
     const serv = this.servicosForm.value as ServicoCadastrar
     // console.log(serv)
     this.animalService.registerServico(serv).subscribe({
       next: () => {
-        this.router.navigate(['consulta/listar-consulta'])
+        window.location.reload();
       },
       error: (e) => {
         console.error(e)
+      },
+    })
+  }
+
+  removeService(id_servico:number) {
+    const serv = new ServicoCadastrar
+    serv.id_ficha = this.id_ficha
+    serv.id_servico = id_servico
+    console.log(serv);
+    this.animalService.removerServico(serv).subscribe({
+      next: (res) => {
+        window.location.reload();
       },
     })
   }

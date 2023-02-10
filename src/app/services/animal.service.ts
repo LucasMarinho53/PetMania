@@ -16,6 +16,7 @@ import { Consulta } from '../models/consulta.model'
 import { Raca } from '../models/raca.model'
 import { Servico } from '../models/servico.model'
 import { ServicoCadastrar } from '../models/servicoCadastrar.model'
+import { ServicoListarConsulta } from '../models/servicoListarConsulta.model'
 import { Veterinario } from '../models/veterinario.model'
 
 const API_URLS = {
@@ -39,6 +40,10 @@ const API_URLS = {
     'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.php',
     cadastrarServico:
     'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.cadastrar.php',
+    servicoListarConsulta:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.consulta.php',
+    removerServico:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.remover.php',
 }
 
 const HTTP_OPTIONS = {
@@ -59,6 +64,21 @@ export class AnimalService {
   getConsulta(busca: any = ''): Observable<Consulta[]> {
     return this.http.get<Consulta[]>(
       `${API_URLS.listarConsulta}?buscar=${busca}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  removerServico(serv: ServicoCadastrar): Observable<any> {
+
+    return this.http.get<any>(
+      `${API_URLS.removerServico}?idservico=${serv.id_servico}&idficha=${serv.id_ficha}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getServicoList(buscar: number): Observable<ServicoListarConsulta[]> {
+    return this.http.get<ServicoListarConsulta[]>(
+      `${API_URLS.servicoListarConsulta}?buscar=${buscar}`,
       HTTP_OPTIONS
     )
   }

@@ -15,7 +15,7 @@
           <div style="display:flex; justify-content: center; flex-direction: column; width:300px; align-items: center;">
             <label for="id_raca">Serviço para atendimento de id- {{id_ficha}}ao<br>  paciente {{nome_animal}}:</label>
             <select id="id_vet" formControlName="id_servico">
-              <option [value]="" selected disabled>Selecione o Serviço</option>
+              <option value selected disabled>Selecione o Serviço</option>
               <option *ngFor="let serv of servicos" [value]="serv.id">{{serv.servico}}</option>
             </select>
           </div>
@@ -23,30 +23,45 @@
         </div>
       </div>
 
-        <div class="table">
-          <table class="filter">
+      <div class="table">
+      <table class="filter">
 
-              <tr>
-                <th>ID Servico</th>
-                <th>Serviço</th>
-                <th>Remover</th>
-              </tr>
+          <tr>
+            <th>ID Servico</th>
+            <th>Servico</th>
+            <th>Remover</th>
+          </tr>
 
-              <tr>
-                <td>id servico</td>
-                <td>data</td>
+
+          <tr>
+              <tr *ngFor="let serv of servicoListar">
+                <td>{{serv.id_servico}}</td>
+                <td>{{serv.nome_servico}}</td>
                 <td>
-                  <a  style="display:flex; justify-content:center"><button><mat-icon class="editIcon">delete_forever</mat-icon></button></a>
+                  <button (click)="removeService(serv.id_servico)"><mat-icon class="editIcon">delete_forever</mat-icon></button>
                 </td>
-              </tr>
-          </table>
-        </div>
+            </tr>
+            <!-- <td>{{animal.sexo_animal}}</td>
+            <td>{{animal.data_nasc}}</td>
+            <td>{{animal.nome_raca}}</td>
+            <td>{{animal.nome}}</td> -->
+            <!-- <td>{{animal.id_raca!.nome_raca}}</td>
+            <td>{{animal.id_dono!.nome}}</td> -->
 
+            <!-- <td> -->
+              <!-- <a><button (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)">img-consult-button</button></a> -->
+              <!-- <a style="display:flex;justify-content:center"><button  (click)="redirectToServices(cons.id_ficha, cons.nome_animal)">img-edit-button</button></a> -->
+            <!-- </td> -->
+          <!-- </tr> -->
 
-          <button class="btn" (click)="registerServico()" [disabled]="servicosForm.invalid"> Cadastrar Serviço</button>
-
-      </div>
+      </table>
     </div>
+
+      <button class="btn" (click)="registerServico()" [disabled]="servicosForm.invalid"> Cadastrar Serviço</button>
+
+    </div>
+
+  </div>
   </mat-sidenav-content>
 
 
