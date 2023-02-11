@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', 0);
 header('Access-Control-Allow-Origin: *');
 header("content-type: application/json");
 //header("Content-type: application/x-www-form-urlencoded");
@@ -8,6 +8,7 @@ header("Access-Control-Allow-Headers: *");
 
 require('../../crud/atendente.crud.php');
 
+
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if(
@@ -15,7 +16,7 @@ if(
     !empty($_POST['cpf']) ||
     !empty($_POST['email']) ||
     !empty($_POST['telefone']) ||
-    !empty($_POST['localidade']) ||
+    !empty($_POST['cidade']) ||
     !empty($_POST['bairro']) ||
     !empty($_POST['logradouro']) ||
     !empty($_POST['cep']) ||
@@ -30,7 +31,7 @@ if(
     $cliente->cpf = $_POST['cpf'];
     $cliente->email = $_POST['email'];
     $cliente->telefone = $_POST['telefone'];
-    $cliente->cidade = $_POST['localidade'];
+    $cliente->cidade = $_POST['cidade'];
     $cliente->bairro = $_POST['bairro'];
     $cliente->logradouro = $_POST['logradouro'];
     $cliente->CEP = $_POST['cep'];
