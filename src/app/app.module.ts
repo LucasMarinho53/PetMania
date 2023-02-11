@@ -6,6 +6,7 @@ import {MatSidenavModule} from '@angular/material/sidenav'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { EditarAnimalComponent } from './login/atendente/editar-animal/editar-an
 import { CadastrarConsultaComponent } from './login/atendente/cadastrar-consulta/cadastrar-consulta.component';
 import { ListarConsultaComponent } from './login/atendente/listar-consulta/listar-consulta.component';
 import { CadastrarServicoComponent } from './login/atendente/cadastrar-servico/cadastrar-servico.component';
+import { EditarFichaComponent } from './login/veterinario/editar-ficha/editar-ficha.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { CadastrarServicoComponent } from './login/atendente/cadastrar-servico/c
     CadastrarConsultaComponent,
     ListarConsultaComponent,
     CadastrarServicoComponent,
+    EditarFichaComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import { CadastrarServicoComponent } from './login/atendente/cadastrar-servico/c
     MatInputModule,
     HttpClientModule,
     MatTableModule,
+    MatSelectModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

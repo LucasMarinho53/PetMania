@@ -14,6 +14,9 @@ import { Animal } from '../models/animal.model'
 import { CadastrarConsultaModel } from '../models/cadastrarConsultaModel.model'
 import { Consulta } from '../models/consulta.model'
 import { Raca } from '../models/raca.model'
+import { Servico } from '../models/servico.model'
+import { ServicoCadastrar } from '../models/servicoCadastrar.model'
+import { ServicoListarConsulta } from '../models/servicoListarConsulta.model'
 import { Veterinario } from '../models/veterinario.model'
 
 const API_URLS = {
@@ -33,6 +36,14 @@ const API_URLS = {
     'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.cadastrar.php',
     listarConsulta:
     'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.listar.php',
+    listarServico:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.php',
+    cadastrarServico:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.cadastrar.php',
+    servicoListarConsulta:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.consulta.php',
+    removerServico:
+    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.remover.php',
 }
 
 const HTTP_OPTIONS = {
@@ -50,16 +61,38 @@ const HTTP_OPTIONS = {
 export class AnimalService {
   constructor(private http: HttpClient, private firestore: Firestore) {}
 
-  getAnimal(busca: any = ''): Observable<Animal[]> {
-    return this.http.get<Animal[]>(
-      `${API_URLS.buscarAnimal}?buscar=${busca}`,
+  getConsulta(busca: any = ''): Observable<Consulta[]> {
+    return this.http.get<Consulta[]>(
+      `${API_URLS.listarConsulta}?buscar=${busca}`,
       HTTP_OPTIONS
     )
   }
 
-  getConsulta(busca: any = ''): Observable<Consulta[]> {
-    return this.http.get<Consulta[]>(
-      `${API_URLS.listarConsulta}?buscar=${busca}`,
+  removerServico(serv: ServicoCadastrar): Observable<any> {
+
+    return this.http.get<any>(
+      `${API_URLS.removerServico}?idservico=${serv.id_servico}&idficha=${serv.id_ficha}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getServicoList(buscar: number): Observable<ServicoListarConsulta[]> {
+    return this.http.get<ServicoListarConsulta[]>(
+      `${API_URLS.servicoListarConsulta}?buscar=${buscar}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getServico(busca: any = ''): Observable<Servico[]> {
+    return this.http.get<Servico[]>(
+      `${API_URLS.listarServico}${busca}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getAnimal(busca: any = ''): Observable<Animal[]> {
+    return this.http.get<Animal[]>(
+      `${API_URLS.buscarAnimal}?buscar=${busca}`,
       HTTP_OPTIONS
     )
   }
@@ -90,6 +123,10 @@ export class AnimalService {
     )
   }
 
+  registerServico(serv: ServicoCadastrar): Observable<ServicoCadastrar> {
+    return this.http.post<ServicoCadastrar>(API_URLS.cadastrarServico, serv, HTTP_OPTIONS)
+  }
+
   registerAnimal(animal: Animal): Observable<Animal> {
     return this.http.post<Animal>(API_URLS.cadastrarAnimal, animal, HTTP_OPTIONS)
   }
@@ -97,6 +134,11 @@ export class AnimalService {
   registerConsulta(cad: CadastrarConsultaModel): Observable<CadastrarConsultaModel> {
     // console.log(cad)
     return this.http.post<CadastrarConsultaModel>(API_URLS.cadastrarConsulta, cad, HTTP_OPTIONS)
+  }
+
+  registerConsultaFirebase(consulta: Consulta): Promise<void>{
+    const document = doc(collection(this.firestore, 'consultas'));
+    return setDoc(document, consulta);
   }
 
   registerAnimalFirebase(animal: Animal): Promise<void> {

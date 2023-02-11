@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Router } from '@angular/router'
 import { Animal } from 'src/app/models/animal.model'
+import { Consulta } from 'src/app/models/consulta.model'
 import { Dono } from 'src/app/models/dono.model'
 import { Funcionario } from 'src/app/models/funcionario.model'
 import { Raca } from 'src/app/models/raca.model'
@@ -105,9 +106,11 @@ export class CadastrarConsultaComponent implements OnInit {
     })
   }
 
-  registerConsulta() {
+  registerConsulta(values: any) {
+    let newConsulta:Consulta = {...values};
     this.animalService.registerConsulta(this.consultaForm.value).subscribe((response) => {
-      console.log(response)
+
+      this.animalService.registerConsultaFirebase(newConsulta);
       this.router.navigate(['atendente/listar-consulta'])
     })
   }
