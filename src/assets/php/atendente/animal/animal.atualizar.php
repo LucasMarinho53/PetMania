@@ -25,7 +25,7 @@ $_POST['id_animal'] == NULL
 $atualizaanimal = new stdClass();
 
 $atualizaanimal->nome_animal = $_POST['nome_animal'];
-$atualizaanimal->sexo_animal = $_POST['sexo'];
+$atualizaanimal->sexo_animal = $_POST['sexo_animal'];
 $atualizaanimal->data_nasc = $_POST['data_nasc'];
 $atualizaanimal->raca_animal = $_POST['id_raca'];
 $atualizaanimal->id_animal = $_POST['id_animal'];
