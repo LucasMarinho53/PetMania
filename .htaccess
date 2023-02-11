@@ -1,0 +1,15 @@
+Options +Multiviews
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/.])$ $1.php [NC,L]
+# DirectoryIndex load_configs.php
+
+
+
+# RewriteRule ^(.*)$ load_configs.php?url=$1 [L,QSA]
+# #php_value auto_prepend_file "__DIR__\\load_configs.php"
+
+# # Options +FollowSymlinks
+# # DirectoryIndex load_configs.php
+
