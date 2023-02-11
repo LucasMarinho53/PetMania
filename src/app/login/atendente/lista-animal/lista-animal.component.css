@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+.mat-elevation-z4 {
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)
+}
+
+.content{
+  height: calc(100vh - 48px);
+  margin: 16px;
+  margin-left: 262px;
+
+
+
+  font-size: medium;
+
+  border-radius: 10px;
+}
+
+mat-sidenav-container{
+  height: calc(100vh - 15px);
+}
+
+mat-icon{
+  color: #FFC107;
+}
+
+body{
+  max-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+main.table{
+  height: 80vh;
+}
+
+.table_body{
+  width: 100%;
+  max-height: calc(89% - .8rem);
+
+  margin: .8rem auto;
+
+  overflow: auto;
+}
+
+table {
+  max-height: 60vh;
+  width: 80vw;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(32,32,32,.3);
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table_body::-webkit-scrollbar{
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+th{
+  background: #FFC107;
+}
+
+th, td{
+  font-family: 'Arvo', serif;
+  padding: 10px 15px;
+}
+
+.btn{
+  background: #FFC107;
+  width: fit-content;
+  height: 40px;
+  padding: 10px;
+
+  margin-left: 630px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.box{
+  margin-left: 250px;
+  height: 45px;
+  width: 500px;
+
+  margin-bottom: 10px;
+  margin-left: 32%;
+  padding: 5px 30px;
+  background: #fff;
+  border-radius: 30px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.box input{
+  width: 400px;
+  height: 20px;
+  padding: 10px 30px;
+  font-size: large;
+}
+
+.box mat-icon{
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  padding-top: 5px;
+}
+
+img{
+  width: 25px;
+  padding-left: 5px;
+  cursor: pointer;
+  background: #FAFAFA;
+  display: flex;
+}
+
+.btnImg{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btnIcon{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.editIcon{
+  width: 25px;
+  padding-top: 2px;
+  cursor: pointer;
+  background: #FAFAFA;
+  display: flex;
+  color: #000000;
+}

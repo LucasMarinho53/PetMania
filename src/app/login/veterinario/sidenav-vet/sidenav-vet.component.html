@@ -1,0 +1,16 @@
+<mat-sidenav mode="side" opened>
+  <div>
+    <img src="../../assets/img/logo/logo.png">
+    <h1>PetMania</h1>
+  </div>
+
+  <button (click)="routerListaFicha()" mat-button class="menu-button">
+    <mat-icon style="margin-right: 8px;">face</mat-icon>
+    <a>Ficha Clínica</a>
+  </button>
+
+  <button (click)="logout()">
+    <mat-icon class="icon" slot="icon-only" name="log-out">login</mat-icon>
+  </button>
+
+</mat-sidenav>

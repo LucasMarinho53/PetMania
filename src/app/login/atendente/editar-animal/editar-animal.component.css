@@ -1,0 +1,101 @@
+.mat-elevation-z4 {
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)
+}
+
+.content{
+  height: calc(100vh - 48px);
+  margin: 16px;
+  margin-left: 262px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+
+  border-radius: 10px;
+}
+
+mat-sidenav-container{
+  height: calc(100vh - 15px);
+}
+
+mat-icon{
+  color: #FFC107;
+}
+
+*{
+  font-size: medium;
+}
+
+.container{
+  width: 650px;
+  padding: 28px;
+  margin: 0 28px;
+  box-shadow: 0 15px 20px #ABB2B9;
+}
+
+h2{
+  font-size: 26px;
+  font-weight: 600;
+  text-align: left;
+  color: black;
+  padding-bottom: 1px solid silver;
+}
+
+.input-box{
+  display: flex;
+  flex-wrap: wrap;
+  width: 105%;
+  padding-bottom: 15px;
+}
+
+.input-box input{
+  height: 40px;
+  width: 95%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.input-box select{
+  height: 40px;
+  width: 95%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+button{
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  display: block;
+  font-size: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background: #FFC107;
+}
+
+.gender-title{
+  font-size: 16px;
+  width: 95%;
+  margin: 5px 0;
+}
+
+.gender-category{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.gender-category label{
+  padding: 0 20px 0 5px;
+  font-size: 14px;
+}
+
+.gender-category label, .gender-category input{
+  cursor: pointer;
+}

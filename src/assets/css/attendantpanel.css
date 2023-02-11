@@ -1,0 +1,493 @@
+body{
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Dosis' , sans-serif;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #343633;
+}
+.sidebar{
+    background-color: var(--color);
+    width: 20.063rem;
+    height: 100vh;
+}
+.sidebar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+.sidebar-container h1{
+    margin: 25px auto;
+}
+.sidebar-container span {
+    color: #1E96FC;
+}
+.sidebar-content{
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-content i {
+    margin-right: 18px;
+}
+.sidebar__button{
+    margin: 8px auto;
+    width: 14.375rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+}
+.btn-client{
+    background-color: var(--secondary-color);
+}
+.btn-client:hover{
+    transition: 0.3s ease-in-out;
+    background-color: var(--royal-blue);
+}
+.btn-animal{
+    background-color: var(--sky-blue);
+}
+.btn-animal:hover{
+    background-color: var(--secondary-color);
+}
+.btn-consult{
+    background-color: var(--primary-color);
+}
+.btn-consult:hover{
+    transition: 0.3s ease-in-out;
+    background-color: var( --royal-pink);
+}
+.btn-pacient{
+    background-color: transparent;
+    color: var(--black-color);
+}
+.btn-pacient:hover{
+    transition: 0.3s ease-in-out;
+    background-color: var( --black-color);
+    color: var(--color);
+}
+.main-container{
+    background-color: #E3E3E3;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container__title{
+    margin: 20px;
+}
+.main-container h1 {
+    color: #343633;
+    text-align: center;
+    font-size: 2.188rem;
+}
+.table-pacient {
+    background-color: #FFF;
+    width: 70vw;
+    height: 75vh;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.input{
+    padding: 5px;
+    background: #EAE7E7;
+    border-radius: 15px;
+    width: 18.75rem;
+    height: 2.5rem;
+    margin: 15px;
+}
+.input-n{
+    width: 6.25rem;
+}
+.label{
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--black-color);
+    font-family: 'Dosis' , sans-serif;
+}
+.ipt{
+    display: flex;
+    flex-direction: column;
+}
+/*Cadastrar Cliente*/
+.form-cliente{
+    background-color: #FFF;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.cad-cliente{
+    margin: 8px auto;
+    width: 14.375rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-color);
+}
+.cliente__box{
+    padding: 25px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+}
+.cliente__box--right{
+    padding: 25px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cadastrar Animal */
+.form-animal{
+    background-color: #FFF;
+    width: 70vw;
+    height: 78vh;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.cad-animal{
+    margin: 8px auto;
+    width: 14.375rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--sky-blue);
+}
+.box-check{
+    width: 18.75rem;
+    height: 2.5rem;
+    margin: 15px;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+}
+input[type=radio] {
+    margin: 5px;
+  }
+.box-check .m{
+    color: var(--secondary-color);
+}
+.box-check .f{
+    color: var(--primary-color);
+}
+
+/*Cadastrar Consulta*/
+.form-consulta{
+    background-color: #FFF;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.form-container{
+    display: flex;
+    align-items: center;
+}
+.form-container .box{
+    padding: 25px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+}
+.container__textarea{
+    padding: 25px;
+    padding-top: 0;
+    width: 100%;
+    height: 20rem;
+}
+
+select{
+    padding: 5px;
+    background: var(--sky-blue);
+    border-radius: 15px;
+    width: 18.75rem;
+    height: 2.5rem;
+    margin: 10px;
+    color: var(--color);
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+}
+.form-content{
+    display: flex;
+    flex-direction: column;
+}
+.textarea{
+    background: #e2e2e2;
+    padding: 5px;
+    height: 10rem;
+    resize:none;
+    display: block;
+    width: 100%;
+    color: var(--black-color);
+}
+.cad-consult{
+    margin: 8px auto;
+    width: 14.375rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-color);
+}
+
+
+
+/*Cadastrar serviço*/
+.form-servico{
+    background-color: #FFF;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.form-container{
+    display: flex;
+    align-items: center;
+}
+.form-container .box{
+    padding: 25px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+}
+.container__textarea{
+    padding: 25px;
+    padding-top: 0;
+    width: 100%;
+    height: 20rem;
+}
+
+select{
+    padding: 5px;
+    background: var(--sky-blue);
+    border-radius: 15px;
+    width: 18.75rem;
+    height: 2.5rem;
+    margin: 10px;
+    color: var(--color);
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+}
+.form-content{
+    display: flex;
+    flex-direction: column;
+}
+.textarea{
+    background: #e2e2e2;
+    padding: 5px;
+    height: 10rem;
+    resize:none;
+    display: block;
+    width: 100%;
+    color: var(--black-color);
+}
+.cad-servico{
+    margin: 8px auto;
+    width: 14.375rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-color);
+}
+
+
+/*Pacientes*/
+
+.infinit__table{
+    max-height: 440px;
+    height: 100%;
+    overflow-x: hidden;
+}
+.table{
+    width: 100%;
+    text-align: center;
+    overflow-y: auto;
+}
+#thead {
+    color: var(--color);
+    height: 1.875rem;
+    letter-spacing: 2px;
+    background-color: var(--sky-blue);
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+tbody > tr{
+    height: 30px;
+}
+.info{
+    color: var(--sky-blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cabecalho__main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btn__lista{
+    color: var(--color);
+    padding: 5px;
+    z-index: 99;
+    width: 12rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    font-size: 1.100rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+}
+.cliente{
+    background-color: var(--secondary-color);
+}
+.animal{
+    background-color: var(--sky-blue);
+}
+.consult{
+    background-color: var(--primary-color);
+}
+
+.searchbar{
+   padding: 18px 0 15px 10px;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+}
+.search__input{
+    width: 80%;
+    height: 30px;
+    border-radius: 6px;
+    background-color: #EAE7E7;
+    padding: 5px;
+}
+.btn-search{
+    width: 40px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: var(--color);
+    cursor: pointer;
+}
+.fa-eraser{
+ color:red;
+}
+/* FIcha */
+.form-ficha{
+    background-color: #FFF;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+}
+.ficha-container{
+    display: flex;
+    align-items: center;
+}
+.box-p{
+    padding: 20px;
+}
+.container__area{
+    padding: 25px;
+    padding-top: 0;
+    width: 100%;
+    height: 20rem;
+}
+.ficha__textarea{
+    background: #e2e2e2;
+    padding: 5px;
+    height: 5.5rem;
+    resize:none;
+    display: block;
+    width: 100%;
+    color: var(--black-color);
+}
+.btn-ficha{
+    margin: 8px auto;
+    width: 14.375rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+.btn__main{
+    display: flex;
+} 

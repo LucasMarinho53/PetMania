@@ -1,0 +1,30 @@
+
+  <mat-sidenav mode="side" opened>
+    <div>
+      <img src="../../assets/img/logo/logo.png">
+      <h1>PetMania</h1>
+    </div>
+
+    <button (click)="routerLista()" mat-button class="menu-button">
+      <mat-icon style="margin-right: 8px;">face</mat-icon>
+      <a>Clientes</a>
+    </button>
+
+    <button (click)="routerListaAnimal()" mat-button class="menu-button">
+      <mat-icon style="margin-right: 8px;">pets</mat-icon>
+      <a>Animais</a>
+    </button>
+
+    <button (click)="routerListaConsulta()" mat-button class="menu-button">
+      <mat-icon style="margin-right: 8px;">tab_group</mat-icon>
+      <a>Consultas</a>
+    </button>
+
+    <button (click)="logout()">
+      <mat-icon class="icon" slot="icon-only" name="log-out">login</mat-icon>
+    </button>
+
+  </mat-sidenav>
+
+
+
