@@ -15,6 +15,7 @@ import { EditarAnimalComponent } from './login/atendente/editar-animal/editar-an
 import { CadastrarConsultaComponent } from './login/atendente/cadastrar-consulta/cadastrar-consulta.component';
 import { ListarConsultaComponent } from './login/atendente/listar-consulta/listar-consulta.component';
 import { CadastrarServicoComponent } from './login/atendente/cadastrar-servico/cadastrar-servico.component';
+import { EditarFichaComponent } from './login/veterinario/editar-ficha/editar-ficha.component';
 
 
 
@@ -88,6 +89,15 @@ const routes: Routes = [
   {
     path: 'lista-ficha',
     component: ListaFichaComponent, ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'veterinario/editar-ficha',
+    component: EditarFichaComponent,
+  },
+
+  {
+    path: 'veterinario/editar-ficha/:id_ficha/:nome_animal/:veterinario',
+    component: EditarFichaComponent,
   },
 
 ];
