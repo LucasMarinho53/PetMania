@@ -1,0 +1,39 @@
+<ion-content class="swiper-no-swiping">
+  <div class="container top" >
+
+    <ion-img src="https://cdn.discordapp.com/attachments/1040404882554900622/1071493589655359649/logo.png"></ion-img>
+
+  </div>
+
+  <ion-slides>
+    <ion-slide>
+      <div class="slide-inner ion-padding">
+        <span>Login</span>
+      <form [formGroup]="credentials" (ngSubmit)="login()">
+        <ion-item color="dark" class="ion-margin-top" lines="none">
+          <ion-input color="light" type="email" placeholder="E-mail" formControlName="email" ></ion-input>
+        </ion-item>
+
+        <ion-item color="dark" class="ion-margin-top" lines="none">
+          <ion-input color="light" type="password" placeholder="Senha" formControlName="password" ></ion-input>
+        </ion-item>
+
+        <ion-button [disabled]="!credentials.valid"  type="submit" class="ion-margin-top"  color="dark" expand="block">
+          Entrar
+        </ion-button>
+        <ion-button  class="ion-margin-top" (click)="PageHome()" color="dark" expand="block">
+          Retornar para a página ínicial
+        </ion-button>
+      </form>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="footer">
+    <div class="footer" ></div>
+
+    <div class="container bottom ion-text-center" >
+      <span>A Petmania é a veterinária mais cuidadosa da região!</span>
+    </div>
+  </div>
+</ion-content>
