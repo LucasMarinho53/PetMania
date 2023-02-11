@@ -21,29 +21,29 @@ import { Veterinario } from '../models/veterinario.model'
 
 const API_URLS = {
   buscarAnimal:
-    'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.listar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/animal/animal.listar.php',
   listarRacas:
-    'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.listar-racas.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/animal/animal.listar-racas.php',
   cadastrarAnimal:
-    'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.cadastro.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/animal/animal.cadastro.php',
   acharAnimalPorId:
-    'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.acharid.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/animal/animal.acharid.php',
   atualizarAnimal:
-    'http://localhost/PetMania-master/src/assets/php/atendente/animal/animal.atualizar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/animal/animal.atualizar.php',
   buscarVeterinario:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.veterinario.listar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/consulta.veterinario.listar.php',
     cadastrarConsulta:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.cadastrar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/consulta.cadastrar.php',
     listarConsulta:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.listar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/consulta.listar.php',
     listarServico:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.listar.php',
     cadastrarServico:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.cadastrar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.cadastrar.php',
     servicoListarConsulta:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.consulta.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.listar.consulta.php',
     removerServico:
-    'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.remover.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.remover.php',
 }
 
 const HTTP_OPTIONS = {

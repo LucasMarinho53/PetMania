@@ -13,7 +13,11 @@
         </form>
       </div>
 
-      <div class="table">
+      <body>
+        <main class="table">
+        <section class="table_body">
+
+
       <table class="filter">
           <tr>
             <th>ID</th>
@@ -31,19 +35,23 @@
             <td>{{animal.sexo_animal}}</td>
             <td>{{animal.data_nasc}}</td>
             <td>{{animal.nome_raca}}</td>
-            <td>{{animal.nome}}</td>
+            <td>{{animal.nome_dono}}</td>
             <!-- <td>{{animal.id_raca!.nome_raca}}</td>
             <td>{{animal.id_dono!.nome}}</td> -->
 
             <td>
-              <button class="btnIcon" (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)"><mat-icon class="consultaIcon">file_open</mat-icon></button>
+              <button class="btnIcon" (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)"><mat-icon class="editIcon">file_open</mat-icon></button>
               <button class="btnIcon" (click)="redirectToAnimalEdit(animal.id_animal, animal.id_especie)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>
 
       </table>
+
+          </section>
+        </main>
+      </body>
     </div>
-  </div>
+
 
   </mat-sidenav-content>
 

@@ -5,7 +5,7 @@
     <div class="content" [class.mat-elevation-z4]="!isActive">
 
 
-        <button class="btn" type="button" (click)="redirectToClientRegister()">Cadastrar</button>
+        <button class="btn" type="button" (click)="redirectToClientRegister()">Cadastrar Novo Cliente</button>
 
        <div class="box">
         <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
@@ -16,9 +16,12 @@
         </form>
       </div>
 
+      <body>
+      <main class="table">
+      <section class="table_body">
 
-      <div class="table">
-      <table class="filter" >
+      <table class="filter">
+        <thead>
           <tr>
             <th>ID</th>
             <th>Nome</th>
@@ -26,7 +29,8 @@
             <th>Email</th>
             <th>+</th>
           </tr>
-
+        </thead>
+        <tbody>
           <tr *ngFor="let dono of donos">
             <td>{{dono.id_dono}}</td>
             <td>{{dono.nome}}</td>
@@ -38,12 +42,17 @@
               <button class="btnIcon" (click)="redirectToClientEdit(dono.id_dono)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>
+        </tbody>
 
       </table>
-      </div>
 
+
+    </section>
+  </main>
+</body>
 
     </div>
+
 
   </mat-sidenav-content>
 

@@ -15,13 +15,13 @@ import { Dono } from '../models/dono.model'
 
 const API_URLS = {
   buscarCliente:
-    'http://localhost/PetMania-master/src/assets/php/atendente/cliente/cliente.listar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/cliente/cliente.listar.php',
   cadastrarCliente:
-    'http://localhost/PetMania-master/src/assets/php/atendente/cliente/cliente.cadastro.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/cliente/cliente.cadastro.php',
   acharClientePorId:
-    'http://localhost/PetMania-master/src/assets/php/atendente/cliente/cliente.acharid.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/cliente/cliente.acharid.php',
   atualizarCliente:
-    'http://localhost/PetMania-master/src/assets/php/atendente/cliente/cliente.atualizar.php',
+    'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/cliente/cliente.atualizar.php',
 }
 
 const HTTP_OPTIONS = {

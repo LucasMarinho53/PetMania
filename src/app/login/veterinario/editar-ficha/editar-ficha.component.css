@@ -3,16 +3,15 @@
 }
 
 .content{
-  height: calc(100vh - 48px);
+  min-height: calc(100vh - 48px);
   margin: 16px;
   margin-left: 262px;
   display:flex;
   justify-content: center;
   align-items: center;
-
   font-size: 2rem;
-
   border-radius: 10px;
+  max-height: fit-content;
 }
 
 mat-sidenav-container{
@@ -46,6 +45,7 @@ h2{
 .input-box{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   width: 105%;
   padding-bottom: 15px;
 }
@@ -69,4 +69,20 @@ button{
   border: none;
   border-radius: 5px;
   background: #FFC107;
+}
+textarea{
+  height: 50px;
+  width: 95%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.input-text{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 105%;
+  padding-bottom: 15px;
 }
