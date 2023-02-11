@@ -7,7 +7,7 @@
 
 
       <div class="box">
-        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getAnimal()">
+        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getConsulta()">
           <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar Consulta...">
           <button type="submit">
             <mat-icon>search</mat-icon>
