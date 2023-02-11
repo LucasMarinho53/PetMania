@@ -114,4 +114,6 @@ export class CadastrarConsultaComponent implements OnInit {
       this.router.navigate(['atendente/listar-consulta'])
     })
   }
+
+  get motivo() { return this.consultaForm.get('motivo')!; }
 }

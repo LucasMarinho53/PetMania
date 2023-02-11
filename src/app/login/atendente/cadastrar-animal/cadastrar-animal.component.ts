@@ -98,4 +98,10 @@ export class CadastrarAnimalComponent implements OnInit {
       this.router.navigate(['atendente/lista-animal']);
     })
   }
+
+  get nome() { return this.animalForm.get('nome_animal')!; }
+  get sexo_animal() { return this.animalForm.get('sexo_animal')!; }
+  get data_nasc() { return this.animalForm.get('data_nasc')!; }
+  get id_dono() { return this.animalForm.get('id_dono')!; }
+  get id_raca() { return this.animalForm.get('id_raca')!; }
 }

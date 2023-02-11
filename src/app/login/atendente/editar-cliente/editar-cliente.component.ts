@@ -88,4 +88,14 @@ export class EditarClienteComponent implements OnInit {
       this.router.navigate(['atendente/lista-cliente'])
     })
   }
+
+  get nome() { return this.clientForm.get('nome')!; }
+    get cpf() { return this.clientForm.get('cpf')!; }
+    get email() { return this.clientForm.get('email')!; }
+    get telefone() { return this.clientForm.get('telefone')!; }
+    get cidade() { return this.clientForm.get('endereco')?.get('cidade')!; }
+    get bairro() { return this.clientForm.get('endereco')?.get('bairro')!; }
+    get logradouro() { return this.clientForm.get('endereco')?.get('logradouro')!; }
+    get cep() { return this.clientForm.get('endereco')?.get('cep')!; }
+    get numero() { return this.clientForm.get('endereco')?.get('numero')!; }
 }

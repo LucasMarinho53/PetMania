@@ -34,9 +34,9 @@ export class CadastraClienteComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         telefone: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
         endereco: this.formBuilder.group({
-          cidade: ['', [Validators.required]],
-          bairro: ['', [Validators.required]],
-          logradouro: ['', [Validators.required]],
+          cidade: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+          bairro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+          logradouro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
           cep: ['', [Validators.required,  Validators.pattern('[0-9]{8}')]],
           numero: ['', [Validators.required, , Validators.pattern('[0-9]+')]],
         }),
@@ -85,5 +85,15 @@ export class CadastraClienteComponent implements OnInit {
         },
       })
     }
+
+    get nome() { return this.clientForm.get('nome')!; }
+    get cpf() { return this.clientForm.get('cpf')!; }
+    get email() { return this.clientForm.get('email')!; }
+    get telefone() { return this.clientForm.get('telefone')!; }
+    get cidade() { return this.clientForm.get('endereco')?.get('cidade')!; }
+    get bairro() { return this.clientForm.get('endereco')?.get('bairro')!; }
+    get logradouro() { return this.clientForm.get('endereco')?.get('logradouro')!; }
+    get cep() { return this.clientForm.get('endereco')?.get('cep')!; }
+    get numero() { return this.clientForm.get('endereco')?.get('numero')!; }
 
 }

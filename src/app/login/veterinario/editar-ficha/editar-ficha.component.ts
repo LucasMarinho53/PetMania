@@ -118,4 +118,8 @@ export class EditarFichaComponent {
       this.router.navigate(['lista-ficha'])
     })
   }
+  get diagnostico() { return this.consultaForm.get('diagnostico')!; }
+  get tratamento() { return this.consultaForm.get('tratamento')!; }
+  get prescricao() { return this.consultaForm.get('prescricao')!; }
+  get observacoes() { return this.consultaForm.get('observacoes')!; }
 }
