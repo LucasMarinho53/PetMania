@@ -108,7 +108,7 @@ function listaClienteID($busca){
 
             unset($stmt);
 
-            $stmt = $con->prepare("SELECT id_end,cidade localidade,bairro,logradouro,numero,CEP cep
+            $stmt = $con->prepare("SELECT id_end,cidade,bairro,logradouro,numero,CEP cep
                                FROM endereco WHERE id_end = :termobusca");
 
             
