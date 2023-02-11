@@ -5,7 +5,7 @@
     <div class="content" [class.mat-elevation-z4]="!isActive">
 
       <div class="box">
-        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getAnimal()">
+        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getConsulta()">
           <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar ficha...">
           <button type="submit">
             <mat-icon>search</mat-icon>

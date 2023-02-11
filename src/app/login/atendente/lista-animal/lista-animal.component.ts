@@ -34,6 +34,7 @@ export class ListaAnimalComponent implements OnInit {
       })
       this.getAnimal()
 
+
       console.log(this.auth.currentUser?.email);
 
 
@@ -65,7 +66,6 @@ export class ListaAnimalComponent implements OnInit {
     getAnimal() {
       this.animalService.getAnimal(this.searchForm.value.searchValue).subscribe({
         next: (res) => {
-          // console.log(res)
           this.animais = res;
         },
       })

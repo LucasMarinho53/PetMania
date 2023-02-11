@@ -10,21 +10,29 @@
 
           <div class="input-box">
             <label>Nome: </label>
+            <label *ngIf="nome.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+            <span style="color:red;font-size:8pt" *ngIf="nome.value!='' && nome.invalid">Campo inválido! Não deve conter números</span>
             <input type="text" formControlName="nome" placeholder="Digite seu nome">
           </div>
 
           <div class="input-box">
             <label>CPF: </label>
+            <label *ngIf="cpf.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+            <span style="color:red;font-size:8pt" *ngIf="cpf.value!='' && cpf.invalid">Campo inválido! Não deve conter letras</span>
             <input type="number" formControlName="cpf" placeholder="Digite seu CPF">
           </div>
 
           <div class="input-box">
             <label>Email: </label>
+            <label *ngIf="email.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+            <span style="color:red;font-size:8pt" *ngIf="email.value!='' && email.invalid">Campo inválido! Email incorreto!</span>
             <input type="email" formControlName="email" placeholder="Digite seu email">
           </div>
 
           <div class="input-box">
             <label>Telefone: </label>
+            <label *ngIf="telefone.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+            <span style="color:red;font-size:8pt" *ngIf="telefone.value!='' && telefone.invalid">Campo inválido! Não deve conter letras e caracteres</span>
             <input type="tel" formControlName="telefone" placeholder="Digite seu telefone">
           </div>
 
@@ -32,26 +40,36 @@
 
             <div class="input-box">
               <label>Cidade: </label>
+              <label *ngIf="cidade.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+              <span style="color:red;font-size:8pt" *ngIf="cidade.value!='' && cidade.invalid">Campo inválido! Mínimo 2 caracteres</span>
               <input type="text" formControlName="cidade" placeholder="Digite sua cidade">
             </div>
 
             <div class="input-box">
               <label>Bairro: </label>
+              <label *ngIf="bairro.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+              <span style="color:red;font-size:8pt" *ngIf="bairro.value!='' && bairro.invalid">Campo inválido! Mínimo 2 caracteres</span>
               <input type="text" formControlName="bairro" placeholder="Digite seu bairro">
             </div>
 
             <div class="input-box">
               <label>Logradouro: </label>
+              <label *ngIf="logradouro.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+              <span style="color:red;font-size:8pt" *ngIf="logradouro.value!='' && logradouro.invalid">Campo inválido! Mínimo 2 caracteres</span>
               <input type="text" formControlName="logradouro" placeholder="Digite seu logradouro">
             </div>
 
             <div class="input-box">
               <label>CEP: </label>
+              <label *ngIf="cep.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+              <span style="color:red;font-size:8pt" *ngIf="cep.value!='' && cep.invalid">Campo inválido! Não deve conter letras e caracteres</span>
               <input type="number" formControlName="cep" placeholder="Digite seu CEP">
             </div>
 
             <div class="input-box">
               <label>Número: </label>
+              <label *ngIf="numero.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+              <span style="color:red;font-size:8pt" *ngIf="numero.value!='' && numero.invalid">Campo inválido! Não deve conter letras e caracteres</span>
               <input type="number" formControlName="numero" placeholder="Digite seu número">
             </div>
           </div>

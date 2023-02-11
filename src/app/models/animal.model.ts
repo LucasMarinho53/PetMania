@@ -3,6 +3,7 @@ import { Raca } from "./raca.model"
 
 export class Animal {
   nome_animal!: string
+  nome_especie!: string
   sexo_animal!: string
   data_nasc!: Date
   id_dono!: Dono

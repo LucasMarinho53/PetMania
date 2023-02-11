@@ -36,22 +36,26 @@
           </div>
 
           <div class="input-text">
-            <label for="sexo_animal">Diagnostico: </label>
+            <label for="sexo_animal">Diagnostico:</label>
+            <label *ngIf="diagnostico.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
             <textarea type="text" id="sexo_animal" formControlName="diagnostico" cols="10" rows="3"></textarea>
           </div>
 
           <div class="input-text">
-            <label for="sexo_animal">Tratamento: </label>
+            <label for="sexo_animal">Tratamento:</label>
+            <label *ngIf="tratamento.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
             <textarea type="text" id="sexo_animal" formControlName="tratamento" cols="10" rows="3"></textarea>
           </div>
 
           <div class="input-text">
-            <label for="sexo_animal">Prescrição: </label>
+            <label for="sexo_animal">Prescrição:</label>
+            <label *ngIf="prescricao.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
             <textarea type="text" id="sexo_animal" formControlName="prescricao" cols="10" rows="3"></textarea>
           </div>
 
           <div class="input-text">
-            <label for="sexo_animal">Observações: </label>
+            <label for="sexo_animal">Observações:</label>
+            <label *ngIf="observacoes.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
             <textarea type="text" id="sexo_animal" formControlName="observacoes" cols="10" rows="3"></textarea>
           </div>
 

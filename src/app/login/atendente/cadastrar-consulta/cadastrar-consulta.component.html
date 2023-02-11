@@ -12,7 +12,7 @@
 
           <div class="input-box">
             <label for="nome_animal">Animal:</label>
-            <input type="text" id="nome_animal" formControlName="nome_animal">
+            <input type="text" id="nome_animal" formControlName="nome_animal" readonly>
           </div>
 
           <div class="input-box">
@@ -23,6 +23,8 @@
 
             <div class="input-box-motivo">
               <label for="motivo">Motivo:</label>
+              <label *ngIf="motivo.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
+              <span style="color:red;font-size:8pt" *ngIf="motivo.value!='' && motivo.invalid">Campo inválido! Não deve conter números</span>
               <textarea name="textAreaMensagem" id="motivo" formControlName="motivo" cols="30" rows="10"></textarea>
             </div>
           </div>
