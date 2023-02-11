@@ -1,5 +1,5 @@
 <?php
-
+//ini_set('display_errors', 0);
 header('Access-Control-Allow-Origin: *');
 header("content-type: application/json");
 //header("Content-type: application/x-www-form-urlencoded");
@@ -12,12 +12,13 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 
 if($_POST['data_nasc']   == NULL ||
    $_POST['nome_animal'] == NULL ||
-   $_POST['raca_animal'] == NULL ||
+   $_POST['id_raca'] == NULL ||
    $_POST['sexo_animal'] == NULL || 
    $_POST['id_dono']     == NULL
    )
 {
     echo "{\"result\":\"Dados Inválidos\"}";
+    //echo "{\"result\":".json_encode($_POST)."}";
 	die();
 }
 

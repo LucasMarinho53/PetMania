@@ -484,7 +484,7 @@ function listaAnimais($busca){
 
         $stmt = $con->prepare("SELECT 
         id id_animal,
-        Nome nome,
+        Nome nome_animal,
         Sexo sexo_animal,
         Data_Nascimento data_nasc,
         id_raca,
