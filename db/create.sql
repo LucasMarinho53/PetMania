@@ -209,7 +209,7 @@ ficha_medica.observacoes			observacoes_ficha,
 
 animal.id_animal					id_animal,
 animal.id_dono						id_dono,
-animal.nome							nome_aniaml,
+animal.nome							nome_animal,
 animal.sexo							sexo,
 animal.data_nasc					data_nascimento,
 animal.observacoes					observacoes_animal,
