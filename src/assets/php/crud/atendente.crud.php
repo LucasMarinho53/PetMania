@@ -596,7 +596,7 @@ function listarTodosServicos(){
     try{
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT id id_servico, servico
+        $stmt = $con->prepare("SELECT id, servico
         FROM servico");
 
         

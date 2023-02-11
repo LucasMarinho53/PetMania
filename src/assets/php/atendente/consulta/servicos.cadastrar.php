@@ -18,11 +18,12 @@ if(
     echo "erro: faltou algo!";   
     die();
 }
-
 $remove = new stdClass();
 $remove->idFicha = $_POST['id_ficha'];
 $remove->idServico = $_POST['id_servico'];
 
+
 $result = servicosPrestados($remove);
         echo "{\"result\":\"$result\"}";
         die();
+
