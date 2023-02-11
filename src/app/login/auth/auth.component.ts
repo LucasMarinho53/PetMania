@@ -36,7 +36,7 @@ export class AuthComponent {
     ngOnInit(): void{
       this.atendenteForm = this.formBuilder.group({
       email: ['',[Validators.required, Validators.email]],
-      senha: ['',[Validators.required, Validators.pattern(/^(?=.*[@*\.])[a-zA-Z0-9@*]{6,10}$/)]],
+      senha: ['',[Validators.required]],
       });
     }
 

@@ -92,12 +92,12 @@ const routes: Routes = [
   },
   {
     path: 'veterinario/editar-ficha',
-    component: EditarFichaComponent,
+    component: EditarFichaComponent,...canActivate(redirectUnauthorizedToLogin)
   },
 
   {
     path: 'veterinario/editar-ficha/:id_ficha/:nome_animal/:veterinario',
-    component: EditarFichaComponent,
+    component: EditarFichaComponent,...canActivate(redirectUnauthorizedToLogin)
   },
 
 ];

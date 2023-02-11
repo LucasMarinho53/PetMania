@@ -5,25 +5,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 const API_URLS = {
   buscarVeterinario:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.veterinario.listar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/consulta.veterinario.listar.php',
 cadastrarConsulta:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.cadastrar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/consulta.cadastrar.php',
 listarConsulta:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/consulta.listar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/consulta.listar.php',
 listarServico:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.listar.php',
 cadastrarServico:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.cadastrar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.cadastrar.php',
 servicoListarConsulta:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.listar.consulta.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.listar.consulta.php',
 removerServico:
-  'http://localhost/PetMania-master/src/assets/php/atendente/consulta/servicos.remover.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/atendente/consulta/servicos.remover.php',
 listarVeterinario:
-  'http://localhost/PetMania-master/src/assets/php/veterinario/consulta.listar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/veterinario/consulta.listar.php',
 acharidConsulta:
-  'http://localhost/PetMania-master/src/assets/php/veterinario/consulta.acharid.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/veterinario/consulta.acharid.php',
 atualizarConsulta:
-  'http://localhost/PetMania-master/src/assets/php/veterinario/consulta.atualizar.php',
+  'http://localhost/PetMania-back-end-mudancas/src/assets/php/veterinario/consulta.atualizar.php',
 }
 
 const HTTP_OPTIONS = {

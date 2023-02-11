@@ -59,12 +59,7 @@ export class CadastrarServicoComponent {
         // id_animal: [this.id, Validators.required],
       })
 
-      this.animalService.getServicoList(this.id_ficha).subscribe({
-        next: (res) => {
-          this.servicoListar = res
-          // console.log(this.servicoListar)
-        },
-      })
+      this.listarServicosFicha()
 
       // this.animalService.getRaceList(this.id_especie).subscribe({
       //   next: (res) => {
@@ -109,10 +104,19 @@ export class CadastrarServicoComponent {
     // console.log(serv)
     this.animalService.registerServico(serv).subscribe({
       next: () => {
-        window.location.reload();
+        this.listarServicosFicha()
       },
       error: (e) => {
         console.error(e)
+      },
+    })
+  }
+
+  listarServicosFicha(){
+    this.animalService.getServicoList(this.id_ficha).subscribe({
+      next: (res) => {
+        this.servicoListar = res
+        // console.log(this.servicoListar)
       },
     })
   }
@@ -124,7 +128,7 @@ export class CadastrarServicoComponent {
     console.log(serv);
     this.animalService.removerServico(serv).subscribe({
       next: (res) => {
-        window.location.reload();
+        this.listarServicosFicha()
       },
     })
   }
