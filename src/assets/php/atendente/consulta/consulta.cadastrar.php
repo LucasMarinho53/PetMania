@@ -11,19 +11,20 @@ require('../../crud/atendente.crud.php');
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if(
-    empty($_POST['idAnimal']) ||
-    empty($_POST['idVet']) ||
+    empty($_POST['id_animal']) ||
+    empty($_POST['id_vet']) ||
     empty($_POST['motivo'])
 ){
-    echo "erro: faltou algo!";
-    
+    //echo "{\"result\":\"Dados Inválidos\"}";
+    echo "{\"result\":".json_encode($_POST)."}";
+    die();
     
 }
 
 else{
     $consulta = new stdClass();
-    $consulta->idAnimal = $_POST['idAnimal'];
-    $consulta->idVet = $_POST['idVet'];
+    $consulta->idAnimal = $_POST['id_animal'];
+    $consulta->idVet = $_POST['id_vet'];
     $consulta->motivo = $_POST['motivo'];
 
     $result = CadastroFichaMedica($consulta);
