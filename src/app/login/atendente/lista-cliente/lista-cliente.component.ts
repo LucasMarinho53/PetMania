@@ -56,13 +56,14 @@ export class ListaClienteComponent implements OnInit {
     })
   }
 
-  /**Redireciona para a pagina de cadastro de animais de acordo com o dado passado:
+  /**Redireciona para a pagina de cadastro de animais de acordo com os dados passado:
+   * redirectToAnimalRegister(id do Dono do animal:number , id_especie: number) {
    *
    * **1**: Cadastro de Cachorros
    *
    * **2**: Cadastro de Gatos
    */
-  redirectToAnimalRegister(id: number | undefined, id_especie: number) {
+  redirectToAnimalRegister(id: number, id_especie: number): void {
     this.router.navigate(['atendente/cadastrar-animal', id, id_especie])
   }
 
@@ -73,18 +74,18 @@ export class ListaClienteComponent implements OnInit {
   }
 
   /**Redireciona para a pagina de edicao de clientes, passando como parametro o id do cliente. */
-  redirectToClientEdit(id: number | undefined) {
+  redirectToClientEdit(id: number) {
     this.router.navigate(['editar-cliente', id])
   }
   /**Ordena a listagem de um array do tipo Cliente de acordo com o parametro selecionado:
    *
-   * 1: id do Cliente.
+   * tipo 1: id do Cliente.
    *
-   * 2: Nome do Cliente.
+   * tipo 2: Nome do Cliente.
    *
-   * 3: Telefone do Cliente.
+   * tipo 3: Telefone do Cliente.
    *
-   * 4: email do Cliente.
+   * tipo 4: email do Cliente.
    */
   ordenar(tipo: number) {
     if (tipo == 1 && this.idOrder) {
