@@ -12,4 +12,6 @@ export class Consulta{
   nome_animal!: string
   veterinario!: string
   nome_dono!: string
+  email!:string
+  id!:string
 }
