@@ -7,6 +7,7 @@
       </ion-buttons>
       <img class="doguinho" slot="start" alt="Silhouette of mountains" src="https://cdn.discordapp.com/attachments/1040404882554900622/1071493589655359649/logo.png" />
       <ion-title class="Title">PetMania</ion-title>
+      <ion-button fill="clear" class="login2"size="small" slot="end" (click)="PageLogin()"><ion-icon name="log-in-outline"></ion-icon>Login</ion-button>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding2">
@@ -54,22 +55,17 @@
   <ion-item lines="none">
       <ion-icon class="iconcont" name="logo-whatsapp"></ion-icon>
       <ion-icon class="iconcont" name="logo-facebook"></ion-icon>
-  <ion-icon class="iconcont" name="logo-instagram"></ion-icon>
-</ion-item>
-
+    <ion-icon class="iconcont" name="logo-instagram"></ion-icon>
+  </ion-item>
       </ion-card-content>
     </ion-card>
-
-
-
   </ion-content>
+  <ion-footer >
+    <ion-toolbar class="ion-footer2">
 
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button (click)="PageLogin()">
-        <ion-icon class="iconcont" name="log-in-outline"></ion-icon>
-        Login
-      </ion-tab-button>
-    </ion-tab-bar>
+    </ion-toolbar>
+  </ion-footer>
+
 </div>
 
 

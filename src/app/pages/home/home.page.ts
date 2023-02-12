@@ -15,8 +15,6 @@ export class HomePage implements OnInit {
  async PageLogin(){
   this.router.navigateByUrl('login', { replaceUrl: true });
  }
- async PageHome(){
-  this.router.navigateByUrl('home', { replaceUrl: true });
- }
+
 
 }
