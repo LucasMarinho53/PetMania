@@ -20,21 +20,22 @@
 
       <table class="filter">
           <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Sexo</th>
-            <th>Nascimento</th>
-            <th>Raça</th>
-            <th>Espécie</th>
-            <th>Dono</th>
+            <th (click)="ordenar(1)"><div class="thbox"><div>ID</div><mat-icon>sort</mat-icon></div></th>
+            <th (click)="ordenar(2)"><div class="thbox"><div>Nome</div><mat-icon>sort</mat-icon></div></th>
+            <th (click)="ordenar(3)"><div class="thbox"><div>Sexo</div><mat-icon>sort</mat-icon></div></th>
+            <th (click)="ordenar(4)"><div class="thbox"><div>Nascimento</div><mat-icon>sort</mat-icon></div></th>
+            <th (click)="ordenar(5)"><div class="thbox"><div>Raça</div><mat-icon>sort</mat-icon></div></th>
+            <th (click)="ordenar(6)"><div class="thbox"><div>Espécie</div><mat-icon>sort</mat-icon></div></th>
+            <th (click)="ordenar(7)"><div class="thbox"><div>Dono</div><mat-icon>sort</mat-icon></div></th>
+
             <th>+</th>
           </tr>
 
           <tr *ngFor="let animal of animais">
             <td>{{animal.id_animal}}</td>
             <td>{{animal.nome_animal}}</td>
-            <td>{{animal.sexo_animal}}</td>
-            <td>{{animal.data_nasc}}</td>
+            <td>{{(animal.sexo_animal == 'm')? 'M':'F' }}</td>
+            <td>{{animal.data_nasc | date:'dd/MM/YYYY'}}</td>
             <td>{{animal.nome_raca}}</td>
             <td>{{animal.nome_especie}}</td>
             <td>{{animal.nome_dono}}</td>

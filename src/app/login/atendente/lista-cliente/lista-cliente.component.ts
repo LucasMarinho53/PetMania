@@ -125,13 +125,7 @@ export class ListaClienteComponent implements OnInit {
         });
         this.idOrder = true;
         console.log(this.idOrder)
-      }
-
-
-
-
-
-      if(tipo == 2 && this.nomeOrder){
+      }else if(tipo == 2 && this.nomeOrder){
         this.donos.sort((a:Dono,b:Dono)=>{
           if(a.nome>b.nome){
             return 1;

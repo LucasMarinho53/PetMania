@@ -12,6 +12,6 @@ export class Animal {
   nome_raca!: string
   id_raca!: Raca
   id_especie?: number
-  id_animal?: number
+  id_animal!: number
   email!:string;
 }
