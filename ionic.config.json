@@ -1,7 +1,0 @@
-{
-  "name": "PetManiaApp",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
