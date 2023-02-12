@@ -75,11 +75,16 @@ export class ListaFichaComponent implements OnInit{
       this.animalService.getConsulta(this.searchForm.value.searchValue).subscribe({
         next: (res) => {
           // console.log(res)
+          res.sort(this.ordenaPorDataDecrescente)
           this.consultas = res
           // console.log(this.consultas)
           // this.animais = res
         },
       })
+    }
+
+    ordenaPorDataDecrescente(a:Consulta,b:Consulta){
+      return new Date(b.data_visita).valueOf() - new Date(a.data_visita).valueOf();
     }
 
     getAnimal() {
