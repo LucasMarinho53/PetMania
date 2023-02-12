@@ -637,7 +637,11 @@ function listarFichasEmail($busca){
       nome_animal,
       Veterinario veterinario,
       nome_dono,
-      motivo_visita
+      motivo_visita,
+      diagnostico,
+      tratamento,
+      prescricao,
+      observacoes_ficha observacoes
       FROM tudo_ficha
       WHERE email = :termobusca");
 
