@@ -6,7 +6,7 @@ function atualizaFichaMedica($ficha){ #ok
     try{
         $con  = getConnection();
 
-        $stmt =  $con->prepare("UPDATE ficha_medica SET 
+        $stmt =  $con->prepare("UPDATE ficha_medica SET
         diagnostico = :diagnostico,
         tratamento = :tratamento,
         prescricao = :prescricao,
@@ -22,9 +22,9 @@ function atualizaFichaMedica($ficha){ #ok
         if($stmt->execute()){
             return "success";
         }
-        
+
     }
-    
+
     catch(PDOException $error){
         return "Falha ao cadastrar a consulta/atendimento. Erro: {$error->getMessage()}";
     }
@@ -39,20 +39,24 @@ function listaFichaID($busca)
     try{
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT 
-        id_ficha,
-        id_animal,
-        data_visita,
-        vet_id,
-        motivo_visita,
-        diagnostico,
-        tratamento,
-        prescricao,
-        observacoes 
-        FROM ficha_medica 
+        $stmt = $con->prepare("SELECT
+        ficha_medica.id_ficha,
+        ficha_medica.id_animal,
+        ficha_medica.data_visita,
+        ficha_medica.vet_id,
+        ficha_medica.motivo_visita,
+        ficha_medica.diagnostico,
+        ficha_medica.tratamento,
+        ficha_medica.prescricao,
+        ficha_medica.observacoes,
+        dono.email
+
+        FROM ficha_medica
+        LEFT JOIN animal ON ficha_medica.id_animal = animal.id_animal
+LEFT JOIN dono ON animal.id_dono = dono.id_dono
         WHERE id_ficha = :termobusca");
 
-        $stmt->bindParam(":termobusca",$busca); 
+        $stmt->bindParam(":termobusca",$busca);
 
         $stmt->execute();
 
@@ -66,9 +70,9 @@ function listaFichaID($busca)
     finally{
         unset($cont);
         unset($stmt);
-    }  
+    }
 
-    
+
 }
 
 function listarFichas($busca){
@@ -83,8 +87,8 @@ function listarFichas($busca){
         Veterinario veterinario,
         nome_dono,
         motivo_visita
-        FROM tudo_ficha 
-        WHERE nome_animal LIKE :termobusca 
+        FROM tudo_ficha
+        WHERE nome_animal LIKE :termobusca
         OR nome_dono LIKE :termobusca
         OR id_ficha = :termobusca");
 
