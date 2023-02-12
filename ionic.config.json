@@ -1,0 +1,7 @@
+{
+  "name": "PetManiaIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
