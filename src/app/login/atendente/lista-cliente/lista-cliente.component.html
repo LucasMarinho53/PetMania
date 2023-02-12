@@ -8,7 +8,7 @@
         <button class="btn" type="button" (click)="redirectToClientRegister()">Cadastrar Novo Cliente</button>
 
        <div class="box">
-        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
+        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClients()">
           <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar dono...">
           <button type="submit">
             <mat-icon>search</mat-icon>
