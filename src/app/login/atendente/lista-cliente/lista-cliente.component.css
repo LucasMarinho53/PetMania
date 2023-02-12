@@ -80,7 +80,7 @@ th{
   align-items: center;
   flex-direction: column;
 }
-mat-icon{
+mat-icon.order-icon{
   color: #000000;
   margin-right: .5em;
 }
