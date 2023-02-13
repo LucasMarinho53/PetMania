@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate, } from '@angular/fire/auth-guard';
+import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo, } from '@angular/fire/auth-guard';
+
+import { NgModule } from '@angular/core';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(('login'));
 const redirectLoggedInToHome = () => redirectLoggedInTo(('perfil'));
@@ -28,7 +29,7 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule), ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: 'prontuario',
+    path: 'prontuario', title:"PetMania - Prontuário",
     loadChildren: () => import('./prontuario/prontuario.module').then( m => m.ProntuarioPageModule), ...canActivate(redirectUnauthorizedToLogin)
   }
 ];

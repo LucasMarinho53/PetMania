@@ -7,4 +7,5 @@ export class Dono{
   telefone!:string;
   endereco!: Endereco;
   senha!:string;
+  solicitarAgendamento!: boolean
 }

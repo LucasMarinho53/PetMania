@@ -68,7 +68,7 @@ export class PerfilPage implements OnInit {
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos,
     });
-    console.log(image);
+    // console.log(image);
 
     if (image) {
       const loading = await this.loadingController.create();

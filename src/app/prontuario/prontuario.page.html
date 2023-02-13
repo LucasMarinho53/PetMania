@@ -11,93 +11,46 @@
     <ion-thumbnail>
       <img
         alt="Silhouette of mountains"
-        src="https://cdn.discordapp.com/attachments/1040404882554900622/1071493589655359649/logo.png"
+        src="../../assets/icon/favicon.png"
       />
     </ion-thumbnail>
   </div>
 
-  <!-- <ion-accordion-group expand="inset" *ngFor="let fi of fichas">
-    <ion-accordion>
-      <ion-item slot="header" color="rose" style="background-color:#FA9900;">
-        <ion-label>Dados do dono</ion-label>
-      </ion-item>
-      <ng-container *ngFor="let consulta of fi.consultas">
+  <ng-container *ngFor="let consulta of fichas">
+    <ion-accordion-group expand="inset" *ngFor="let con of consulta.consultas">
+      <ion-accordion>
+        <ion-item slot="header" color="rose" style="background-color: #fa9900">
+          <ion-label
+            >{{con.data_visita | date: "dd/MM/yy"}} -
+            {{con.nome_animal}}</ion-label
+          >
+        </ion-item>
         <div class="ion-padding" slot="content">
-          Nome: {{ consulta.nome_dono }}
-        </div>
-      </ng-container>
-    </ion-accordion>
-    <ion-accordion>
-      <ion-item slot="header" color="rose" style="background-color:#FA9900;">
-        <ion-label>Dados do animal</ion-label>
-      </ion-item>
-      <ng-container *ngFor="let consulta of fi.consultas">
-        <div class="ion-padding" slot="content">
-          Nome: {{ consulta.nome_animal }}
+          <strong>Veterinário:</strong><br><br> {{ con.veterinario }}
         </div>
         <div class="ion-padding" slot="content">
-          Data de atendimento: {{ consulta.data_visita }}
+          <strong>Motivo:</strong><br><br> {{ con.motivo_visita }}
         </div>
         <div class="ion-padding" slot="content">
-          Veterinário: {{ consulta.veterinario }}
+          <strong>Diagnóstico:</strong><br /><br />
+          {{ con.diagnostico }}
         </div>
         <div class="ion-padding" slot="content">
-          Motivo: {{ consulta.motivo_visita }}
+          <strong>Tratamento:</strong><br /><br />
+          {{ con.tratamento }}
         </div>
         <div class="ion-padding" slot="content">
-          Diagnóstico: {{ consulta.diagnostico }}
+          <strong>Prescrição:</strong><br /><br />
+          {{ con.prescricao }}
         </div>
         <div class="ion-padding" slot="content">
-          Tratamento: {{ consulta.tratamento }}
+          <strong>Observação:</strong><br /><br />
+          {{ con.observacoes }}
         </div>
         <div class="ion-padding" slot="content">
-          Prescrição: {{ consulta.prescricao }}
+          Atendimento às: {{ con.data_visita | date: "hh:mm:ss"}}
         </div>
-        <div class="ion-padding" slot="content">
-          Observação: {{ consulta.observacoes }}
-        </div>
-      </ng-container> -->
-
-      <ng-container *ngFor="let consulta of fichas">
-        <ion-accordion-group expand="inset" *ngFor="let con of consulta.consultas">
-          <ion-accordion>
-            <ion-item slot="header" color="rose" style="background-color:#FA9900;">
-              <ion-label>Dados do dono</ion-label>
-            </ion-item>
-            <div class="ion-padding" slot="content">
-              Nome: {{ con.nome_dono }}
-            </div>
-          </ion-accordion>
-          <ion-accordion>
-            <ion-item slot="header" color="rose" style="background-color:#FA9900;">
-              <ion-label>Dados do animal</ion-label>
-            </ion-item>
-            <div class="ion-padding" slot="content">
-              Nome: {{ con.nome_animal }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Data de atendimento: {{ con.data_visita }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Veterinário: {{ con.veterinario }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Motivo: {{ con.motivo_visita }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Diagnóstico: {{ con.diagnostico }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Tratamento: {{ con.tratamento }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Prescrição: {{ con.prescricao }}
-            </div>
-            <div class="ion-padding" slot="content">
-              Observação: {{ con.observacoes }}
-            </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </ng-container>
-
+      </ion-accordion>
+    </ion-accordion-group>
+  </ng-container>
 </ion-content>
