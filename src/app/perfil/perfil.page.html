@@ -28,7 +28,7 @@
   <ng-container *ngFor="let dono of donos">
     <ion-accordion-group expand="inset">
       <ion-accordion>
-        <ion-item slot="header" color="rose">
+        <ion-item slot="header" color="rose" style="background-color:#FA9900;">
           <ion-label>Dados do dono</ion-label>
         </ion-item>
         <div class="ion-padding" slot="content">Nome: {{ dono.nome }}</div>
@@ -38,7 +38,7 @@
         </div>
       </ion-accordion>
       <ion-accordion>
-        <ion-item slot="header" color="rose">
+        <ion-item slot="header" color="rose" style="background-color:#FA9900;">
           <ion-label>Dados do Endereço</ion-label>
         </ion-item>
         <div class="ion-padding" slot="content">
