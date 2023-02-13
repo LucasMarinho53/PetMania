@@ -6,71 +6,57 @@
 </ion-header>
 
 <ion-content>
-  <ion-header>
-
-  </ion-header>
+  <ion-header> </ion-header>
   <div class="doguinho">
     <ion-thumbnail>
-      <img alt="Silhouette of mountains" src="https://cdn.discordapp.com/attachments/1040404882554900622/1071493589655359649/logo.png" />
+      <img
+        alt="Silhouette of mountains"
+        src="https://cdn.discordapp.com/attachments/1040404882554900622/1071493589655359649/logo.png"
+      />
     </ion-thumbnail>
   </div>
 
-
-
-  <ion-accordion-group expand="inset">
-    <ion-accordion value="first">
+  <ion-accordion-group expand="inset" *ngFor="let fi of fichas">
+    <ion-accordion>
       <ion-item slot="header" color="rose">
         <ion-label>Dados do dono</ion-label>
       </ion-item>
-      <div class="ion-padding" slot="content">
-        Nome:
-      </div>
-      <div class="ion-padding" slot="content">
-        Email:
-      </div>
-      <div class="ion-padding" slot="content">
-        Telefone:
-      </div>
-      <div class="ion-padding" slot="content">
-        Rua:
-      </div>
-      <div class="ion-padding" slot="content">
-        Número:
-      </div>
-      <div class="ion-padding" slot="content">
-        CEP: - Bairro, Cidade
-      </div>
+      <ng-container *ngFor="let consulta of fi.consultas">
+        <div class="ion-padding" slot="content">
+          Nome: {{ consulta.nome_dono }}
+        </div>
+      </ng-container>
     </ion-accordion>
-    <ion-accordion value="second">
+    <ion-accordion>
       <ion-item slot="header" color="rose">
         <ion-label>Dados do animal</ion-label>
       </ion-item>
-      <div class="ion-padding" slot="content">
-        Nome:
-      </div>
-      <div class="ion-padding" slot="content">
-        Data de atendimento:
-      </div>
-      <div class="ion-padding" slot="content">
-        Veterinário:
-      </div>
-      <div class="ion-padding" slot="content">
-        Motivo:
-      </div>
-      <div class="ion-padding" slot="content">
-        Diagnóstico:
-      </div>
-      <div class="ion-padding" slot="content">
-        Tratamento:
-      </div>
-      <div class="ion-padding" slot="content">
-        Prescrição:
-      </div>
-      <div class="ion-padding" slot="content">
-        Observação:
-      </div>
+      <ng-container *ngFor="let consulta of fi.consultas">
+        <div class="ion-padding" slot="content">
+          Nome: {{ consulta.nome_animal }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Data de atendimento: {{ consulta.data_visita }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Veterinário: {{ consulta.veterinario }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Motivo: {{ consulta.motivo_visita }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Diagnóstico: {{ consulta.diagnostico }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Tratamento: {{ consulta.tratamento }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Prescrição: {{ consulta.prescricao }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Observação: {{ consulta.observacoes }}
+        </div>
+      </ng-container>
     </ion-accordion>
   </ion-accordion-group>
-
-
-  </ion-content>
+</ion-content>
