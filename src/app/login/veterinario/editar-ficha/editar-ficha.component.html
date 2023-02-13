@@ -61,7 +61,7 @@
 
           <input type="hidden" formControlName="id_animal">
 
-          <button type="submit" (click)="updateFicha()">Atualizar Ficha</button>
+          <button type="submit" (click)="updateFicha()" [disabled]="consultaForm.invalid">Atualizar Ficha</button>
         </form>
       </div>
     </div>

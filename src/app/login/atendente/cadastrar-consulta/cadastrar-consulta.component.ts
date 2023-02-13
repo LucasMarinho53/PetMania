@@ -22,18 +22,12 @@ export class CadastrarConsultaComponent implements OnInit {
   animalForm!: FormGroup
   consultaForm!: FormGroup
 
-  animal: Animal = new Animal()
-  id!: number
-  id_especie!: number
-  dono!: Dono[]
-  racas!: Raca[]
-  usuario!:Funcionario
-
-  isActive = false;
-  nm_animal!: string | null
   idAnimal!: number | null
+  nm_animal!: string | null
 
-  nome_raca!: string
+  usuario!:Funcionario
+  isActive = false;
+
 
   veterinario!: Veterinario[]
 
@@ -87,16 +81,6 @@ export class CadastrarConsultaComponent implements OnInit {
         })
 
       }
-
-    // this.animalForm = this.formBuilder.group({
-    //   nome_animal: [this.nm_animal, Validators.required],
-    //   sexo_animal: ['', Validators.required],
-    //   data_nasc: ['', Validators.required],
-    //   id_animal: ['', Validators.required],
-    //   veterinarios: this.formBuilder.group({
-    //     id_vet: ['', Validators.required]
-    //   })
-    // })
 
     this.consultaForm = this.formBuilder.group({
       id_animal: [this.idAnimal, Validators.required],

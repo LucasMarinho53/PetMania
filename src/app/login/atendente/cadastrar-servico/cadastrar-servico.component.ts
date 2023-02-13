@@ -16,14 +16,9 @@ import { AnimalService } from 'src/app/services/animal.service'
   styleUrls: ['./cadastrar-servico.component.css'],
 })
 export class CadastrarServicoComponent {
-  // animalForm!: FormGroup
   servicosForm!: FormGroup
-
-  animal: Animal = new Animal()
   id_ficha!: number
   nome_animal!: string
-  dono!: Dono[]
-  racas!: Raca[]
   servicos!: Servico[]
   servicoListar!: ServicoListarConsulta[]
   isActive = false;
@@ -54,35 +49,9 @@ export class CadastrarServicoComponent {
       this.servicosForm = this.formBuilder.group({
         id_ficha: [this.id_ficha, Validators.required],
         id_servico: ['', Validators.required],
-        // data_nasc: [res.data_nasc, Validators.required],
-        // id_raca: [res.id_raca, Validators.required],
-        // id_animal: [this.id, Validators.required],
       })
 
       this.listarServicosFicha()
-
-      // this.animalService.getRaceList(this.id_especie).subscribe({
-      //   next: (res) => {
-      //     // console.log(res)
-      //     this.racas = res
-      //   },
-      // })
-
-      // this.animalService.getAnimalById(+id).subscribe({
-      //   next: (res) => {
-      //     // console.log(res)
-      //     this.animalForm = this.formBuilder.group({
-      //       nome_animal: [res.nome_animal, Validators.required],
-      //       sexo_animal: [res.sexo_animal, Validators.required],
-      //       data_nasc: [res.data_nasc, Validators.required],
-      //       id_raca: [res.id_raca, Validators.required],
-      //       id_animal: [this.id, Validators.required],
-      //     })
-      //   },
-      //   error: (e) => {
-      //     console.error(e)
-      //   },
-      // })
     } else {
     }
   }
@@ -125,13 +94,11 @@ export class CadastrarServicoComponent {
     const serv = new ServicoCadastrar
     serv.id_ficha = this.id_ficha
     serv.id_servico = id_servico
-    console.log(serv);
+    // console.log(serv);
     this.animalService.removerServico(serv).subscribe({
       next: (res) => {
         this.listarServicosFicha()
       },
     })
   }
-
-  // get idServ(){ return this.servicosForm.get().value}
 }

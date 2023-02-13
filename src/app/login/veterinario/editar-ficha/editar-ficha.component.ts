@@ -15,20 +15,12 @@ import { FirebaseService } from 'src/app/services/firebase.service'
 @Component({
   selector: 'app-editar-ficha',
   templateUrl: './editar-ficha.component.html',
-  styleUrls: ['./editar-ficha.component.css']
+  styleUrls: ['./editar-ficha.component.css'],
 })
 export class EditarFichaComponent {
-
   consultaForm!: FormGroup
-  animal: Animal = new Animal()
-  id!: number
-  id_especie!: number
-  dono!: Dono[]
-  racas!: Raca[]
-  usuario!:Funcionario
-  isActive = false;
-
-  consultas!: Consulta[]
+  usuario!: Funcionario
+  isActive = false
 
   id_ficha!: number
   nome_animal!: string
@@ -41,7 +33,7 @@ export class EditarFichaComponent {
     private formBuilder: FormBuilder,
     private auth: Auth,
     private firebaseService: FirebaseService,
-    private fireAuth:AuthService
+    private fireAuth: AuthService
   ) {}
 
   ngOnInit() {
@@ -55,36 +47,20 @@ export class EditarFichaComponent {
       this.veterinario = veterinario
       // console.log(`${this.id_ficha} - ${this.nome_animal} - ${this.veterinario}`)
 
-      // this.animalService.getFichaId(this.id_ficha).subscribe({
-      //   next: (res) => {
-      //     // console.log(res);
-      //     this.consultas = res;
-      //     console.log(this.consultas)
-      //   },
-      //   error: (e) => {
-      //     console.error(e)
-      //   },
-      // })
-
-      if(this.auth.currentUser!.email)
-      {
+      if (this.auth.currentUser!.email) {
         this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
-          next:(res)=>{
+          next: (res) => {
             this.usuario = res
-            if (res.cargo !== 2){
-              this.fireAuth.logout().then(()=>{
+            if (res.cargo !== 2) {
+              this.fireAuth.logout().then(() => {
                 this.router.navigateByUrl('auth')
-                window.location.reload();
-              }
-
-              )
+                window.location.reload()
+              })
             }
           },
 
-          error:(err)=>console.log(err)
-
+          error: (err) => console.log(err),
         })
-
       }
 
       this.consultaService.getFichaId(+id_ficha).subscribe({
@@ -118,8 +94,16 @@ export class EditarFichaComponent {
       this.router.navigate(['lista-ficha'])
     })
   }
-  get diagnostico() { return this.consultaForm.get('diagnostico')!; }
-  get tratamento() { return this.consultaForm.get('tratamento')!; }
-  get prescricao() { return this.consultaForm.get('prescricao')!; }
-  get observacoes() { return this.consultaForm.get('observacoes')!; }
+  get diagnostico() {
+    return this.consultaForm.get('diagnostico')!
+  }
+  get tratamento() {
+    return this.consultaForm.get('tratamento')!
+  }
+  get prescricao() {
+    return this.consultaForm.get('prescricao')!
+  }
+  get observacoes() {
+    return this.consultaForm.get('observacoes')!
+  }
 }

@@ -1,11 +1,7 @@
-
 <mat-sidenav-container>
-
   <mat-sidenav-content>
     <app-sidenav></app-sidenav>
     <div class="content" [class.mat-elevation-z4]="!isActive">
-
-
       <div class="box">
         <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getConsulta()">
           <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar Consulta...">
@@ -14,13 +10,10 @@
           </button>
         </form>
       </div>
-
-
       <body>
         <main class="table">
         <section class="table_body">
       <table class="filter">
-
           <tr>
             <th>ID Ficha</th>
             <th>especie</th>
@@ -31,8 +24,6 @@
             <th>Data</th>
             <th>Editar Serviços+</th>
           </tr>
-
-
           <tr *ngFor="let cons of consultas">
             <td>{{cons.id_ficha}}</td>
             <td>{{cons.especie}}</td>
@@ -40,31 +31,15 @@
             <td>{{cons.veterinario}}</td>
             <td>{{cons.nome_dono}}</td>
             <td>{{cons.motivo_visita}}</td>
-            <td>{{cons.data_visita}}</td>
-            <!-- <td>{{animal.nome_animal}}</td> -->
-            <!-- <td>{{animal.sexo_animal}}</td>
-            <td>{{animal.data_nasc}}</td>
-            <td>{{animal.nome_raca}}</td>
-            <td>{{animal.nome}}</td> -->
-            <!-- <td>{{animal.id_raca!.nome_raca}}</td>
-            <td>{{animal.id_dono!.nome}}</td> -->
-
+            <td>{{cons.data_visita | date:'dd/MM/yyyy'}}</td>
             <td>
-              <!-- <a><button (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)">img-consult-button</button></a> -->
               <a style="display:flex;justify-content:center"><button  (click)="redirectToServices(cons.id_ficha, cons.nome_animal)"><mat-icon class="editIcon">assignment</mat-icon></button></a>
             </td>
           </tr>
-
       </table>
     </section>
   </main>
 </body>
     </div>
-
-
-
-
   </mat-sidenav-content>
-
-
 </mat-sidenav-container>

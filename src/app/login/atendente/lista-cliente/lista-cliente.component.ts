@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Dono } from 'src/app/models/dono.model';
 import { Funcionario } from 'src/app/models/funcionario.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { FirebaseService } from 'src/app/services/firebase.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-import { Dono } from 'src/app/models/dono.model';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { MatTableDataSource } from '@angular/material/table';
-
-
-
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-lista-cliente',
@@ -36,7 +33,7 @@ export class ListaClienteComponent implements OnInit {
 
     ngOnInit(): void {
 
-      console.log(this.auth.currentUser?.email);
+      // console.log(this.auth.currentUser?.email);
 
       this.searchForm = this.formBuilder.group({
         searchValue: new FormControl('', [Validators.required]),

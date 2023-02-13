@@ -42,7 +42,7 @@ export class CadastraClienteComponent implements OnInit {
         }),
       })
 
-      console.log(this.auth.currentUser?.email);
+      // console.log(this.auth.currentUser?.email);
 
 
 
@@ -74,7 +74,7 @@ export class CadastraClienteComponent implements OnInit {
       const dono = this.clientForm.value as Dono
       this.clientService.registerClient(dono).subscribe({
         next: (result) => {
-          console.log(result);
+          // console.log(result);
           if(result.result == 'success'){
             this.clientService.registerClientFirebase(dono);
             this.router.navigate(['atendente/lista-cliente'])
