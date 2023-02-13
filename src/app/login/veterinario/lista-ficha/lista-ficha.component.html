@@ -40,7 +40,6 @@
             <td> {{cons.data_visita | date: 'HH:mm'}}<br>{{cons.data_visita | date: 'dd/MM/YY'}}</td>
 
             <td>
-              <!-- <a><button (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)">img-consult-button</button></a> -->
               <button class="btnIcon" (click)="redirectToEditConsult(cons.id_ficha, cons.nome_animal, cons.veterinario)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>
