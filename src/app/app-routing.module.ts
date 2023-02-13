@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule), ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'prontuario',
+    loadChildren: () => import('./prontuario/prontuario.module').then( m => m.ProntuarioPageModule)
   }
 ];
 
