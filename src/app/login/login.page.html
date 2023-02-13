@@ -18,12 +18,12 @@
       <form [formGroup]="loginForm" (ngSubmit)="login()" fullscreen>
         <ion-item class="item-background-color">
           <ion-label position="floating" color="primary">Digite seu E-mail</ion-label>
-          <ion-input type="email" placeholder="E-mail" formControlName="email" required color="primary"></ion-input>
+          <ion-input style="color: black;" type="email" placeholder="E-mail" formControlName="email" required color="primary"></ion-input>
           <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email invalido</ion-note>
         </ion-item>
         <ion-item class="item-background-color">
           <ion-label position="floating" color="primary">Digite sua Senha</ion-label>
-          <ion-input [type]="type ? 'password' : 'text'" placeholder="Senha" formControlName="senha" required color="primary"></ion-input>
+          <ion-input style="color: black;" [type]="type ? 'password' : 'text'" placeholder="Senha" formControlName="senha" required color="primary"></ion-input>
           <ion-icon class="ion-align-self-center" slot="end" name="eye-outline" (click)="changeType()" color="primary"></ion-icon>
           <ion-note slot="error" *ngIf="(senha?.dirty || senha?.touched) && senha?.errors">Senha precisa conter 6 caracters</ion-note>
         </ion-item>
