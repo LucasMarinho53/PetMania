@@ -16,10 +16,10 @@ import { FirebaseService } from 'src/app/services/firebase.service'
 })
 export class EditarClienteComponent implements OnInit {
   clientForm!: FormGroup
-  isActive = false;
+  isActive = false
   id!: number
   dono!: Dono
-  usuario!:Funcionario
+  usuario!: Funcionario
 
   constructor(
     private clientService: ClienteService,
@@ -27,8 +27,8 @@ export class EditarClienteComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private auth: Auth,
-    private fireAuth:AuthService,
-    private firebaseService: FirebaseService,
+    private fireAuth: AuthService,
+    private firebaseService: FirebaseService
   ) {}
 
   ngOnInit() {
@@ -40,10 +40,21 @@ export class EditarClienteComponent implements OnInit {
         next: (res) => {
           this.clientForm = this.formBuilder.group({
             id_dono: [res.id_dono, Validators.required],
-            nome: [res.nome, [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
+            nome: [
+              res.nome,
+              [
+                Validators.required,
+                Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/),
+                Validators.minLength(4),
+                Validators.maxLength(50),
+              ],
+            ],
             cpf: [res.cpf, [Validators.required, Validators.pattern('[0-9]{11}')]],
             email: [res.email, [Validators.required, Validators.email]],
-            telefone: [res.telefone, [Validators.required, Validators.pattern(/^\d{11}$/)]],
+            telefone: [
+              res.telefone,
+              [Validators.required, Validators.pattern(/^\d{11}$/)],
+            ],
             endereco: this.formBuilder.group({
               id_end: [res.id_end, Validators.required],
               cidade: [res.cidade, [Validators.required]],
@@ -60,42 +71,63 @@ export class EditarClienteComponent implements OnInit {
       })
     } else {
     }
-    if(this.auth.currentUser!.email)
-      {
-        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
-          next:(res)=>{
-            this.usuario = res
-            if (res.cargo !== 1){
-              this.fireAuth.logout().then(()=>{
-                this.router.navigateByUrl('auth')
-                window.location.reload();
-              }
+    if (this.auth.currentUser!.email) {
+      this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+        next: (res) => {
+          this.usuario = res
+          if (res.cargo !== 1) {
+            this.fireAuth.logout().then(() => {
+              this.router.navigateByUrl('auth')
+              window.location.reload()
+            })
+          }
+        },
 
-              )
-            }
-          },
-
-          error:(err)=>console.log(err)
-
-        })
-
-      }
+        error: (err) => console.log(err),
+      })
+    }
   }
 
   editCliente() {
     const dono = this.clientForm.value as Dono
-    this.clientService.updateClient(dono).subscribe(() => {
-      this.router.navigate(['atendente/lista-cliente'])
+    this.clientService.updateClient(dono).subscribe({
+      next: (result) => {
+        if (result.result == 'success') {
+          this.clientService.registerClientFirebase(dono)
+          this.router.navigate(['atendente/lista-cliente'])
+        }
+      },
+      error: (e) => {
+        console.error(e)
+      },
     })
   }
 
-  get nome() { return this.clientForm.get('nome')!; }
-    get cpf() { return this.clientForm.get('cpf')!; }
-    get email() { return this.clientForm.get('email')!; }
-    get telefone() { return this.clientForm.get('telefone')!; }
-    get cidade() { return this.clientForm.get('endereco')?.get('cidade')!; }
-    get bairro() { return this.clientForm.get('endereco')?.get('bairro')!; }
-    get logradouro() { return this.clientForm.get('endereco')?.get('logradouro')!; }
-    get cep() { return this.clientForm.get('endereco')?.get('cep')!; }
-    get numero() { return this.clientForm.get('endereco')?.get('numero')!; }
+  get nome() {
+    return this.clientForm.get('nome')!
+  }
+  get cpf() {
+    return this.clientForm.get('cpf')!
+  }
+  get email() {
+    return this.clientForm.get('email')!
+  }
+  get telefone() {
+    return this.clientForm.get('telefone')!
+  }
+  get cidade() {
+    return this.clientForm.get('endereco')?.get('cidade')!
+  }
+  get bairro() {
+    return this.clientForm.get('endereco')?.get('bairro')!
+  }
+  get logradouro() {
+    return this.clientForm.get('endereco')?.get('logradouro')!
+  }
+  get cep() {
+    return this.clientForm.get('endereco')?.get('cep')!
+  }
+  get numero() {
+    return this.clientForm.get('endereco')?.get('numero')!
+  }
 }

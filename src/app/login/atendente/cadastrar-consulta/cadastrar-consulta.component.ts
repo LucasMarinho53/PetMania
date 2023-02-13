@@ -5,9 +5,7 @@ import { ActivatedRoute } from '@angular/router'
 import { Router } from '@angular/router'
 import { Animal } from 'src/app/models/animal.model'
 import { Consulta } from 'src/app/models/consulta.model'
-import { Dono } from 'src/app/models/dono.model'
 import { Funcionario } from 'src/app/models/funcionario.model'
-import { Raca } from 'src/app/models/raca.model'
 import { Veterinario } from 'src/app/models/veterinario.model'
 import { AnimalService } from 'src/app/services/animal.service'
 import { AuthService } from 'src/app/services/auth.service'
@@ -25,9 +23,8 @@ export class CadastrarConsultaComponent implements OnInit {
   idAnimal!: number | null
   nm_animal!: string | null
 
-  usuario!:Funcionario
-  isActive = false;
-
+  usuario!: Funcionario
+  isActive = false
 
   veterinario!: Veterinario[]
 
@@ -37,8 +34,8 @@ export class CadastrarConsultaComponent implements OnInit {
     private animalService: AnimalService,
     private formBuilder: FormBuilder,
     private auth: Auth,
-    private fireAuth:AuthService,
-    private firebaseService: FirebaseService,
+    private fireAuth: AuthService,
+    private firebaseService: FirebaseService
   ) {}
 
   ngOnInit() {
@@ -61,26 +58,21 @@ export class CadastrarConsultaComponent implements OnInit {
       },
     })
 
-    if(this.auth.currentUser!.email)
-      {
-        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
-          next:(res)=>{
-            this.usuario = res
-            if (res.cargo !== 1){
-              this.fireAuth.logout().then(()=>{
-                this.router.navigateByUrl('auth')
-                window.location.reload();
-              }
+    if (this.auth.currentUser!.email) {
+      this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+        next: (res) => {
+          this.usuario = res
+          if (res.cargo !== 1) {
+            this.fireAuth.logout().then(() => {
+              this.router.navigateByUrl('auth')
+              window.location.reload()
+            })
+          }
+        },
 
-              )
-            }
-          },
-
-          error:(err)=>console.log(err)
-
-        })
-
-      }
+        error: (err) => console.log(err),
+      })
+    }
 
     this.consultaForm = this.formBuilder.group({
       id_animal: [this.idAnimal, Validators.required],
@@ -91,13 +83,12 @@ export class CadastrarConsultaComponent implements OnInit {
   }
 
   registerConsulta(values: any) {
-    let newConsulta:Consulta = {...values};
-    this.animalService.registerConsulta(this.consultaForm.value).subscribe((response) => {
-
-      this.animalService.registerConsultaFirebase(newConsulta);
+    this.animalService.registerConsulta(this.consultaForm.value).subscribe(() => {
       this.router.navigate(['atendente/listar-consulta'])
     })
   }
 
-  get motivo() { return this.consultaForm.get('motivo')!; }
+  get motivo() {
+    return this.consultaForm.get('motivo')!
+  }
 }
