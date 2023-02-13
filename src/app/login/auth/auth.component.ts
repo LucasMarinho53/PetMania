@@ -61,8 +61,10 @@ export class AuthComponent {
             this.usuario = res
             if (res.cargo == 1){
               this.router.navigateByUrl('atendente/lista-cliente');
-            } if (res.cargo == 2){
+            }else if (res.cargo == 2){
               this.router.navigateByUrl('lista-ficha');
+            }else{
+              this.auth.signOut();
             }
 
           },

@@ -21,7 +21,7 @@
             <label>CPF: </label>
             <label *ngIf="cpf.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
             <span style="color:red;font-size:8pt" *ngIf="cpf.value!='' && cpf.invalid">Campo inválido! Não deve conter letras</span>
-            <input type="number" formControlName="cpf" placeholder="Digite seu CPF" required="cpf">
+            <input type="text" formControlName="cpf" placeholder="Digite seu CPF" required="cpf">
           </div>
 
           <div class="input-box">
@@ -71,7 +71,7 @@
               <label>CEP: </label>
               <label *ngIf="cep.errors?.['required']"><i style="color: red; font-size: small;">*</i></label>
               <span style="color:red;font-size:8pt" *ngIf="cep.value!='' && cep.invalid">Campo inválido! Não deve conter letras e caracteres</span>
-              <input type="number" formControlName="cep" placeholder="Digite seu CEP" required="cep">
+              <input type="string" formControlName="cep" placeholder="Digite seu CEP" required="cep">
             </div>
 
 

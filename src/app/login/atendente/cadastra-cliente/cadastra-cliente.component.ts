@@ -27,51 +27,55 @@ export class CadastraClienteComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
+      this.inicializaForm();
+      this.validaUsuario();
+    }
 
-      this.clientForm = this.formBuilder.group({
-        nome: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
-        cpf: ['', [Validators.required, Validators.pattern('[0-9]{11}')]],
-        email: ['', [Validators.required, Validators.email]],
-        telefone: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
-        endereco: this.formBuilder.group({
-          cidade: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-          bairro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-          logradouro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-          cep: ['', [Validators.required,  Validators.pattern('[0-9]{8}')]],
-          numero: ['', [Validators.required, , Validators.pattern('[0-9]+')]],
-        }),
-      })
-
-      console.log(this.auth.currentUser?.email);
-
-
-
-
-      if(this.auth.currentUser!.email)
-      {
-        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
-          next:(res)=>{
-            this.usuario = res
-            if (res.cargo !== 1){
-              this.fireAuth.logout().then(()=>{
-                this.router.navigateByUrl('auth')
-                window.location.reload();
-              }
-
-              )
+  private validaUsuario() {
+    if (this.auth.currentUser!.email) {
+      this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+        next: (res) => {
+          this.usuario = res;
+          if (res.cargo !== 1) {
+            this.fireAuth.logout().then(() => {
+              this.router.navigateByUrl('auth');
+              window.location.reload();
             }
-          },
 
-          error:(err)=>console.log(err)
+            );
+          }
+        },
 
-        })
-
-      }
+        error: (err) => console.log(err)
+      });
 
     }
+  }
+
+  private inicializaForm() {
+    this.clientForm = this.formBuilder.group({
+      nome: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
+      cpf: ['', [Validators.required, Validators.pattern(/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/)]],
+      email: ['', [Validators.required, Validators.email]],
+      telefone: ['', [Validators.required, Validators.pattern(/^^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)]],
+      endereco: this.formBuilder.group({
+        cidade: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+        bairro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+        logradouro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+        cep: ['', [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/)]],
+        numero: ['', [Validators.required, , Validators.pattern('[0-9]+')]],
+      }),
+    });
+  }
 
     registerClient() {
       const dono = this.clientForm.value as Dono
+      const cpf:string = this.cpf.value;
+      const cep:string = this.cep.value;
+
+      dono.cpf = +cpf.replace(/[.-]/g, '');
+      dono.endereco.cep = +cep.replace(/[.-]/g, '');
+
       this.clientService.registerClient(dono).subscribe({
         next: (result) => {
           console.log(result);
