@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'prontuario',
-    loadChildren: () => import('./prontuario/prontuario.module').then( m => m.ProntuarioPageModule)
+    loadChildren: () => import('./prontuario/prontuario.module').then( m => m.ProntuarioPageModule), ...canActivate(redirectUnauthorizedToLogin)
   }
 ];
 
