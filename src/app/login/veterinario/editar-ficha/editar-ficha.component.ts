@@ -8,6 +8,7 @@ import { Consulta } from 'src/app/models/consulta.model'
 import { Dono } from 'src/app/models/dono.model'
 import { Funcionario } from 'src/app/models/funcionario.model'
 import { Raca } from 'src/app/models/raca.model'
+import { AnimalService } from 'src/app/services/animal.service'
 import { AuthService } from 'src/app/services/auth.service'
 import { ConsultaService } from 'src/app/services/consulta.service'
 import { FirebaseService } from 'src/app/services/firebase.service'
@@ -18,7 +19,7 @@ import { FirebaseService } from 'src/app/services/firebase.service'
   styleUrls: ['./editar-ficha.component.css']
 })
 export class EditarFichaComponent {
-
+  emailDono!:string;
   consultaForm!: FormGroup
   animal: Animal = new Animal()
   id!: number
@@ -41,7 +42,8 @@ export class EditarFichaComponent {
     private formBuilder: FormBuilder,
     private auth: Auth,
     private firebaseService: FirebaseService,
-    private fireAuth:AuthService
+    private fireAuth:AuthService,
+    private animalService:AnimalService
   ) {}
 
   ngOnInit() {
@@ -89,6 +91,8 @@ export class EditarFichaComponent {
 
       this.consultaService.getFichaId(+id_ficha).subscribe({
         next: (res) => {
+          console.log(res)
+          this.emailDono = res.email;
           this.consultaForm = this.formBuilder.group({
             id_ficha: [this.id_ficha, Validators.required],
             nome_animal: [this.nome_animal, Validators.required],
@@ -114,8 +118,22 @@ export class EditarFichaComponent {
     const cons = this.consultaForm.value as Consulta
     // console.log(animal);
     this.consultaService.updateFicha(cons).subscribe((response) => {
-      // console.log(response)
-      this.router.navigate(['lista-ficha'])
+      console.log(response)
+      this.animalService.getConsultasEmail(this.emailDono).subscribe({
+        next:(res)=>{
+          console.log(res);
+          console.log(cons.id_ficha)
+          console.log(res.filter(consultas=> consultas.id_ficha !== cons.id_ficha))
+          let consultas = res.filter(consultas=> consultas.id_ficha !== cons.id_ficha);
+          consultas.push(cons)
+          console.log("cons:",cons)
+          this.animalService.registerConsultaFirebase(consultas,this.emailDono);
+
+
+        }
+      })
+
+      //this.router.navigate(['lista-ficha'])
     })
   }
   get diagnostico() { return this.consultaForm.get('diagnostico')!; }

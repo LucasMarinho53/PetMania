@@ -64,13 +64,25 @@ table {
   height: 0.5rem;
 }
 
-th{
+thead{
   background: #FFC107;
 }
 
 th, td{
   font-family: 'Arvo', serif;
   padding: 10px 15px;
+}
+th{
+  cursor: pointer;
+}
+.thbox{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+mat-icon.order-icon{
+  color: #000000;
+  margin-right: .5em;
 }
 
 .btn{

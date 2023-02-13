@@ -44,6 +44,7 @@ const API_URLS = {
     'http://localhost/webservice/atendente/consulta/servicos.listar.consulta.php',
     removerServico:
     'http://localhost/webservice/atendente/consulta/servicos.remover.php',
+    listarConsultasEmail:'http://localhost/webservice/atendente/consulta/consulta.listar.email.php'
 }
 
 const HTTP_OPTIONS = {
@@ -64,6 +65,13 @@ export class AnimalService {
   getConsulta(busca: any = ''): Observable<Consulta[]> {
     return this.http.get<Consulta[]>(
       `${API_URLS.listarConsulta}?buscar=${busca}`,
+      HTTP_OPTIONS
+    )
+  }
+
+  getConsultasEmail(email:string):Observable<Consulta[]>{
+    return this.http.get<Consulta[]>(
+      `${API_URLS.listarConsultasEmail}?buscar=${email}`,
       HTTP_OPTIONS
     )
   }
@@ -104,8 +112,8 @@ export class AnimalService {
     )
   }
 
-  getAnimalById(id: number): Observable<any> {
-    return this.http.get(`${API_URLS.acharAnimalPorId}?buscar=${id}`)
+  getAnimalById(id: number): Observable<Animal> {
+    return this.http.get<Animal>(`${API_URLS.acharAnimalPorId}?buscar=${id}`)
   }
 
   getRaceList(busca: number): Observable<Raca[]> {
@@ -131,15 +139,26 @@ export class AnimalService {
     return this.http.post<Animal>(API_URLS.cadastrarAnimal, animal, HTTP_OPTIONS)
   }
 
-  registerConsulta(cad: CadastrarConsultaModel): Observable<CadastrarConsultaModel> {
+  registerConsulta(cad: CadastrarConsultaModel): Observable<any> {
     // console.log(cad)
-    return this.http.post<CadastrarConsultaModel>(API_URLS.cadastrarConsulta, cad, HTTP_OPTIONS)
+    return this.http.post<any>(API_URLS.cadastrarConsulta, cad, HTTP_OPTIONS)
   }
 
-  registerConsultaFirebase(consulta: Consulta): Promise<void>{
-    const document = doc(collection(this.firestore, 'consultas'));
-    return setDoc(document, consulta);
+  registerConsultaFirebase(consulta: Consulta[],emailId:string): Promise<void>{
+    console.log("firedata:",consulta)
+
+
+    const document = doc(this.firestore, 'consulta',emailId);
+
+    let listaConsultas = {
+      "consultas":consulta,
+    }
+    console.log(listaConsultas)
+
+    return setDoc(document, listaConsultas);
   }
+
+
 
   registerAnimalFirebase(animal: Animal): Promise<void> {
     const document = doc(collection(this.firestore, 'animais'))

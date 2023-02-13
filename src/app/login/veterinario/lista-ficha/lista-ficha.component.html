@@ -19,13 +19,13 @@
       <table class="filter">
 
           <tr>
-            <th>ID Ficha</th>
-            <th>especie</th>
-            <th>Nome</th>
-            <th>Veterinário</th>
-            <th>Dono</th>
-            <th>Motivo</th>
-            <th>Data</th>
+            <th (click)="ordenar(1)"><div class="thbox"><div>ID Ficha</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(2)"><div class="thbox"><div>Espécie</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(3)"><div class="thbox"><div>Nome</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(4)"><div class="thbox"><div>Veterinário</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(5)"><div class="thbox"><div>Dono</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(6)"><div class="thbox"><div>Motivo</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(7)"><div class="thbox"><div>Data</div><mat-icon class="order-icon">sort</mat-icon></div></th>
             <th>Atendimento/Edição+</th>
           </tr>
 
@@ -37,17 +37,9 @@
             <td>{{cons.veterinario}}</td>
             <td>{{cons.nome_dono}}</td>
             <td>{{cons.motivo_visita}}</td>
-            <td>{{cons.data_visita}}</td>
-            <!-- <td>{{animal.nome_animal}}</td> -->
-            <!-- <td>{{animal.sexo_animal}}</td>
-            <td>{{animal.data_nasc}}</td>
-            <td>{{animal.nome_raca}}</td>
-            <td>{{animal.nome}}</td> -->
-            <!-- <td>{{animal.id_raca!.nome_raca}}</td>
-            <td>{{animal.id_dono!.nome}}</td> -->
+            <td> {{cons.data_visita | date: 'HH:mm'}}<br>{{cons.data_visita | date: 'dd/MM/YY'}}</td>
 
             <td>
-              <!-- <a><button (click)="redirectToConsultaRegister(animal.id_animal, animal.nome_animal)">img-consult-button</button></a> -->
               <button class="btnIcon" (click)="redirectToEditConsult(cons.id_ficha, cons.nome_animal, cons.veterinario)"><mat-icon class="editIcon">assignment</mat-icon></button>
             </td>
           </tr>

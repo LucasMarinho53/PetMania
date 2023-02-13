@@ -37,6 +37,7 @@ export class CadastrarConsultaComponent implements OnInit {
 
   veterinario!: Veterinario[]
 
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -107,12 +108,34 @@ export class CadastrarConsultaComponent implements OnInit {
   }
 
   registerConsulta(values: any) {
-    let newConsulta:Consulta = {...values};
-    this.animalService.registerConsulta(this.consultaForm.value).subscribe((response) => {
+    if(this.idAnimal){
+      this.animalService.getAnimalById(this.idAnimal).subscribe({
+        next:(res)=>{
+          const email:string = res.email;
+          this.animalService.registerConsulta(this.consultaForm.value).subscribe((response) => {
+          if(response.result == "success"){
+            this.animalService.getConsultasEmail(email).subscribe({
+              next:(retorno)=>{
+                const listaConsultaFire= retorno;
 
-      this.animalService.registerConsultaFirebase(newConsulta);
-      this.router.navigate(['atendente/listar-consulta'])
+
+                this.animalService.registerConsultaFirebase(listaConsultaFire,email);
+                this.router.navigate(['atendente/listar-consulta'])
+              }
+            })
+
+      }
     })
+
+        },
+        error:(err)=>console.log(err)
+
+      })
+    }
+
+
+
+
   }
 
   get motivo() { return this.consultaForm.get('motivo')!; }

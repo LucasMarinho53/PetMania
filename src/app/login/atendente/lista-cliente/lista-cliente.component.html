@@ -8,7 +8,7 @@
         <button class="btn" type="button" (click)="redirectToClientRegister()">Cadastrar Novo Cliente</button>
 
        <div class="box">
-        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClient()">
+        <form [formGroup]="searchForm" *ngIf="searchForm" (ngSubmit)="getClients()">
           <input id="searchText" formControlName="searchValue" type="text" placeholder="Buscar dono...">
           <button type="submit">
             <mat-icon>search</mat-icon>
@@ -23,10 +23,10 @@
       <table class="filter">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
+            <th (click)="ordenar(1)"><div class="thbox"><div>ID</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(2)"><div class="thbox"><div>Nome</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(3)"><div class="thbox"><div>Telefone</div><mat-icon class="order-icon">sort</mat-icon></div></th>
+            <th (click)="ordenar(4)"><div class="thbox"><div>Email</div><mat-icon class="order-icon">sort</mat-icon></div></th>
             <th>+</th>
           </tr>
         </thead>

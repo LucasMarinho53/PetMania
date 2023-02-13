@@ -41,15 +41,15 @@ export class EditarClienteComponent implements OnInit {
           this.clientForm = this.formBuilder.group({
             id_dono: [res.id_dono, Validators.required],
             nome: [res.nome, [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
-            cpf: [res.cpf, [Validators.required, Validators.pattern('[0-9]{11}')]],
+            cpf: [res.cpf, [Validators.required, Validators.pattern(/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/)]],
             email: [res.email, [Validators.required, Validators.email]],
-            telefone: [res.telefone, [Validators.required, Validators.pattern(/^\d{11}$/)]],
+            telefone: [res.telefone, [Validators.required, Validators.pattern(/^^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)]],
             endereco: this.formBuilder.group({
               id_end: [res.id_end, Validators.required],
               cidade: [res.cidade, [Validators.required]],
               bairro: [res.bairro, [Validators.required]],
               logradouro: [res.logradouro, [Validators.required]],
-              cep: [res.cep, [Validators.required, Validators.pattern('[0-9]{8}')]],
+              cep: [res.cep, [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/)]],
               numero: [res.numero, [Validators.required, , Validators.pattern('[0-9]+')]],
             }),
           })
@@ -84,8 +84,24 @@ export class EditarClienteComponent implements OnInit {
 
   editCliente() {
     const dono = this.clientForm.value as Dono
-    this.clientService.updateClient(dono).subscribe(() => {
-      this.router.navigate(['atendente/lista-cliente'])
+
+
+    const cpf:string = ""+this.cpf.value;
+    const cep:string = ""+this.cep.value;
+    console.log(typeof cpf, cpf);
+    console.log(cep);
+
+
+
+    dono.cpf = +cpf.replace(/[.-]/g, '');
+    dono.endereco.cep = +cep.replace(/[.-]/g, '');
+
+    this.clientService.updateClient(dono).subscribe((res) => {
+      console.log(res)
+      if(res.result == 'success'){
+        this.clientService.updateClientFirebase(dono);
+        this.router.navigate(['atendente/lista-cliente'])
+      }
     })
   }
 
