@@ -2,10 +2,10 @@
   <ion-toolbar color="primary">
     <ion-menu-button slot="start"></ion-menu-button>
     <ion-buttons slot="end">
-    <ion-button (click)="logout()">
-      <ion-icon slot="icon-only" name="log-out"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Meu Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +13,10 @@
 <ion-content>
   <div class="preview">
     <ion-avatar (click)="changeImage()">
-      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl"/>
+      <img
+        *ngIf="profile?.imageUrl; else placeholder_avatar;"
+        [src]="profile.imageUrl"
+      />
       <ng-template #placeholder_avatar>
         <div class="fallback">
           <p>Escolha Foto!</p>
@@ -22,5 +25,38 @@
     </ion-avatar>
   </div>
 
-
+  <ng-container *ngFor="let dono of donos">
+    <ion-accordion-group expand="inset">
+      <ion-accordion>
+        <ion-item slot="header" color="rose">
+          <ion-label>Dados do dono</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">Nome: {{ dono.nome }}</div>
+        <div class="ion-padding" slot="content">Email: {{ dono.email }}</div>
+        <div class="ion-padding" slot="content">
+          Telefone: {{ dono.telefone }}
+        </div>
+      </ion-accordion>
+      <ion-accordion>
+        <ion-item slot="header" color="rose">
+          <ion-label>Dados do Endereço</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          CEP: {{ dono.endereco.cep }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Cidade: {{ dono.endereco.cidade }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Bairro: {{ dono.endereco.bairro }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Logradouro: {{ dono.endereco.logradouro }}
+        </div>
+        <div class="ion-padding" slot="content">
+          Número: {{ dono.endereco.numero }}
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ng-container>
 </ion-content>

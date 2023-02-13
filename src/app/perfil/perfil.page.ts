@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { AvatarService } from 'src/app/services/avatar.service';
 import { Dono } from '../models/dono.model';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-perfil',
@@ -12,23 +14,47 @@ import { Dono } from '../models/dono.model';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-
   profile: any = null;
-  dono!:Dono;
+  dono!: Dono;
+  fichaDono!: Dono;
+  donos!: Dono[]
 
-  constructor(private authService: AuthService,
+  constructor(
+    private authService: AuthService,
+    private firebaseService: FirebaseService,
     private loadingController: LoadingController,
     private alertController: AlertController,
     private router: Router,
     private route: ActivatedRoute,
-    private avatarService: AvatarService) {
-      this.avatarService.getUserProfile().subscribe((data) => {
-        this.profile = data;
-       });
-     }
+    private avatarService: AvatarService
+  ) {
+    this.avatarService.getUserProfile().subscribe((data) => {
+      this.profile = data;
+    });
+  }
 
   ngOnInit() {
+    let email = this.authService.userId();
+    if (email) {
+      this.firebaseService.getDonoById(email).subscribe({
+        next: (fichaLogada) => {
+          this.fichaDono = fichaLogada;
+          // console.log(this.fichaDono);
+        },
+      });
+    }
+    this.firebaseService.getDono().subscribe({
+      next: (e) => {
+        // console.log(e);
+        this.donos = e.filter(
+          (ficha) => ficha.email === this.fichaDono.email
+        );
+        // console.log(this.donos)
+      },
+    });
   }
+
+  getDonoById() {}
 
   async logout() {
     await this.authService.logout();
@@ -61,5 +87,4 @@ export class PerfilPage implements OnInit {
       }
     }
   }
-
 }
