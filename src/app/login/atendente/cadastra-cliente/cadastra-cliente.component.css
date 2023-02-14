@@ -3,7 +3,9 @@
 }
 
 .content{
-  height: calc(100vh - 48px);
+  height: fit-content;
+  min-height: calc(100vh - 48px);
+  padding: 1rem 0;
   margin: 16px;
   margin-left: 262px;
   display:flex;
