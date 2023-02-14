@@ -7,21 +7,23 @@
 
 
         <div class="header">
-        <h1 class="title">Serviços</h1>
+          <h1>Serviços</h1>
 
 
-        <div style="display: flex; justify-content: center;">
-          <form [formGroup]="servicosForm" *ngIf="servicosForm">
-          <div style="display:flex; justify-content: center; flex-direction: column; width:300px; align-items: center;">
-            <label for="id_raca">Serviço para atendimento de id- {{id_ficha}}ao<br>  paciente {{nome_animal}}:</label>
-            <select id="id_vet" formControlName="id_servico">
-              <option value selected disabled>Selecione o Serviço</option>
-              <option *ngFor="let serv of servicos" [value]="serv.id">{{serv.servico}}</option>
-            </select>
+          <div>
+            <form [formGroup]="servicosForm" *ngIf="servicosForm">
+              <div>
+                <label for="id_raca">Serviço para atendimento de id- {{id_ficha}}ao<br>  paciente {{nome_animal}}:</label>
+                <div class="select">
+                  <select id="id_vet" formControlName="id_servico">
+                    <option value selected disabled>Selecione o Serviço</option>
+                    <option *ngFor="let serv of servicos" [value]="serv.id">{{serv.servico}}</option>
+                  </select>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
         </div>
-      </div>
 
       <div class="table">
       <table class="filter">

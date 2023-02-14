@@ -21,6 +21,7 @@
         <section class="table_body">
       <table class="filter">
 
+          <thead>
           <tr>
             <th (click)="ordenar(1)"><div class="thbox"><div>ID Ficha</div><mat-icon class="order-icon">sort</mat-icon></div></th>
             <th (click)="ordenar(2)"><div class="thbox"><div>Espécie</div><mat-icon class="order-icon">sort</mat-icon></div></th>
@@ -31,7 +32,7 @@
             <th (click)="ordenar(7)"><div class="thbox"><div>Data</div><mat-icon class="order-icon">sort</mat-icon></div></th>
             <th>Serviços Prestados+</th>
           </tr>
-
+        </thead>
 
           <tr *ngFor="let cons of consultas">
             <td>{{cons.id_ficha}}</td>
