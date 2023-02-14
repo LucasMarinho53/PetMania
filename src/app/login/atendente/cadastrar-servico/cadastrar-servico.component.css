@@ -7,7 +7,9 @@
   margin: 16px;
   margin-left: 262px;
   display:flex;
-  font-size: medium;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
   border-radius: 10px;
 }
 
@@ -23,7 +25,7 @@ table {
   width: 100%;
   position: absolute;
   z-index: 2;
-  left: 30%;
+  left: 29.5%;
   top: 28%;
   margin-left: 240px;
   transform: translate(-30%, -30%);
@@ -49,8 +51,8 @@ th, td{
   width: 150px;
   height: 60px;
   padding: 10px;
-  margin-top: 550px;
-  margin-left: 719px;
+  margin-bottom: 30px;
+  margin-left: 40px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   text-align: center;
@@ -81,15 +83,7 @@ th, td{
   font-size: large;
 }
 
-select{
-  height: 40px;
-  width: 95%;
-  padding: 0 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  outline: none;
-  margin-top: 20px;
-}
+
 
 .box mat-icon{
   background: #fff;
@@ -122,20 +116,62 @@ select{
 }
 
 .header{
-  height: 130px;
-  margin: 16px;
-  margin-left: 650px;
   display: block;
+  margin: auto;
+  width: fit-content;
+  margin-bottom: 600px;
   font-size: medium;
   border-radius: 10px;
   align-items: center;
 }
 
-.title{
-  margin-left: 100px;
-  margin-bottom: 40px;
+.header select{
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.select{
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.header h1{
   font-size: 26px;
   font-weight: 600;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 72px;
   color: black;
   padding-bottom: 1px solid silver;
+}
+
+@media only screen and (min-width: 1200px) {
+  table {
+    max-height: 60vh;
+    width: 70vw;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+    border-collapse: collapse;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  table {
+    max-height: 60vh;
+    width: 60vw;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+    border-collapse: collapse;
+    text-align: center;
+  }
 }
