@@ -125,7 +125,7 @@ export class CadastrarServicoComponent {
     const serv = new ServicoCadastrar
     serv.id_ficha = this.id_ficha
     serv.id_servico = id_servico
-    console.log(serv);
+    // console.log(serv);
     this.animalService.removerServico(serv).subscribe({
       next: (res) => {
         this.listarServicosFicha()
