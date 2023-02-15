@@ -15,7 +15,7 @@ CREATE TABLE dono(
 id_dono		INT				auto_increment,
 cpf			BIGINT 			unique,
 nome		VARCHAR(150)	NOT NULL,
-email		VARCHAR(50),
+email		VARCHAR(50)			unique,
 endereco	INT,
 telefone	VARCHAR(20),
 FOREIGN KEY(endereco) REFERENCES endereco(id_end),
