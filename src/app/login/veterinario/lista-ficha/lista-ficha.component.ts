@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { Funcionario } from 'src/app/models/funcionario.model';
-import { AuthService } from 'src/app/services/auth.service';
-import { FirebaseService } from 'src/app/services/firebase.service';
-
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
 import { Animal } from 'src/app/models/animal.model'
 import { Consulta } from 'src/app/models/consulta.model'
 import { Dono } from 'src/app/models/dono.model'
+import { Funcionario } from 'src/app/models/funcionario.model';
 import { Raca } from 'src/app/models/raca.model'
 import { AnimalService } from 'src/app/services/animal.service'
-
+import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-lista-ficha',
@@ -52,7 +50,7 @@ export class ListaFichaComponent implements OnInit{
       this.getAnimal()
       this.getConsulta()
 
-      console.log(this.auth.currentUser?.email);
+      // console.log(this.auth.currentUser?.email);
 
 
 

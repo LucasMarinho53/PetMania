@@ -56,7 +56,7 @@ export class EditarAnimalComponent {
 
       this.animalService.getAnimalById(+id).subscribe({
         next: (res) => {
-          console.log(res)
+          // console.log(res)
           this.animalForm = this.formBuilder.group({
             nome_animal: [res.nome_animal, [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ùÂ-û ]+$/), Validators.minLength(4), Validators.maxLength(50)]],
             sexo_animal: [res.sexo_animal, Validators.required],

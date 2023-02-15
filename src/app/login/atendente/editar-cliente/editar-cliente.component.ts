@@ -88,8 +88,8 @@ export class EditarClienteComponent implements OnInit {
 
     const cpf:string = ""+this.cpf.value;
     const cep:string = ""+this.cep.value;
-    console.log(typeof cpf, cpf);
-    console.log(cep);
+    // console.log(typeof cpf, cpf);
+    // console.log(cep);
 
 
 
@@ -97,7 +97,7 @@ export class EditarClienteComponent implements OnInit {
     dono.endereco.cep = +cep.replace(/[.-]/g, '');
 
     this.clientService.updateClient(dono).subscribe((res) => {
-      console.log(res)
+      // console.log(res)
       if(res.result == 'success'){
         this.clientService.updateClientFirebase(dono);
         this.router.navigate(['atendente/lista-cliente'])

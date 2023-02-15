@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Animal } from 'src/app/models/animal.model'
 import { Funcionario } from 'src/app/models/funcionario.model';
+import { AnimalService } from 'src/app/services/animal.service'
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { Animal } from 'src/app/models/animal.model'
-import { AnimalService } from 'src/app/services/animal.service'
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-animal',
@@ -44,7 +44,7 @@ export class ListaAnimalComponent implements OnInit {
       this.getAnimal()
 
 
-      console.log(this.auth.currentUser?.email);
+      // console.log(this.auth.currentUser?.email);
 
 
 

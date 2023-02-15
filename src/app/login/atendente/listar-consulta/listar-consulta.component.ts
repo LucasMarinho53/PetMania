@@ -77,10 +77,10 @@ export class ListarConsultaComponent implements OnInit {
   getConsulta() {
     this.animalService.getConsulta(this.searchForm.value.searchValue).subscribe({
       next: (res) => {
-        console.log(res)
+        // console.log(res)
         res.sort(this.ordenaPorDataDecrescente)
         this.consultas = res
-        console.log(this.consultas)
+        // console.log(this.consultas)
         // this.animais = res
       },
     })

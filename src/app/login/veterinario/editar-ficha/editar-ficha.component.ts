@@ -91,7 +91,7 @@ export class EditarFichaComponent {
 
       this.consultaService.getFichaId(+id_ficha).subscribe({
         next: (res) => {
-          console.log(res)
+          // console.log(res)
           this.emailDono = res.email;
           this.consultaForm = this.formBuilder.group({
             id_ficha: [this.id_ficha, Validators.required],
@@ -118,7 +118,7 @@ export class EditarFichaComponent {
     const cons = this.consultaForm.value as Consulta
     // console.log(animal);
     this.consultaService.updateFicha(cons).subscribe((response) => {
-      console.log(response)
+      // console.log(response)
       this.animalService.getConsultasEmail(this.emailDono).subscribe({
         next:(res)=>{
           console.log(res);
