@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core'
+import { Auth } from '@angular/fire/auth'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Router } from '@angular/router'
 import { Animal } from 'src/app/models/animal.model'
 import { Dono } from 'src/app/models/dono.model'
+import { Funcionario } from 'src/app/models/funcionario.model'
 import { Raca } from 'src/app/models/raca.model'
 import { Servico } from 'src/app/models/servico.model'
 import { ServicoCadastrar } from 'src/app/models/servicoCadastrar.model'
 import { ServicoListarConsulta } from 'src/app/models/servicoListarConsulta.model'
 import { AnimalService } from 'src/app/services/animal.service'
+import { AuthService } from 'src/app/services/auth.service'
+import { FirebaseService } from 'src/app/services/firebase.service'
 
 @Component({
   selector: 'app-cadastrar-servico',
@@ -27,12 +31,16 @@ export class CadastrarServicoComponent {
   servicos!: Servico[]
   servicoListar!: ServicoListarConsulta[]
   isActive = false;
+  usuario!:Funcionario
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private animalService: AnimalService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private fireAuth:AuthService,
+    private firebaseService: FirebaseService,
+    private auth: Auth,
   ) {}
 
   ngOnInit() {
@@ -85,6 +93,27 @@ export class CadastrarServicoComponent {
       // })
     } else {
     }
+
+    if(this.auth.currentUser!.email)
+      {
+        this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
+          next:(res)=>{
+            this.usuario = res
+            if (res.cargo != 1){
+              this.fireAuth.logout().then(()=>{
+                this.router.navigateByUrl('auth')
+                window.location.reload();
+              }
+
+              )
+            }
+          },
+
+          error:(err)=>console.log(err)
+
+        })
+
+      }
   }
 
   redirectToClientList() {
