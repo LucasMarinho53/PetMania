@@ -79,7 +79,7 @@ export class EditarAnimalComponent {
         this.firebaseService.encontrarPorId(this.auth.currentUser!.email).subscribe({
           next:(res)=>{
             this.usuario = res
-            if (res.cargo !== 1){
+            if (res.cargo != 1){
               this.fireAuth.logout().then(()=>{
                 this.router.navigateByUrl('auth')
                 window.location.reload();

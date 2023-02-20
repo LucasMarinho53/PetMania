@@ -1,10 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyC6j3pYNmnBo_-zgU8w36tLPF812hpfWrk",
-  authDomain: "petmania-40258.firebaseapp.com",
-  projectId: "petmania-40258",
-  storageBucket: "petmania-40258.appspot.com",
-  messagingSenderId: "952239388",
-  appId: "1:952239388:web:05c2cdd34d584a21ff26d9"}
+    apiKey: "AIzaSyD2-yavgVhFJhfsGIlVTWM0UDdcjGYRPWg",
+  authDomain: "petmania-2453a.firebaseapp.com",
+  projectId: "petmania-2453a",
+  storageBucket: "petmania-2453a.appspot.com",
+  messagingSenderId: "1030575263541",
+  appId: "1:1030575263541:web:0aa3dfcdfcfbea1a10067c",
+  measurementId: "G-PKSB55ZLRX"}
 };

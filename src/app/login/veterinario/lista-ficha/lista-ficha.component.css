@@ -169,7 +169,7 @@ mat-icon.order-icon{
   }
 }
 
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 1360px) {
   table {
     max-height: 60vh;
     width: 60vw;
@@ -178,5 +178,34 @@ mat-icon.order-icon{
     box-shadow: 0 2px 12px rgba(32,32,32,.3);
     border-collapse: collapse;
     text-align: center;
+  }
+
+  th:nth-child(1){
+    display: none;
+  }
+  th:nth-child(6){
+    display: none;
+  }
+  td:nth-child(1){
+    display: none;
+  }
+  td:nth-child(6){
+    display: none;
+  }
+
+
+
+}
+
+
+@media only screen and (max-width: 1199px) {
+
+
+
+  th:nth-child(2){
+    display: none;
+  }
+  td:nth-child(2){
+    display: none;
   }
 }
